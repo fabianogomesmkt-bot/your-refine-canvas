@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import heroFace from "../assets/hero-face.jpg";
 import conceptImg from "../assets/concept.jpg";
@@ -8,15 +7,7 @@ import ctaFace from "../assets/cta-face.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "YOUR·REFINE — Harmonização Facial Estratégica" },
-      { name: "description", content: "Harmonização facial estratégica para revelar a sua melhor versão. Resultados naturais, planejamento individualizado. São Paulo e Uberlândia." },
-    ],
-  }),
-  component: Index,
-});
+export default Index;
 
 const NAV = [
   { label: "Início", href: "#inicio" },
