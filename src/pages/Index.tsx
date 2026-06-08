@@ -11,37 +11,113 @@ export default Index;
 
 const NAV = [
   { label: "Início", href: "#inicio" },
-  { label: "Conceito", href: "#conceito" },
+  { label: "Método", href: "#metodo" },
   { label: "Tratamentos", href: "#tratamentos" },
   { label: "Resultados", href: "#resultados" },
-  { label: "Clínicas", href: "#clinicas" },
-  { label: "Localização", href: "#localizacao" },
+  { label: "Dr. Múcio", href: "#dr-mucio" },
+  { label: "Academy", href: "#academy" },
+  { label: "Unidades", href: "#unidades" },
+  { label: "Contato", href: "#contato" },
+];
+
+const METHOD_PILLARS = [
+  { n: "01", title: "Avaliação individualizada", desc: "Estudo aprofundado da anatomia, proporções e identidade de cada paciente." },
+  { n: "02", title: "Protocolos personalizados", desc: "Planos exclusivos construídos a partir dos objetivos e da singularidade de cada face." },
+  { n: "03", title: "Ciência e técnica avançada", desc: "Procedimentos respaldados por evidência, atualização contínua e refinamento técnico." },
+  { n: "04", title: "Naturalidade e sofisticação", desc: "Resultados elegantes, equilibrados e fiéis à identidade do paciente." },
+  { n: "05", title: "Rejuvenescimento progressivo", desc: "Abordagem que evolui ao longo do tempo, respeitando a fisiologia da pele." },
+  { n: "06", title: "Resultados estratégicos", desc: "Cada etapa pensada para gerar impacto real, consistente e duradouro." },
 ];
 
 const TREATMENTS = [
-  { title: "Harmonização Facial Estratégica", desc: "Planejamento individualizado para valorizar proporções, contornos e pontos de equilíbrio do rosto, com foco em naturalidade e elegância." },
-  { title: "Preenchimento Facial", desc: "Reposição de volume e definição de pontos estratégicos para restaurar contornos e suavizar sinais do tempo." },
-  { title: "Toxina Botulínica", desc: "Tratamento para suavizar linhas de expressão, prevenir marcas e promover um aspecto mais descansado." },
-  { title: "Bioestimuladores de Colágeno", desc: "Estimulação da produção natural de colágeno para melhorar firmeza, textura e qualidade da pele." },
-  { title: "Lifting Não Cirúrgico", desc: "Técnicas avançadas para redefinir contornos e devolver firmeza sem a necessidade de procedimentos invasivos." },
-  { title: "Contorno Mandibular", desc: "Definição e equilíbrio da linha da mandíbula para uma estrutura facial mais harmônica e marcada." },
-  { title: "Rinomodelação", desc: "Refinamento do nariz sem cirurgia, ajustando proporções e ângulos com precisão milimétrica." },
-  { title: "Rejuvenescimento Facial", desc: "Protocolo integrado que devolve viço, suavidade e luminosidade respeitando suas características naturais." },
-  { title: "Skinbooster", desc: "Hidratação profunda e melhora da qualidade da pele, com aspecto descansado e luminoso." },
-  { title: "Planejamento Facial Personalizado", desc: "Estudo completo da anatomia para construir um roadmap estratégico, etapa a etapa." },
+  {
+    title: "Cicatrizes de acne",
+    desc: "Protocolos personalizados para renovação profunda, estímulo de colágeno e melhora progressiva da textura e do nivelamento cutâneo.",
+    benefits: ["Redução das cicatrizes", "Estímulo natural de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
+  },
+  {
+    title: "Harmonização Facial Full Face",
+    desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
+    benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência mais jovem e equilibrada"],
+  },
+  {
+    title: "Preenchimento labial",
+    desc: "Definição, contorno, hidratação e volume aos lábios de forma elegante, proporcional e sem exageros.",
+    benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
+  },
+  {
+    title: "Rinomodelação",
+    desc: "Procedimento minimamente invasivo com ácido hialurônico para corrigir pequenas imperfeições e harmonizar o perfil.",
+    benefits: ["Correção de imperfeições nasais", "Elevação e definição da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
+  },
+  {
+    title: "Bioestimuladores de colágeno",
+    desc: "Estímulo do próprio organismo a produzir novas fibras de sustentação, promovendo firmeza e rejuvenescimento progressivo.",
+    benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados duradouros"],
+  },
+  {
+    title: "Toxina botulínica full face",
+    desc: "Vai além da suavização de linhas: atua no rejuvenescimento, prevenção e melhora da textura, preservando expressões naturais.",
+    benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada"],
+  },
+  {
+    title: "Controle de melasma",
+    desc: "Your Refine Melasma — protocolo desenvolvido para clareamento progressivo, renovação celular e melhora global da pele.",
+    benefits: ["Controle do melasma", "Clareamento de manchas", "Uniformização do tom", "Pele mais luminosa"],
+  },
+  {
+    title: "Blefaro química",
+    desc: "Your Refine Blefaro — rejuvenescimento do olhar com peeling químico avançado e setorizado, promovendo retração e estímulo de colágeno.",
+    benefits: ["Redução do excesso de pele palpebral", "Melhora da flacidez", "Rejuvenescimento do olhar", "Clareamento de olheiras"],
+  },
+  {
+    title: "Your Refine Rejuvenescimento",
+    desc: "Protocolo exclusivo para sinais avançados do envelhecimento: rugas, perda de viço, textura irregular e flacidez superficial.",
+    benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Renovação celular profunda"],
+  },
+  {
+    title: "Glow up na pele",
+    desc: "Protocolo voltado para luminosidade, textura, viço e qualidade global da pele — aparência saudável, uniforme e refinada.",
+    benefits: ["Mais luminosidade", "Melhora da textura", "Pele com aspecto saudável", "Refinamento global"],
+  },
+  {
+    title: "Intercorrências e casos complexos",
+    desc: "Manejo seguro de complicações ou resultados insatisfatórios de procedimentos anteriores, com avaliação individualizada.",
+    benefits: ["Avaliação individualizada", "Correção de resultados insatisfatórios", "Manejo de preenchimentos irregulares", "Acompanhamento próximo"],
+  },
 ];
 
 const RESULTS = [
   "Harmonização Facial",
-  "Rejuvenescimento Facial",
-  "Contorno Facial",
-  "Lábios e Proporção Facial",
+  "Rejuvenescimento",
+  "Cicatrizes de Acne",
+  "Lábios e Perfil",
 ];
 
 const TESTIMONIALS = [
   { text: "Eu tinha medo de perder minha naturalidade. Na YOUR·REFINE, senti que cada detalhe foi pensado com cuidado. O resultado ficou leve, elegante e exatamente como eu imaginava.", name: "Paciente verificada", role: "Harmonização Facial" },
   { text: "O atendimento foi extremamente cuidadoso desde a avaliação. Entendi o que fazia sentido para o meu rosto e o resultado ficou muito natural.", name: "Paciente verificada", role: "Rejuvenescimento" },
-  { text: "Percebi diferença no meu contorno facial, mas sem parecer artificial. Foi um refinamento sutil, elegante e muito bem planejado.", name: "Paciente verificada", role: "Contorno Mandibular" },
+  { text: "Percebi diferença significativa nas minhas cicatrizes de acne, com um cuidado e planejamento que nunca tinha visto antes.", name: "Paciente verificada", role: "Cicatrizes de Acne" },
+];
+
+const ACADEMY_LEARN = [
+  "Protocolos exclusivos do Your Refine Method®",
+  "Tratamentos avançados para rejuvenescimento facial",
+  "Manejo de cicatrizes de acne e regeneração cutânea",
+  "Estratégias para melhorar a qualidade global da pele",
+  "Personalização de protocolos clínicos",
+  "Planejamento e execução de casos complexos",
+  "Posicionamento e diferenciação profissional",
+  "Segurança, previsibilidade e excelência nos resultados",
+];
+
+const ACADEMY_PROFILES = [
+  { title: "Dominar protocolos avançados", desc: "Técnicas exclusivas e metodologias clínicas que proporcionam resultados consistentes, reprodutíveis e respaldados pela experiência." },
+  { title: "Tratar casos complexos", desc: "Conduzir tratamentos para cicatrizes de acne, envelhecimento avançado, flacidez, melasma e alterações complexas da pele." },
+  { title: "Elevar o valor percebido", desc: "Estruturar protocolos premium, aumentar a satisfação dos pacientes e posicionar-se em um mercado de alta performance." },
+  { title: "Diferenciar-se pela inovação", desc: "Técnicas, conceitos e estratégias que estão transformando a estética regenerativa e elevando os padrões dos tratamentos faciais." },
+  { title: "Construir autoridade profissional", desc: "Ser reconhecido por entregar resultados que geram impacto real, fortalecendo reputação e presença no mercado." },
+  { title: "Visão estratégica da estética", desc: "Criar protocolos personalizados, conduzir casos complexos e construir uma carreira sólida e diferenciada." },
 ];
 
 function Index() {
@@ -49,10 +125,12 @@ function Index() {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
-      <Concept />
+      <Method />
       <Treatments />
       <Results />
+      <Doctor />
       <Testimonials />
+      <Academy />
       <Clinics />
       <Location />
       <CTAFinal />
@@ -114,7 +192,7 @@ function Nav() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "glass-nav py-3" : "py-5"}`}>
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
         <Logo />
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden xl:flex items-center gap-7">
           {NAV.map((n) => (
             <a key={n.href} href={n.href} className="text-[11px] uppercase tracking-[0.25em] text-foreground/70 hover:text-foreground transition-colors">
               {n.label}
@@ -126,7 +204,7 @@ function Nav() {
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative hidden md:inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-foreground hover:text-background">
             Agendar avaliação
           </a>
-          <button onClick={() => setOpen(!open)} aria-label="Menu" className="lg:hidden text-foreground/80 p-2">
+          <button onClick={() => setOpen(!open)} aria-label="Menu" className="xl:hidden text-foreground/80 p-2">
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "opacity-0" : ""}`} />
             <div className={`w-6 h-px bg-foreground transition ${open ? "-rotate-45 -translate-y-[6px]" : ""}`} />
@@ -134,7 +212,7 @@ function Nav() {
         </div>
       </div>
       {open && (
-        <div className="lg:hidden glass-nav border-t border-border/40">
+        <div className="xl:hidden glass-nav border-t border-border/40">
           <div className="px-6 py-6 flex flex-col gap-5">
             {NAV.map((n) => (
               <a key={n.href} href={n.href} onClick={() => setOpen(false)} className="text-xs uppercase tracking-[0.3em] text-foreground/80">
@@ -154,15 +232,13 @@ function Nav() {
 function Hero() {
   return (
     <section id="inicio" className="relative min-h-[100svh] pt-28 md:pt-32 grain overflow-hidden">
-      {/* radial gradient bg */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(212,212,212,0.08),transparent_60%)]" />
       <div className="absolute top-1/2 left-0 right-0 h-px opacity-20 silver-border" />
       <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center min-h-[calc(100svh-7rem)]">
-        {/* left text */}
         <div className="lg:col-span-7 fade-up">
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-px bg-foreground/40" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/60">Harmonização Facial Estratégica</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/60">Estética facial avançada</span>
           </div>
           <h1 className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] font-light tracking-tight">
             Harmonização facial<br />
@@ -172,21 +248,21 @@ function Hero() {
             <span className="silver-text">melhor versão.</span>
           </h1>
           <p className="mt-10 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed font-light">
-            Na YOUR·REFINE, cada detalhe do rosto é analisado com precisão para criar resultados naturais, elegantes e alinhados à sua identidade.
+            Na YOUR·REFINE, cada detalhe do rosto é analisado com ciência, técnica e estratégia para resultados naturais, sofisticados e alinhados à sua identidade.
           </p>
           <div className="mt-12 flex flex-wrap gap-4">
             <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
               Agendar avaliação
             </a>
-            <a href="#tratamentos" className="inline-flex items-center gap-3 px-3 py-4 text-[10px] uppercase tracking-[0.35em] text-foreground/80 hover:text-foreground transition border-b border-foreground/30 hover:border-foreground">
-              Conhecer tratamentos
+            <a href="#metodo" className="inline-flex items-center gap-3 px-3 py-4 text-[10px] uppercase tracking-[0.35em] text-foreground/80 hover:text-foreground transition border-b border-foreground/30 hover:border-foreground">
+              Conhecer o Your Refine Method®
               <span aria-hidden>→</span>
             </a>
           </div>
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 border-t border-border/50 pt-8">
             {[
               "Resultados naturais",
-              "Planejamento individualizado",
+              "Protocolo personalizado",
               "São Paulo e Uberlândia",
               "Estética com estratégia",
             ].map((s) => (
@@ -197,13 +273,12 @@ function Hero() {
             ))}
           </div>
         </div>
-        {/* right image */}
         <div className="lg:col-span-5 relative fade-up">
           <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
             <div className="absolute -inset-2 silver-border opacity-50" />
             <img src={heroFace} alt="Retrato editorial de harmonização facial" className="absolute inset-0 w-full h-full object-cover" width={1080} height={1440} />
             <div className="absolute -bottom-6 -left-6 hidden md:block bg-background/90 backdrop-blur px-5 py-4 border border-border">
-              <div className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-1">Editorial</div>
+              <div className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-1">Your Refine Method®</div>
               <div className="font-serif text-lg silver-text">Refinement · 01</div>
             </div>
           </div>
@@ -222,36 +297,40 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function Concept() {
+function Method() {
   return (
-    <section id="conceito" className="relative py-28 md:py-40">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-5 order-2 lg:order-1">
-          <div className="relative aspect-[4/5] w-full max-w-sm">
-            <div className="absolute -top-4 -left-4 right-8 bottom-8 silver-border opacity-40" />
-            <img src={conceptImg} alt="Detalhe editorial de pele luminosa" loading="lazy" className="absolute inset-0 w-full h-full object-cover" width={1024} height={1280} />
+    <section id="metodo" className="relative py-28 md:py-40">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-12 items-start mb-20">
+          <div className="lg:col-span-7">
+            <SectionLabel>Your Refine Method®</SectionLabel>
+            <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
+              Uma metodologia exclusiva para tratar a face de forma <em className="silver-text not-italic">estratégica e global</em>.
+            </h2>
+          </div>
+          <div className="lg:col-span-5 space-y-5 text-foreground/70 font-light leading-relaxed">
+            <p>
+              O Your Refine Method® é uma metodologia desenvolvida pelo Dr. Múcio Carvalho para tratar a face de forma estratégica, personalizada e global.
+            </p>
+            <p className="text-foreground/60">
+              Mais do que realizar procedimentos isolados, o método avalia a individualidade de cada paciente: proporções, qualidade da pele, sinais de envelhecimento, cicatrizes, flacidez, manchas, assimetrias e objetivos estéticos.
+            </p>
+            <p className="text-foreground/60">
+              O foco é realçar a melhor versão de cada pessoa, preservando naturalidade, segurança e elegância.
+            </p>
           </div>
         </div>
-        <div className="lg:col-span-7 order-1 lg:order-2">
-          <SectionLabel>Conceito</SectionLabel>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
-            Beleza não é excesso.<br />
-            <em className="silver-text not-italic">É intenção.</em>
-          </h2>
-          <p className="mt-10 max-w-xl text-foreground/70 text-base md:text-lg leading-relaxed font-light">
-            A harmonização facial estratégica parte de uma análise profunda da estrutura facial, proporções, expressões e objetivos de cada paciente.
-          </p>
-          <p className="mt-5 max-w-xl text-foreground/60 text-base leading-relaxed font-light">
-            O foco não é transformar quem você é, mas refinar pontos específicos para valorizar sua beleza com naturalidade, equilíbrio e sofisticação.
-          </p>
-          <div className="mt-12 grid grid-cols-3 gap-6 max-w-lg">
-            {[["01","Análise"],["02","Estratégia"],["03","Refinamento"]].map(([n,l]) => (
-              <div key={n}>
-                <div className="font-serif text-3xl silver-text mb-1">{n}</div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/60">{l}</div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+          {METHOD_PILLARS.map((p) => (
+            <article key={p.n} className="bg-background p-8 md:p-10 transition-colors duration-500 hover:bg-[var(--graphite)]/60">
+              <div className="flex items-center justify-between mb-6">
+                <span className="font-serif text-sm silver-text">{p.n}</span>
+                <div className="w-8 h-px bg-foreground/30" />
               </div>
-            ))}
-          </div>
+              <h3 className="font-serif text-xl md:text-2xl leading-tight font-light mb-3">{p.title}</h3>
+              <p className="text-sm text-foreground/65 leading-relaxed font-light">{p.desc}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>
@@ -265,26 +344,34 @@ function Treatments() {
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-20">
           <div className="lg:col-span-5">
-            <SectionLabel>Tratamentos</SectionLabel>
+            <SectionLabel>Procedimentos realizados</SectionLabel>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] font-light">
-              Tratamentos estratégicos para um <em className="silver-text not-italic">resultado refinado</em>.
+              Protocolos estratégicos para um <em className="silver-text not-italic">resultado refinado</em>.
             </h2>
           </div>
           <p className="lg:col-span-6 lg:col-start-7 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
-            Procedimentos pensados de forma personalizada, respeitando a individualidade, a anatomia e o objetivo de cada paciente.
+            Procedimentos pensados de forma personalizada, respeitando a individualidade, a anatomia e os objetivos de cada paciente — com foco em ciência, segurança e naturalidade.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
           {TREATMENTS.map((t, i) => (
-            <article key={t.title} className="group relative bg-background p-8 md:p-10 transition-all duration-500 hover:bg-[var(--graphite)]/60">
+            <article key={t.title} className="group relative bg-background p-8 md:p-10 transition-all duration-500 hover:bg-[var(--graphite)]/60 flex flex-col">
               <div className="flex items-center justify-between mb-8">
                 <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
                 <div className="w-8 h-px bg-foreground/30 group-hover:bg-[var(--silver)] group-hover:w-16 transition-all duration-500" />
               </div>
-              <h3 className="font-serif text-2xl md:text-[1.7rem] leading-tight font-light mb-4">{t.title}</h3>
-              <p className="text-sm text-foreground/65 leading-relaxed font-light mb-8">{t.desc}</p>
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors">
-                Saiba mais <span className="transition-transform group-hover:translate-x-1">→</span>
+              <h3 className="font-serif text-2xl md:text-[1.6rem] leading-tight font-light mb-4">{t.title}</h3>
+              <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
+              <ul className="mb-8 space-y-2">
+                {t.benefits.map((b) => (
+                  <li key={b} className="flex items-start gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
+                    <span className="mt-2 w-2 h-px bg-[var(--silver)] shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors">
+                Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
               </a>
             </article>
           ))}
@@ -328,8 +415,50 @@ function Results() {
           ))}
         </div>
         <p className="mt-16 text-[11px] uppercase tracking-[0.25em] text-foreground/45 text-center max-w-2xl mx-auto leading-relaxed">
-          Os resultados podem variar de acordo com a individualidade de cada paciente. A avaliação profissional é indispensável.
+          Cada paciente responde de forma individual. Os resultados podem variar e a avaliação profissional é indispensável.
         </p>
+      </div>
+    </section>
+  );
+}
+
+function Doctor() {
+  return (
+    <section id="dr-mucio" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
+      <div className="hairline mb-20" />
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-5">
+          <div className="relative aspect-[4/5] w-full max-w-sm">
+            <div className="absolute -top-4 -left-4 right-8 bottom-8 silver-border opacity-40" />
+            <img src={conceptImg} alt="Dr. Múcio Carvalho — biomédico e cirurgião-dentista" loading="lazy" className="absolute inset-0 w-full h-full object-cover" width={1024} height={1280} />
+          </div>
+        </div>
+        <div className="lg:col-span-7">
+          <SectionLabel>Dr. Múcio Carvalho</SectionLabel>
+          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] font-light">
+            Ciência, estética e <em className="silver-text not-italic">visão autoral</em>.
+          </h2>
+          <div className="mt-10 space-y-5 text-foreground/70 font-light leading-relaxed max-w-2xl">
+            <p>
+              Dr. Múcio Carvalho é natural de Uberlândia, Minas Gerais, biomédico e cirurgião-dentista, com atuação dedicada à estética facial avançada, rejuvenescimento e harmonização facial.
+            </p>
+            <p className="text-foreground/60">
+              Ao longo de sua trajetória, realizou diversas especializações voltadas para Harmonização Orofacial, aperfeiçoando técnicas que unem ciência, estética, segurança e naturalidade.
+            </p>
+            <p className="text-foreground/60">
+              Com mais de 2.000 pacientes atendidos, desenvolveu o <span className="text-foreground">Your Refine Method®</span>, um método exclusivo que combina protocolos personalizados para harmonização facial estratégica, rejuvenescimento, tratamento de cicatrizes de acne, controle do melasma, glow facial, rinomodelação e refinamento estético global da face.
+            </p>
+            <p className="text-foreground/60">
+              Sua filosofia de trabalho é baseada na individualidade de cada paciente, valorizando traços únicos e promovendo resultados sofisticados, estratégicos e naturais.
+            </p>
+          </div>
+          <blockquote className="mt-12 border-l border-[var(--silver)] pl-6 max-w-2xl">
+            <p className="font-serif text-xl md:text-2xl leading-relaxed font-light italic text-foreground/90">
+              "A beleza é poder. Quando uma pessoa se sente bem com sua imagem, ela transforma sua forma de viver, se posicionar e conquistar seus objetivos."
+            </p>
+            <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
+          </blockquote>
+        </div>
       </div>
     </section>
   );
@@ -337,13 +466,12 @@ function Results() {
 
 function Testimonials() {
   return (
-    <section className="relative py-28 md:py-40 bg-[var(--graphite)]/40">
-      <div className="hairline mb-20" />
+    <section className="relative py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="max-w-3xl mb-16">
-          <SectionLabel>Casos de sucesso</SectionLabel>
+          <SectionLabel>Depoimentos</SectionLabel>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
-            Experiências pensadas para <em className="silver-text not-italic">elevar autoestima</em>.
+            Experiências que elevam <em className="silver-text not-italic">autoestima e confiança</em>.
           </h2>
           <p className="mt-8 text-foreground/65 text-base md:text-lg font-light">
             Mais do que procedimentos — segurança, presença e refinamento que se traduzem em confiança.
@@ -368,16 +496,104 @@ function Testimonials() {
   );
 }
 
+function Academy() {
+  return (
+    <section id="academy" className="relative py-28 md:py-40 bg-[var(--graphite)]/40">
+      <div className="hairline mb-20" />
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        {/* Hero da Academy */}
+        <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
+          <div className="lg:col-span-8">
+            <SectionLabel>Your Refine Academy</SectionLabel>
+            <h2 className="font-serif text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] font-light">
+              Faça parte da nova geração que está elevando os <em className="silver-text not-italic">padrões da estética avançada</em>.
+            </h2>
+            <p className="mt-8 text-foreground/70 text-base md:text-lg font-light max-w-2xl leading-relaxed">
+              Imersão presencial para profissionais que desejam dominar protocolos avançados, elevar seus resultados e construir autoridade na estética avançada.
+            </p>
+          </div>
+          <div className="lg:col-span-4">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
+              Quero saber mais
+            </a>
+          </div>
+        </div>
+
+        <div className="grid lg:grid-cols-12 gap-12 mb-24">
+          <div className="lg:col-span-5">
+            <h3 className="font-serif text-3xl md:text-4xl leading-tight font-light">
+              Conhecimento de alto nível, sob a liderança do <em className="silver-text not-italic">Dr. Múcio Carvalho</em>.
+            </h3>
+          </div>
+          <div className="lg:col-span-7 space-y-5 text-foreground/70 font-light leading-relaxed">
+            <p>
+              A Your Refine Academy foi criada com o propósito de compartilhar conhecimento de alto nível, formando profissionais capazes de entregar resultados diferenciados, seguros e altamente previsíveis em suas práticas clínicas.
+            </p>
+            <p className="text-foreground/60">
+              Os participantes têm acesso a uma imersão exclusiva, desenvolvida para transmitir protocolos avançados, técnicas refinadas e conceitos que unem ciência, experiência clínica e visão estratégica de mercado.
+            </p>
+            <p className="text-foreground/60">
+              Durante a imersão, os profissionais aprendem metodologias exclusivas voltadas para rejuvenescimento avançado, tratamento de cicatrizes de acne, qualidade da pele e protocolos de regeneração cutânea.
+            </p>
+          </div>
+        </div>
+
+        {/* O que você irá aprender */}
+        <div className="mb-24">
+          <SectionLabel>O que você irá aprender</SectionLabel>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border mt-8">
+            {ACADEMY_LEARN.map((item, i) => (
+              <div key={item} className="bg-background p-8 min-h-[180px] flex flex-col justify-between">
+                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
+                <p className="font-serif text-lg leading-snug font-light mt-6">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Esta formação é para o profissional que deseja */}
+        <div className="mb-24">
+          <SectionLabel>Para o profissional que deseja</SectionLabel>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border mt-8">
+            {ACADEMY_PROFILES.map((p, i) => (
+              <article key={p.title} className="bg-background p-10">
+                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
+                <h4 className="font-serif text-xl md:text-2xl leading-tight font-light mt-6 mb-4">{p.title}</h4>
+                <p className="text-sm text-foreground/65 leading-relaxed font-light">{p.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Seção final */}
+        <div className="max-w-4xl">
+          <h3 className="font-serif text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.05] font-light">
+            Para quem se recusa a ser apenas <em className="silver-text not-italic">mais um profissional no mercado</em>.
+          </h3>
+          <p className="mt-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
+            A Your Refine Academy foi criada para aqueles que desejam dominar técnicas avançadas, entregar resultados extraordinários e construir uma trajetória marcada pela excelência, autoridade e transformação de vidas.
+          </p>
+          <div className="mt-10">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
+              Falar com a equipe
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Clinics() {
   const units = [
     { city: "São Paulo", state: "SP", img: clinicSp, text: "Uma unidade pensada para oferecer atendimento premium, estrutura sofisticada e uma jornada estética personalizada." },
-    { city: "Uberlândia", state: "MG", img: clinicUdi, text: "Um espaço moderno e acolhedor para quem busca harmonização facial estratégica com segurança, naturalidade e alto padrão." },
+    { city: "Uberlândia", state: "MG", img: clinicUdi, text: "Um espaço moderno e acolhedor para harmonização facial estratégica com segurança, naturalidade e alto padrão." },
   ];
   return (
-    <section id="clinicas" className="relative py-28 md:py-40">
+    <section id="unidades" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="max-w-3xl mb-16">
-          <SectionLabel>Clínicas</SectionLabel>
+          <SectionLabel>Unidades</SectionLabel>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
             Duas unidades. <em className="silver-text not-italic">A mesma experiência</em> de refinamento.
           </h2>
@@ -461,13 +677,13 @@ function Location() {
 
 function CTAFinal() {
   return (
-    <section className="relative py-32 md:py-48 overflow-hidden grain">
+    <section id="contato" className="relative py-32 md:py-48 overflow-hidden grain">
       <img src={ctaFace} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-25" width={1600} height={1000} />
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/60" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent,#000_75%)]" />
       <div className="relative mx-auto max-w-4xl px-6 md:px-10 text-center">
         <SectionLabel>
-          <span className="mx-auto">Convite</span>
+          <span className="mx-auto">Contato</span>
         </SectionLabel>
         <h2 className="font-serif text-[clamp(2.2rem,5.5vw,5rem)] leading-[1.02] font-light">
           O seu rosto não precisa de exageros.<br />
@@ -476,9 +692,9 @@ function CTAFinal() {
         <p className="mt-10 text-foreground/75 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
           Agende uma avaliação personalizada e descubra quais pontos podem ser refinados para valorizar sua beleza com naturalidade, equilíbrio e sofisticação.
         </p>
-        <div className="mt-14">
+        <div className="mt-14 flex flex-wrap gap-4 justify-center">
           <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-12 py-5 text-[11px] uppercase tracking-[0.4em] hover:text-background">
-            Agendar avaliação agora
+            Quero uma avaliação personalizada
           </a>
         </div>
       </div>
@@ -494,7 +710,7 @@ function Footer() {
           <div className="md:col-span-5">
             <Logo />
             <p className="mt-6 max-w-sm text-sm text-foreground/55 font-light leading-relaxed">
-              Harmonização facial estratégica com foco em naturalidade, equilíbrio e refinamento.
+              Estética facial avançada, harmonização facial estratégica e protocolos exclusivos do Your Refine Method®.
             </p>
           </div>
           <div className="md:col-span-3">
@@ -502,7 +718,7 @@ function Footer() {
             <ul className="space-y-3">
               {NAV.map((n) => (
                 <li key={n.href}>
-                  <a href={n.href} className="text-sm text-foreground/75 hover:text-foreground hover:silver-text transition">{n.label}</a>
+                  <a href={n.href} className="text-sm text-foreground/75 hover:text-foreground transition">{n.label}</a>
                 </li>
               ))}
             </ul>
@@ -519,7 +735,7 @@ function Footer() {
         <div className="hairline my-12" />
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/40 max-w-md leading-relaxed">
-            As informações deste site não substituem uma avaliação profissional individualizada.
+            As informações deste site não substituem uma avaliação profissional individualizada. Cada paciente responde de forma única aos protocolos.
           </p>
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
             © {new Date().getFullYear()} YOUR·REFINE — Todos os direitos reservados
