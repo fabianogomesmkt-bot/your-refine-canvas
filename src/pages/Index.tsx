@@ -184,9 +184,6 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <ThemeToggle theme={theme} onToggle={toggle} />
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative hidden md:inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-foreground hover:text-background">
-            Agendar avaliação
-          </a>
           <button onClick={() => setOpen(!open)} aria-label="Menu" className="xl:hidden text-foreground/80 p-2">
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "opacity-0" : ""}`} />
@@ -202,9 +199,6 @@ function Nav() {
                 {n.label}
               </a>
             ))}
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-foreground hover:text-background w-fit">
-              Agendar avaliação
-            </a>
           </div>
         </div>
       )}
