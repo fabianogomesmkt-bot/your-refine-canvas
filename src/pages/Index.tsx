@@ -4,6 +4,12 @@ import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import ctaFace from "../assets/cta-face.jpg";
+import tAcne from "../assets/treatment-acne.jpg";
+import tFullface from "../assets/treatment-fullface.jpg";
+import tLips from "../assets/treatment-lips.jpg";
+import tNose from "../assets/treatment-nose.jpg";
+import tCollagen from "../assets/treatment-collagen.jpg";
+import tBotox from "../assets/treatment-botox.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
 
