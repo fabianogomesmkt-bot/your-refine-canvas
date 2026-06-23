@@ -16,14 +16,10 @@ const WHATSAPP = "https://wa.me/5500000000000";
 export default Index;
 
 const NAV = [
-  { label: "Início", href: "#inicio" },
   { label: "Método", href: "#metodo" },
-  { label: "Tratamentos", href: "#tratamentos" },
   { label: "Resultados", href: "#resultados" },
   { label: "Dr. Múcio", href: "#dr-mucio" },
   { label: "Academy", href: "#academy" },
-  { label: "Unidades", href: "#unidades" },
-  { label: "Contato", href: "#contato" },
 ];
 
 const METHOD_PILLARS = [
