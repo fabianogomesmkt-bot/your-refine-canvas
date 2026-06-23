@@ -319,37 +319,59 @@ function Treatments() {
     <section id="tratamentos" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 mb-20">
-          <div className="lg:col-span-5">
+        <div className="grid lg:grid-cols-12 gap-10 mb-24">
+          <div className="lg:col-span-6">
             <SectionLabel>Procedimentos realizados</SectionLabel>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] font-light">
               Protocolos estratégicos para um <em className="silver-text not-italic">resultado refinado</em>.
             </h2>
           </div>
-          <p className="lg:col-span-6 lg:col-start-7 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
-            Procedimentos pensados de forma personalizada, respeitando a individualidade, a anatomia e os objetivos de cada paciente — com foco em ciência, segurança e naturalidade.
+          <p className="lg:col-span-5 lg:col-start-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
+            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com estratégia, técnica e naturalidade.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {TREATMENTS.map((t, i) => (
-            <article key={t.title} className="group relative bg-background p-8 md:p-10 transition-all duration-500 hover:bg-[var(--graphite)]/60 flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
-                <div className="w-8 h-px bg-foreground/30 group-hover:bg-[var(--silver)] group-hover:w-16 transition-all duration-500" />
+            <article
+              key={t.title}
+              className="group relative flex flex-col bg-[var(--graphite)]/40 backdrop-blur-sm border border-white/10 hover:border-[var(--silver)]/60 transition-all duration-500"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src={t.image}
+                  alt={t.title}
+                  loading="lazy"
+                  width={768}
+                  height={1024}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="absolute top-4 left-4 flex items-center gap-3">
+                  <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="w-8 h-px bg-foreground/40" />
+                </div>
               </div>
-              <h3 className="font-serif text-2xl md:text-[1.6rem] leading-tight font-light mb-4">{t.title}</h3>
-              <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
-              <ul className="mb-8 space-y-2">
-                {t.benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
-                    <span className="mt-2 w-2 h-px bg-[var(--silver)] shrink-0" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors">
-                Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              <div className="flex flex-col flex-1 p-7 md:p-8">
+                <h3 className="font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4">{t.title}</h3>
+                <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
+                <ul className="mb-8 space-y-2.5">
+                  {t.benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
+                      <span className="mt-2 w-3 h-px bg-[var(--silver)] shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors border-t border-white/10 pt-5"
+                >
+                  Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </div>
             </article>
           ))}
         </div>
@@ -357,6 +379,7 @@ function Treatments() {
     </section>
   );
 }
+
 
 function Results() {
   return (
