@@ -34,58 +34,39 @@ const METHOD_PILLARS = [
 const TREATMENTS = [
   {
     title: "Cicatrizes de acne",
+    image: tAcne,
     desc: "Protocolos personalizados para renovação profunda, estímulo de colágeno e melhora progressiva da textura e do nivelamento cutâneo.",
     benefits: ["Redução das cicatrizes", "Estímulo natural de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
   },
   {
     title: "Harmonização Facial Full Face",
+    image: tFullface,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
     benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência mais jovem e equilibrada"],
   },
   {
     title: "Preenchimento labial",
+    image: tLips,
     desc: "Definição, contorno, hidratação e volume aos lábios de forma elegante, proporcional e sem exageros.",
     benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
   },
   {
     title: "Rinomodelação",
+    image: tNose,
     desc: "Procedimento minimamente invasivo com ácido hialurônico para corrigir pequenas imperfeições e harmonizar o perfil.",
     benefits: ["Correção de imperfeições nasais", "Elevação e definição da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
   },
   {
     title: "Bioestimuladores de colágeno",
+    image: tCollagen,
     desc: "Estímulo do próprio organismo a produzir novas fibras de sustentação, promovendo firmeza e rejuvenescimento progressivo.",
     benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados duradouros"],
   },
   {
     title: "Toxina botulínica full face",
+    image: tBotox,
     desc: "Vai além da suavização de linhas: atua no rejuvenescimento, prevenção e melhora da textura, preservando expressões naturais.",
     benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada"],
-  },
-  {
-    title: "Controle de melasma",
-    desc: "Your Refine Melasma — protocolo desenvolvido para clareamento progressivo, renovação celular e melhora global da pele.",
-    benefits: ["Controle do melasma", "Clareamento de manchas", "Uniformização do tom", "Pele mais luminosa"],
-  },
-  {
-    title: "Blefaro química",
-    desc: "Your Refine Blefaro — rejuvenescimento do olhar com peeling químico avançado e setorizado, promovendo retração e estímulo de colágeno.",
-    benefits: ["Redução do excesso de pele palpebral", "Melhora da flacidez", "Rejuvenescimento do olhar", "Clareamento de olheiras"],
-  },
-  {
-    title: "Your Refine Rejuvenescimento",
-    desc: "Protocolo exclusivo para sinais avançados do envelhecimento: rugas, perda de viço, textura irregular e flacidez superficial.",
-    benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Renovação celular profunda"],
-  },
-  {
-    title: "Glow up na pele",
-    desc: "Protocolo voltado para luminosidade, textura, viço e qualidade global da pele — aparência saudável, uniforme e refinada.",
-    benefits: ["Mais luminosidade", "Melhora da textura", "Pele com aspecto saudável", "Refinamento global"],
-  },
-  {
-    title: "Intercorrências e casos complexos",
-    desc: "Manejo seguro de complicações ou resultados insatisfatórios de procedimentos anteriores, com avaliação individualizada.",
-    benefits: ["Avaliação individualizada", "Correção de resultados insatisfatórios", "Manejo de preenchimentos irregulares", "Acompanhamento próximo"],
   },
 ];
 
