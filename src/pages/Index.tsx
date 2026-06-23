@@ -4,20 +4,22 @@ import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import ctaFace from "../assets/cta-face.jpg";
+import tAcne from "../assets/treatment-acne.jpg";
+import tFullface from "../assets/treatment-fullface.jpg";
+import tLips from "../assets/treatment-lips.jpg";
+import tNose from "../assets/treatment-nose.jpg";
+import tCollagen from "../assets/treatment-collagen.jpg";
+import tBotox from "../assets/treatment-botox.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
 
 export default Index;
 
 const NAV = [
-  { label: "Início", href: "#inicio" },
   { label: "Método", href: "#metodo" },
-  { label: "Tratamentos", href: "#tratamentos" },
   { label: "Resultados", href: "#resultados" },
   { label: "Dr. Múcio", href: "#dr-mucio" },
   { label: "Academy", href: "#academy" },
-  { label: "Unidades", href: "#unidades" },
-  { label: "Contato", href: "#contato" },
 ];
 
 const METHOD_PILLARS = [
@@ -32,58 +34,39 @@ const METHOD_PILLARS = [
 const TREATMENTS = [
   {
     title: "Cicatrizes de acne",
+    image: tAcne,
     desc: "Protocolos personalizados para renovação profunda, estímulo de colágeno e melhora progressiva da textura e do nivelamento cutâneo.",
     benefits: ["Redução das cicatrizes", "Estímulo natural de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
   },
   {
     title: "Harmonização Facial Full Face",
+    image: tFullface,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
     benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência mais jovem e equilibrada"],
   },
   {
     title: "Preenchimento labial",
+    image: tLips,
     desc: "Definição, contorno, hidratação e volume aos lábios de forma elegante, proporcional e sem exageros.",
     benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
   },
   {
     title: "Rinomodelação",
+    image: tNose,
     desc: "Procedimento minimamente invasivo com ácido hialurônico para corrigir pequenas imperfeições e harmonizar o perfil.",
     benefits: ["Correção de imperfeições nasais", "Elevação e definição da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
   },
   {
     title: "Bioestimuladores de colágeno",
+    image: tCollagen,
     desc: "Estímulo do próprio organismo a produzir novas fibras de sustentação, promovendo firmeza e rejuvenescimento progressivo.",
     benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados duradouros"],
   },
   {
     title: "Toxina botulínica full face",
+    image: tBotox,
     desc: "Vai além da suavização de linhas: atua no rejuvenescimento, prevenção e melhora da textura, preservando expressões naturais.",
     benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada"],
-  },
-  {
-    title: "Controle de melasma",
-    desc: "Your Refine Melasma — protocolo desenvolvido para clareamento progressivo, renovação celular e melhora global da pele.",
-    benefits: ["Controle do melasma", "Clareamento de manchas", "Uniformização do tom", "Pele mais luminosa"],
-  },
-  {
-    title: "Blefaro química",
-    desc: "Your Refine Blefaro — rejuvenescimento do olhar com peeling químico avançado e setorizado, promovendo retração e estímulo de colágeno.",
-    benefits: ["Redução do excesso de pele palpebral", "Melhora da flacidez", "Rejuvenescimento do olhar", "Clareamento de olheiras"],
-  },
-  {
-    title: "Your Refine Rejuvenescimento",
-    desc: "Protocolo exclusivo para sinais avançados do envelhecimento: rugas, perda de viço, textura irregular e flacidez superficial.",
-    benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Renovação celular profunda"],
-  },
-  {
-    title: "Glow up na pele",
-    desc: "Protocolo voltado para luminosidade, textura, viço e qualidade global da pele — aparência saudável, uniforme e refinada.",
-    benefits: ["Mais luminosidade", "Melhora da textura", "Pele com aspecto saudável", "Refinamento global"],
-  },
-  {
-    title: "Intercorrências e casos complexos",
-    desc: "Manejo seguro de complicações ou resultados insatisfatórios de procedimentos anteriores, com avaliação individualizada.",
-    benefits: ["Avaliação individualizada", "Correção de resultados insatisfatórios", "Manejo de preenchimentos irregulares", "Acompanhamento próximo"],
   },
 ];
 
@@ -201,9 +184,6 @@ function Nav() {
         </nav>
         <div className="flex items-center gap-3">
           <ThemeToggle theme={theme} onToggle={toggle} />
-          <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative hidden md:inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-foreground hover:text-background">
-            Agendar avaliação
-          </a>
           <button onClick={() => setOpen(!open)} aria-label="Menu" className="xl:hidden text-foreground/80 p-2">
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "rotate-45 translate-y-[6px]" : ""}`} />
             <div className={`w-6 h-px bg-foreground mb-1.5 transition ${open ? "opacity-0" : ""}`} />
@@ -219,9 +199,6 @@ function Nav() {
                 {n.label}
               </a>
             ))}
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] text-foreground hover:text-background w-fit">
-              Agendar avaliação
-            </a>
           </div>
         </div>
       )}
@@ -342,37 +319,59 @@ function Treatments() {
     <section id="tratamentos" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid lg:grid-cols-12 gap-10 mb-20">
-          <div className="lg:col-span-5">
+        <div className="grid lg:grid-cols-12 gap-10 mb-24">
+          <div className="lg:col-span-6">
             <SectionLabel>Procedimentos realizados</SectionLabel>
             <h2 className="font-serif text-[clamp(2rem,4vw,3.5rem)] leading-[1.05] font-light">
               Protocolos estratégicos para um <em className="silver-text not-italic">resultado refinado</em>.
             </h2>
           </div>
-          <p className="lg:col-span-6 lg:col-start-7 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
-            Procedimentos pensados de forma personalizada, respeitando a individualidade, a anatomia e os objetivos de cada paciente — com foco em ciência, segurança e naturalidade.
+          <p className="lg:col-span-5 lg:col-start-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
+            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com estratégia, técnica e naturalidade.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {TREATMENTS.map((t, i) => (
-            <article key={t.title} className="group relative bg-background p-8 md:p-10 transition-all duration-500 hover:bg-[var(--graphite)]/60 flex flex-col">
-              <div className="flex items-center justify-between mb-8">
-                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
-                <div className="w-8 h-px bg-foreground/30 group-hover:bg-[var(--silver)] group-hover:w-16 transition-all duration-500" />
+            <article
+              key={t.title}
+              className="group relative flex flex-col bg-[var(--graphite)]/40 backdrop-blur-sm border border-white/10 hover:border-[var(--silver)]/60 transition-all duration-500"
+              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <img
+                  src={t.image}
+                  alt={t.title}
+                  loading="lazy"
+                  width={768}
+                  height={1024}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                <div className="absolute top-4 left-4 flex items-center gap-3">
+                  <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="w-8 h-px bg-foreground/40" />
+                </div>
               </div>
-              <h3 className="font-serif text-2xl md:text-[1.6rem] leading-tight font-light mb-4">{t.title}</h3>
-              <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
-              <ul className="mb-8 space-y-2">
-                {t.benefits.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
-                    <span className="mt-2 w-2 h-px bg-[var(--silver)] shrink-0" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href={WHATSAPP} target="_blank" rel="noreferrer" className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors">
-                Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
-              </a>
+              <div className="flex flex-col flex-1 p-7 md:p-8">
+                <h3 className="font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4">{t.title}</h3>
+                <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
+                <ul className="mb-8 space-y-2.5">
+                  {t.benefits.map((b) => (
+                    <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
+                      <span className="mt-2 w-3 h-px bg-[var(--silver)] shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={WHATSAPP}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors border-t border-white/10 pt-5"
+                >
+                  Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
+                </a>
+              </div>
             </article>
           ))}
         </div>
@@ -380,6 +379,7 @@ function Treatments() {
     </section>
   );
 }
+
 
 function Results() {
   return (
