@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import heroFace from "../assets/hero-face.jpg";
+import heroFace from "../assets/hero-face.jpg.asset.json";
 import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
@@ -284,7 +284,7 @@ function Hero() {
         <div className="lg:col-span-5 relative fade-up">
           <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
             <div className="absolute -inset-2 silver-border opacity-50" />
-            <img src={heroFace} alt="Retrato editorial de harmonização facial" className="absolute inset-0 w-full h-full object-cover" width={1080} height={1440} />
+            <img src={heroFace.url} alt="Retrato editorial de harmonização facial" className="absolute inset-0 w-full h-full object-cover" width={1080} height={1440} />
             <div className="absolute -bottom-6 -left-6 hidden md:block bg-background/90 backdrop-blur px-5 py-4 border border-border">
               <div className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-1">Your Refine Method®</div>
               <div className="font-serif text-lg silver-text">Refinement · 01</div>
