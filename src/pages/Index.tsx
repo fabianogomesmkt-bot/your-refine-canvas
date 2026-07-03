@@ -5,6 +5,9 @@ import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import ctaFace from "../assets/cta-face.jpg";
 import tAcne from "../assets/treatment-acne.jpg";
+import tMelasma from "../assets/treatment-melasma.jpg";
+import tBlefaro from "../assets/treatment-blefaro.jpg";
+import tRejuv from "../assets/treatment-rejuvenescimento.jpg";
 import tFullface from "../assets/treatment-fullface.jpg";
 import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
@@ -31,42 +34,70 @@ const METHOD_PILLARS = [
   { n: "06", title: "Resultados estratégicos", desc: "Cada etapa pensada para gerar impacto real, consistente e duradouro." },
 ];
 
-const TREATMENTS = [
+const TREATMENTS: {
+  title: string;
+  image: string;
+  desc: string;
+  benefits: string[];
+  exclusive?: boolean;
+}[] = [
   {
-    title: "Cicatrizes de acne",
+    title: "Your Refine® — Tratamento de Cicatrizes de Acne",
     image: tAcne,
-    desc: "Protocolos personalizados para renovação profunda, estímulo de colágeno e melhora progressiva da textura e do nivelamento cutâneo.",
-    benefits: ["Redução das cicatrizes", "Estímulo natural de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
+    exclusive: true,
+    desc: "Protocolo exclusivo e personalizado para renovação profunda da pele, redução das cicatrizes de acne e melhora progressiva da textura e do nivelamento cutâneo.",
+    benefits: ["Redução das cicatrizes", "Estímulo intenso de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
+  },
+  {
+    title: "Your Refine Melasma® — Controle de Melasma e Manchas",
+    image: tMelasma,
+    exclusive: true,
+    desc: "Protocolo desenvolvido para controle do melasma, clareamento progressivo de manchas e melhora global da qualidade da pele.",
+    benefits: ["Controle avançado do melasma", "Clareamento de manchas", "Uniformização do tom da pele", "Pele mais luminosa e saudável"],
+  },
+  {
+    title: "Your Refine Blefaro® — Blefaro Química",
+    image: tBlefaro,
+    exclusive: true,
+    desc: "Protocolo avançado para rejuvenescimento do olhar, melhora da flacidez palpebral e renovação da pele ao redor dos olhos.",
+    benefits: ["Rejuvenescimento do olhar", "Redução da flacidez palpebral", "Estímulo de colágeno", "Aparência mais descansada"],
+  },
+  {
+    title: "Your Refine Rejuvenescimento®",
+    image: tRejuv,
+    exclusive: true,
+    desc: "Protocolo exclusivo para tratar sinais avançados do envelhecimento cutâneo, promovendo firmeza, textura, luminosidade e renovação profunda da pele.",
+    benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Rejuvenescimento progressivo"],
   },
   {
     title: "Harmonização Facial Full Face",
     image: tFullface,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
-    benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência mais jovem e equilibrada"],
+    benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência equilibrada e sofisticada"],
   },
   {
-    title: "Preenchimento labial",
+    title: "Preenchimento Labial",
     image: tLips,
-    desc: "Definição, contorno, hidratação e volume aos lábios de forma elegante, proporcional e sem exageros.",
+    desc: "Procedimento planejado para valorizar os lábios com definição, contorno, hidratação e volume de forma natural e elegante.",
     benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
   },
   {
     title: "Rinomodelação",
     image: tNose,
-    desc: "Procedimento minimamente invasivo com ácido hialurônico para corrigir pequenas imperfeições e harmonizar o perfil.",
-    benefits: ["Correção de imperfeições nasais", "Elevação e definição da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
+    desc: "Procedimento minimamente invasivo para melhorar o contorno nasal, elevar a ponta e harmonizar o perfil sem cirurgia.",
+    benefits: ["Correção de imperfeições nasais", "Elevação da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
   },
   {
-    title: "Bioestimuladores de colágeno",
+    title: "Bioestimuladores de Colágeno",
     image: tCollagen,
-    desc: "Estímulo do próprio organismo a produzir novas fibras de sustentação, promovendo firmeza e rejuvenescimento progressivo.",
-    benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados duradouros"],
+    desc: "Tratamento que estimula o próprio organismo a produzir novas fibras de colágeno, promovendo firmeza, sustentação e rejuvenescimento progressivo.",
+    benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados progressivos"],
   },
   {
-    title: "Toxina botulínica full face",
+    title: "Toxina Botulínica Full Face",
     image: tBotox,
-    desc: "Vai além da suavização de linhas: atua no rejuvenescimento, prevenção e melhora da textura, preservando expressões naturais.",
-    benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada"],
+    desc: "Protocolo completo para suavização de linhas, prevenção do envelhecimento e melhora global da aparência da face.",
+    benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada e natural"],
   },
 ];
 
