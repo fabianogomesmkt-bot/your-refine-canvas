@@ -17,8 +17,8 @@ export default Index;
 
 const NAV = [
   { label: "Método", href: "#metodo" },
-  { label: "Resultados", href: "#resultados" },
-  { label: "Dr. Múcio", href: "#dr-mucio" },
+  { label: "Resultados reais", href: "#resultados" },
+  { label: "Dr. Múcio Carvalho", href: "#dr-mucio" },
   { label: "Academy", href: "#academy" },
 ];
 
