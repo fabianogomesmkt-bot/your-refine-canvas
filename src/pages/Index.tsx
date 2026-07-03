@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import heroFace from "../assets/hero-face.jpg.asset.json";
+import logoAsset from "../assets/logo.png.asset.json";
 import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
