@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import heroFace from "../assets/hero-face.jpg.asset.json";
+import logoAsset from "../assets/logo.png.asset.json";
 import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
@@ -155,8 +156,8 @@ function Index() {
 
 function Logo({ className = "" }: { className?: string }) {
   return (
-    <a href="#inicio" className={`font-serif text-xl tracking-[0.35em] silver-text ${className}`}>
-      YOUR<span className="mx-1 opacity-60">·</span>REFINE
+    <a href="#inicio" className={`inline-block ${className}`}>
+      <img src={logoAsset.url} alt="YOUR·REFINE" className="h-6 w-auto object-contain" />
     </a>
   );
 }
