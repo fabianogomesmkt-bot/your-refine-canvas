@@ -498,68 +498,79 @@ function Testimonials() {
 
 function Academy() {
   return (
-    <section id="academy" className="relative py-28 md:py-40 bg-[var(--graphite)]/40">
-      <div className="hairline mb-20" />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+    <section id="academy" className="academy-section relative py-32 md:py-44 overflow-hidden">
+      {/* brilho sutil metálico */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[60%] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.7)_0%,transparent_60%)] pointer-events-none" />
+      <div className="academy-hairline mb-20 relative z-10" />
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
         {/* Hero da Academy */}
-        <div className="grid lg:grid-cols-12 gap-12 items-end mb-24">
+        <div className="grid lg:grid-cols-12 gap-12 items-end mb-28">
           <div className="lg:col-span-8">
-            <SectionLabel>Your Refine Academy</SectionLabel>
-            <h2 className="font-serif text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] font-light">
-              Faça parte da nova geração que está elevando os <em className="silver-text not-italic">padrões da estética avançada</em>.
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-px bg-[#8a8a8f]" />
+              <span className="text-[10px] uppercase tracking-[0.4em] text-[#5a5a60]">Your Refine Academy</span>
+            </div>
+            <h2 className="font-serif text-[clamp(2.2rem,5vw,4.5rem)] leading-[1.02] font-light text-[#0a0a0a]">
+              Faça parte da nova geração que está elevando os <em className="academy-silver-text not-italic">padrões da estética avançada</em>.
             </h2>
-            <p className="mt-8 text-foreground/70 text-base md:text-lg font-light max-w-2xl leading-relaxed">
+            <p className="mt-8 text-[#4a4a4f] text-base md:text-lg font-light max-w-2xl leading-relaxed">
               Imersão presencial para profissionais que desejam dominar protocolos avançados, elevar seus resultados e construir autoridade na estética avançada.
             </p>
           </div>
           <div className="lg:col-span-4">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="academy-btn relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em]">
               Quero saber mais
             </a>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 mb-24">
+        <div className="grid lg:grid-cols-12 gap-12 mb-28">
           <div className="lg:col-span-5">
-            <h3 className="font-serif text-3xl md:text-4xl leading-tight font-light">
-              Conhecimento de alto nível, sob a liderança do <em className="silver-text not-italic">Dr. Múcio Carvalho</em>.
+            <h3 className="font-serif text-3xl md:text-4xl leading-tight font-light text-[#0a0a0a]">
+              Conhecimento de alto nível, sob a liderança do <em className="academy-silver-text not-italic">Dr. Múcio Carvalho</em>.
             </h3>
           </div>
-          <div className="lg:col-span-7 space-y-5 text-foreground/70 font-light leading-relaxed">
-            <p>
+          <div className="lg:col-span-7 space-y-5 text-[#4a4a4f] font-light leading-relaxed">
+            <p className="text-[#333]">
               A Your Refine Academy foi criada com o propósito de compartilhar conhecimento de alto nível, formando profissionais capazes de entregar resultados diferenciados, seguros e altamente previsíveis em suas práticas clínicas.
             </p>
-            <p className="text-foreground/60">
+            <p className="text-[#6a6a70]">
               Os participantes têm acesso a uma imersão exclusiva, desenvolvida para transmitir protocolos avançados, técnicas refinadas e conceitos que unem ciência, experiência clínica e visão estratégica de mercado.
             </p>
-            <p className="text-foreground/60">
+            <p className="text-[#6a6a70]">
               Durante a imersão, os profissionais aprendem metodologias exclusivas voltadas para rejuvenescimento avançado, tratamento de cicatrizes de acne, qualidade da pele e protocolos de regeneração cutânea.
             </p>
           </div>
         </div>
 
         {/* O que você irá aprender */}
-        <div className="mb-24">
-          <SectionLabel>O que você irá aprender</SectionLabel>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border mt-8">
+        <div className="mb-28">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-px bg-[#8a8a8f]" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#5a5a60]">O que você irá aprender</span>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px academy-border">
             {ACADEMY_LEARN.map((item, i) => (
-              <div key={item} className="bg-background p-8 min-h-[180px] flex flex-col justify-between">
-                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
-                <p className="font-serif text-lg leading-snug font-light mt-6">{item}</p>
+              <div key={item} className="academy-card p-8 min-h-[180px] flex flex-col justify-between">
+                <span className="font-serif text-sm academy-silver-text">{String(i + 1).padStart(2, "0")}</span>
+                <p className="font-serif text-lg leading-snug font-light mt-6 text-[#0a0a0a]">{item}</p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Esta formação é para o profissional que deseja */}
-        <div className="mb-24">
-          <SectionLabel>Para o profissional que deseja</SectionLabel>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-border mt-8">
+        <div className="mb-28">
+          <div className="flex items-center gap-3 mb-8">
+            <div className="w-10 h-px bg-[#8a8a8f]" />
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#5a5a60]">Para o profissional que deseja</span>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px academy-border">
             {ACADEMY_PROFILES.map((p, i) => (
-              <article key={p.title} className="bg-background p-10">
-                <span className="font-serif text-sm silver-text">{String(i + 1).padStart(2, "0")}</span>
-                <h4 className="font-serif text-xl md:text-2xl leading-tight font-light mt-6 mb-4">{p.title}</h4>
-                <p className="text-sm text-foreground/65 leading-relaxed font-light">{p.desc}</p>
+              <article key={p.title} className="academy-card p-10">
+                <span className="font-serif text-sm academy-silver-text">{String(i + 1).padStart(2, "0")}</span>
+                <h4 className="font-serif text-xl md:text-2xl leading-tight font-light mt-6 mb-4 text-[#0a0a0a]">{p.title}</h4>
+                <p className="text-sm text-[#5a5a60] leading-relaxed font-light">{p.desc}</p>
               </article>
             ))}
           </div>
@@ -567,14 +578,14 @@ function Academy() {
 
         {/* Seção final */}
         <div className="max-w-4xl">
-          <h3 className="font-serif text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.05] font-light">
-            Para quem se recusa a ser apenas <em className="silver-text not-italic">mais um profissional no mercado</em>.
+          <h3 className="font-serif text-[clamp(1.8rem,4vw,3.2rem)] leading-[1.05] font-light text-[#0a0a0a]">
+            Para quem se recusa a ser apenas <em className="academy-silver-text not-italic">mais um profissional no mercado</em>.
           </h3>
-          <p className="mt-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed max-w-2xl">
+          <p className="mt-8 text-[#4a4a4f] text-base md:text-lg font-light leading-relaxed max-w-2xl">
             A Your Refine Academy foi criada para aqueles que desejam dominar técnicas avançadas, entregar resultados extraordinários e construir uma trajetória marcada pela excelência, autoridade e transformação de vidas.
           </p>
           <div className="mt-10">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
+            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="academy-btn relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em]">
               Falar com a equipe
             </a>
           </div>
