@@ -358,15 +358,20 @@ function Treatments() {
             </h2>
           </div>
           <p className="lg:col-span-5 lg:col-start-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
-            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com estratégia, técnica e naturalidade.
+            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com técnica, segurança e naturalidade.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className="group relative flex flex-col bg-[var(--graphite)]/40 backdrop-blur-sm border border-white/10 hover:border-[var(--silver)]/60 transition-all duration-500"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+              className={
+                "group relative flex flex-col backdrop-blur-sm transition-all duration-500 " +
+                (t.exclusive
+                  ? "bg-gradient-to-b from-[#2a2a2e]/80 via-[#1f1f22]/70 to-[var(--graphite)]/60 border border-[var(--silver)]/40 hover:border-[var(--silver)]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(192,192,200,0.06)]"
+                  : "bg-[var(--graphite)]/40 border border-white/10 hover:border-[var(--silver)]/60")
+              }
+              style={t.exclusive ? undefined : { boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
@@ -382,10 +387,17 @@ function Treatments() {
                   <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
                   <div className="w-8 h-px bg-foreground/40" />
                 </div>
+                {t.exclusive && (
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block text-[9px] uppercase tracking-[0.28em] silver-text border border-[var(--silver)]/50 px-2.5 py-1 bg-black/40 backdrop-blur-sm">
+                      Protocolo exclusivo
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="flex flex-col flex-1 p-7 md:p-8">
-                <h3 className="font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4">{t.title}</h3>
-                <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
+                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{t.title}</h3>
+                <p className="text-sm text-foreground/70 leading-relaxed font-light mb-6">{t.desc}</p>
                 <ul className="mb-8 space-y-2.5">
                   {t.benefits.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
@@ -398,7 +410,10 @@ function Treatments() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors border-t border-white/10 pt-5"
+                  className={
+                    "mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors pt-5 border-t " +
+                    (t.exclusive ? "border-[var(--silver)]/30" : "border-white/10")
+                  }
                 >
                   Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
