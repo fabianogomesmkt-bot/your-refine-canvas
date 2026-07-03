@@ -5,6 +5,9 @@ import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import ctaFace from "../assets/cta-face.jpg";
 import tAcne from "../assets/treatment-acne.jpg";
+import tMelasma from "../assets/treatment-melasma.jpg";
+import tBlefaro from "../assets/treatment-blefaro.jpg";
+import tRejuv from "../assets/treatment-rejuvenescimento.jpg";
 import tFullface from "../assets/treatment-fullface.jpg";
 import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
@@ -31,42 +34,70 @@ const METHOD_PILLARS = [
   { n: "06", title: "Resultados estratégicos", desc: "Cada etapa pensada para gerar impacto real, consistente e duradouro." },
 ];
 
-const TREATMENTS = [
+const TREATMENTS: {
+  title: string;
+  image: string;
+  desc: string;
+  benefits: string[];
+  exclusive?: boolean;
+}[] = [
   {
-    title: "Cicatrizes de acne",
+    title: "Your Refine® — Tratamento de Cicatrizes de Acne",
     image: tAcne,
-    desc: "Protocolos personalizados para renovação profunda, estímulo de colágeno e melhora progressiva da textura e do nivelamento cutâneo.",
-    benefits: ["Redução das cicatrizes", "Estímulo natural de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
+    exclusive: true,
+    desc: "Protocolo exclusivo e personalizado para renovação profunda da pele, redução das cicatrizes de acne e melhora progressiva da textura e do nivelamento cutâneo.",
+    benefits: ["Redução das cicatrizes", "Estímulo intenso de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
+  },
+  {
+    title: "Your Refine Melasma® — Controle de Melasma e Manchas",
+    image: tMelasma,
+    exclusive: true,
+    desc: "Protocolo desenvolvido para controle do melasma, clareamento progressivo de manchas e melhora global da qualidade da pele.",
+    benefits: ["Controle avançado do melasma", "Clareamento de manchas", "Uniformização do tom da pele", "Pele mais luminosa e saudável"],
+  },
+  {
+    title: "Your Refine Blefaro® — Blefaro Química",
+    image: tBlefaro,
+    exclusive: true,
+    desc: "Protocolo avançado para rejuvenescimento do olhar, melhora da flacidez palpebral e renovação da pele ao redor dos olhos.",
+    benefits: ["Rejuvenescimento do olhar", "Redução da flacidez palpebral", "Estímulo de colágeno", "Aparência mais descansada"],
+  },
+  {
+    title: "Your Refine Rejuvenescimento®",
+    image: tRejuv,
+    exclusive: true,
+    desc: "Protocolo exclusivo para tratar sinais avançados do envelhecimento cutâneo, promovendo firmeza, textura, luminosidade e renovação profunda da pele.",
+    benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Rejuvenescimento progressivo"],
   },
   {
     title: "Harmonização Facial Full Face",
     image: tFullface,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
-    benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência mais jovem e equilibrada"],
+    benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência equilibrada e sofisticada"],
   },
   {
-    title: "Preenchimento labial",
+    title: "Preenchimento Labial",
     image: tLips,
-    desc: "Definição, contorno, hidratação e volume aos lábios de forma elegante, proporcional e sem exageros.",
+    desc: "Procedimento planejado para valorizar os lábios com definição, contorno, hidratação e volume de forma natural e elegante.",
     benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
   },
   {
     title: "Rinomodelação",
     image: tNose,
-    desc: "Procedimento minimamente invasivo com ácido hialurônico para corrigir pequenas imperfeições e harmonizar o perfil.",
-    benefits: ["Correção de imperfeições nasais", "Elevação e definição da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
+    desc: "Procedimento minimamente invasivo para melhorar o contorno nasal, elevar a ponta e harmonizar o perfil sem cirurgia.",
+    benefits: ["Correção de imperfeições nasais", "Elevação da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
   },
   {
-    title: "Bioestimuladores de colágeno",
+    title: "Bioestimuladores de Colágeno",
     image: tCollagen,
-    desc: "Estímulo do próprio organismo a produzir novas fibras de sustentação, promovendo firmeza e rejuvenescimento progressivo.",
-    benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados duradouros"],
+    desc: "Tratamento que estimula o próprio organismo a produzir novas fibras de colágeno, promovendo firmeza, sustentação e rejuvenescimento progressivo.",
+    benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados progressivos"],
   },
   {
-    title: "Toxina botulínica full face",
+    title: "Toxina Botulínica Full Face",
     image: tBotox,
-    desc: "Vai além da suavização de linhas: atua no rejuvenescimento, prevenção e melhora da textura, preservando expressões naturais.",
-    benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada"],
+    desc: "Protocolo completo para suavização de linhas, prevenção do envelhecimento e melhora global da aparência da face.",
+    benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada e natural"],
   },
 ];
 
@@ -327,15 +358,20 @@ function Treatments() {
             </h2>
           </div>
           <p className="lg:col-span-5 lg:col-start-8 text-foreground/70 text-base md:text-lg font-light leading-relaxed self-end">
-            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com estratégia, técnica e naturalidade.
+            Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com técnica, segurança e naturalidade.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className="group relative flex flex-col bg-[var(--graphite)]/40 backdrop-blur-sm border border-white/10 hover:border-[var(--silver)]/60 transition-all duration-500"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+              className={
+                "group relative flex flex-col backdrop-blur-sm transition-all duration-500 " +
+                (t.exclusive
+                  ? "bg-gradient-to-b from-[#2a2a2e]/80 via-[#1f1f22]/70 to-[var(--graphite)]/60 border border-[var(--silver)]/40 hover:border-[var(--silver)]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(192,192,200,0.06)]"
+                  : "bg-[var(--graphite)]/40 border border-white/10 hover:border-[var(--silver)]/60")
+              }
+              style={t.exclusive ? undefined : { boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
@@ -351,10 +387,17 @@ function Treatments() {
                   <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
                   <div className="w-8 h-px bg-foreground/40" />
                 </div>
+                {t.exclusive && (
+                  <div className="absolute top-4 right-4">
+                    <span className="inline-block text-[9px] uppercase tracking-[0.28em] silver-text border border-[var(--silver)]/50 px-2.5 py-1 bg-black/40 backdrop-blur-sm">
+                      Protocolo exclusivo
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="flex flex-col flex-1 p-7 md:p-8">
-                <h3 className="font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4">{t.title}</h3>
-                <p className="text-sm text-foreground/65 leading-relaxed font-light mb-6">{t.desc}</p>
+                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{t.title}</h3>
+                <p className="text-sm text-foreground/70 leading-relaxed font-light mb-6">{t.desc}</p>
                 <ul className="mb-8 space-y-2.5">
                   {t.benefits.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
@@ -367,7 +410,10 @@ function Treatments() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors border-t border-white/10 pt-5"
+                  className={
+                    "mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors pt-5 border-t " +
+                    (t.exclusive ? "border-[var(--silver)]/30" : "border-white/10")
+                  }
                 >
                   Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
