@@ -841,3 +841,25 @@ function Footer() {
     </footer>
   );
 }
+
+function WhatsAppFloat() {
+  return (
+    <a
+      href={WHATSAPP}
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Fale conosco pelo WhatsApp"
+      className="fixed bottom-5 right-5 md:bottom-7 md:right-7 z-50 group"
+    >
+      <span className="absolute inset-0 -m-1 rounded-full bg-[var(--silver)]/0 group-hover:bg-[var(--silver)]/10 blur-md transition-all duration-500" />
+      <span className="relative flex items-center justify-center w-14 h-14 md:w-[60px] md:h-[60px] rounded-full bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] border border-[var(--silver)]/40 group-hover:border-[var(--silver)]/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.06)] transition-all duration-500 group-hover:scale-[1.04]">
+        <svg viewBox="0 0 32 32" width="24" height="24" fill="none" className="text-[var(--silver)] group-hover:text-white transition-colors duration-500" aria-hidden>
+          <path
+            fill="currentColor"
+            d="M16.02 5.333c-5.89 0-10.686 4.79-10.688 10.677 0 1.882.492 3.72 1.427 5.34L5.24 26.667l5.494-1.442a10.68 10.68 0 0 0 5.284 1.346h.004c5.886 0 10.682-4.79 10.685-10.678a10.6 10.6 0 0 0-3.13-7.552 10.6 10.6 0 0 0-7.556-3.008Zm0 19.594h-.003a8.87 8.87 0 0 1-4.52-1.238l-.324-.192-3.26.855.87-3.177-.212-.337a8.86 8.86 0 0 1-1.36-4.727c.002-4.894 3.99-8.877 8.892-8.877a8.83 8.83 0 0 1 6.283 2.606 8.83 8.83 0 0 1 2.6 6.28c-.002 4.895-3.99 8.807-8.966 8.807Zm4.874-6.643c-.267-.134-1.58-.78-1.826-.869-.245-.09-.423-.134-.601.134s-.69.868-.846 1.047c-.156.178-.312.2-.579.067-.267-.134-1.128-.416-2.148-1.326-.794-.708-1.33-1.582-1.486-1.85-.156-.267-.017-.412.117-.545.121-.12.267-.312.4-.468.135-.156.18-.267.268-.446.089-.178.045-.334-.023-.468-.067-.134-.6-1.45-.822-1.983-.217-.522-.437-.451-.6-.46l-.512-.009c-.178 0-.468.067-.713.334-.245.267-.936.914-.936 2.23 0 1.315.958 2.585 1.092 2.763.133.179 1.884 2.876 4.564 4.033.638.276 1.135.44 1.523.564.64.204 1.222.175 1.682.106.513-.077 1.58-.646 1.803-1.269.222-.624.222-1.158.156-1.27-.067-.111-.245-.178-.512-.312Z"
+          />
+        </svg>
+      </span>
+    </a>
+  );
+}
