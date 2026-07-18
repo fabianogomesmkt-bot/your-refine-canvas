@@ -135,6 +135,22 @@ const ACADEMY_PROFILES = [
   { title: "Visão estratégica da estética", desc: "Criar protocolos personalizados, conduzir casos complexos e construir uma carreira sólida e diferenciada." },
 ];
 
+function renderTitle(title: string) {
+  const parts = title.split("®");
+  return (
+    <>
+      {parts.map((p, i) => (
+        <span key={i}>
+          {p}
+          {i < parts.length - 1 && (
+            <sup className="text-[0.45em] align-super font-light tracking-normal ml-[0.05em] opacity-80">®</sup>
+          )}
+        </span>
+      ))}
+    </>
+  );
+}
+
 function Index() {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
@@ -150,9 +166,11 @@ function Index() {
       <Location />
       <CTAFinal />
       <Footer />
+      <WhatsAppFloat />
     </main>
   );
 }
+
 
 function Logo({ className = "" }: { className?: string }) {
   return (
