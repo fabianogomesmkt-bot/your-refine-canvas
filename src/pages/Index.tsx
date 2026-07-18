@@ -143,7 +143,7 @@ function renderTitle(title: string) {
         <span key={i}>
           {p}
           {i < parts.length - 1 && (
-            <sup className="text-[0.45em] align-super font-light tracking-normal ml-[0.05em] opacity-80">®</sup>
+            <sup className="text-[0.58em] align-super font-light tracking-normal ml-[0.05em] opacity-90">®</sup>
           )}
         </span>
       ))}
