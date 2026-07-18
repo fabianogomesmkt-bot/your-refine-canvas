@@ -90,7 +90,7 @@ const TREATMENTS: {
   },
   {
     title: "Bioestimuladores de Colágeno",
-    image: tCollagen,
+    image: tCollagen.url,
     desc: "Tratamento que estimula o próprio organismo a produzir novas fibras de colágeno, promovendo firmeza, sustentação e rejuvenescimento progressivo.",
     benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados progressivos"],
   },
