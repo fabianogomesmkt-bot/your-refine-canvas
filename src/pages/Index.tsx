@@ -415,7 +415,7 @@ function Treatments() {
                 )}
               </div>
               <div className="flex flex-col flex-1 p-7 md:p-8">
-                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{t.title}</h3>
+                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{renderTitle(t.title)}</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed font-light mb-6">{t.desc}</p>
                 <ul className="mb-8 space-y-2.5">
                   {t.benefits.map((b) => (
