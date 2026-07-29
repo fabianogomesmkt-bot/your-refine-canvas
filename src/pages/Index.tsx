@@ -71,6 +71,14 @@ const TREATMENTS: {
     benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Rejuvenescimento progressivo"],
   },
   {
+    title: "Your Refine Glow®",
+    image: tGlow,
+    exclusive: true,
+    desc: "Protocolo exclusivo de luminosidade e qualidade de pele, com hidratação profunda, refinamento da textura e brilho natural imediato.",
+    benefits: ["Luminosidade imediata", "Refinamento da textura", "Hidratação profunda", "Pele mais uniforme"],
+  },
+
+  {
     title: "Harmonização Facial Full Face",
     image: tFullface,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
