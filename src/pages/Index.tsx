@@ -392,47 +392,40 @@ function Treatments() {
             Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com técnica, segurança e naturalidade.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className={
-                "group relative flex flex-col backdrop-blur-sm transition-all duration-500 " +
-                (t.exclusive
-                  ? "bg-gradient-to-b from-[#2a2a2e]/80 via-[#1f1f22]/70 to-[var(--graphite)]/60 border border-[var(--silver)]/40 hover:border-[var(--silver)]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(192,192,200,0.06)]"
-                  : "bg-[var(--graphite)]/40 border border-white/10 hover:border-[var(--silver)]/60")
-              }
-              style={t.exclusive ? undefined : { boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+              className={"proc-card group " + (t.exclusive ? "proc-exclusive" : "proc-dark")}
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="proc-media aspect-[4/5]">
                 <img
                   src={t.image}
                   alt={t.title}
                   loading="lazy"
                   width={768}
-                  height={1024}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                  height={960}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                 <div className="absolute top-4 left-4 flex items-center gap-3">
-                  <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="w-8 h-px bg-foreground/40" />
+                  <span className="proc-num font-serif text-xs">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="proc-rule w-8 h-px" />
                 </div>
                 {t.exclusive && (
                   <div className="absolute top-4 right-4">
-                    <span className="inline-block text-[9px] uppercase tracking-[0.28em] silver-text border border-[var(--silver)]/50 px-2.5 py-1 bg-black/40 backdrop-blur-sm">
-                      Protocolo exclusivo
-                    </span>
+                    <span className="proc-tag">Protocolo exclusivo</span>
                   </div>
                 )}
               </div>
               <div className="flex flex-col flex-1 p-7 md:p-8">
-                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{renderTitle(t.title)}</h3>
-                <p className="text-sm text-foreground/70 leading-relaxed font-light mb-6">{t.desc}</p>
+                <h3 className="proc-title font-serif text-[1.4rem] md:text-[1.55rem] leading-tight font-light mb-4 min-h-[3.6rem]">
+                  {renderTitle(t.title)}
+                </h3>
+                <p className="proc-desc text-sm leading-relaxed font-light mb-6">{t.desc}</p>
                 <ul className="mb-8 space-y-2.5">
                   {t.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
-                      <span className="mt-2 w-3 h-px bg-[var(--silver)] shrink-0" />
+                    <li key={b} className="proc-benefit flex items-start gap-3 text-[11px] uppercase tracking-[0.15em]">
+                      <span className="proc-rule mt-2 w-3 h-px shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -441,16 +434,15 @@ function Treatments() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className={
-                    "mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors pt-5 border-t " +
-                    (t.exclusive ? "border-[var(--silver)]/30" : "border-white/10")
-                  }
+                  className="proc-cta mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-colors pt-5"
                 >
                   Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
               </div>
             </article>
           ))}
+        </div>
+
         </div>
       </div>
     </section>
