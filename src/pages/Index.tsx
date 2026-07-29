@@ -301,34 +301,26 @@ function Hero() {
           </div>
         </div>
         <div className="lg:col-span-5 relative fade-up">
-          <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
+          <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full max-w-md mx-auto">
             <div className="absolute -inset-2 silver-border opacity-50" />
-            <img src={heroFace.url} alt="Retrato editorial de harmonização facial" className="absolute inset-0 w-full h-full object-cover" width={1080} height={1440} />
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-background/90 backdrop-blur px-5 py-4 border border-border">
-              <div className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-1">Your Refine Method®</div>
-              <div className="font-serif text-lg silver-text">Refinement · 01</div>
-            </div>
-          </div>
-          {/* Placeholder editorial — Foto Dr. Múcio Carvalho */}
-          <div className="mt-14 md:mt-16 max-w-md mx-auto flex items-stretch gap-5">
-            <div
-              aria-label="Espaço reservado para foto do Dr. Múcio Carvalho"
-              className="relative w-24 md:w-28 aspect-[3/4] shrink-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,212,212,0.06),transparent_70%)] bg-[var(--graphite)]/50 border border-white/10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_40px_-20px_rgba(0,0,0,0.8)]"
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-2 text-center">
-                <span className="font-serif italic text-[9px] tracking-[0.25em] uppercase text-foreground/35 leading-relaxed">
-                  Foto<br />Dr. Múcio
-                </span>
+            <img
+              src={conceptImg}
+              alt="Dr. Múcio Carvalho — direção clínica da YOUR·REFINE"
+              className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95]"
+              width={1080}
+              height={1440}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <div className="h-px w-10 bg-[var(--silver)]/70 mb-3" />
+              <div className="font-serif text-xl md:text-2xl font-light leading-tight text-white">Dr. Múcio Carvalho</div>
+              <div className="mt-1.5 text-[10px] uppercase tracking-[0.28em] text-white/70">
+                Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup>
               </div>
-              <div className="absolute inset-x-3 bottom-3 h-px bg-[var(--silver)]/25" />
-            </div>
-            <div className="flex flex-col justify-center border-l border-border/60 pl-5">
-              <span className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-2">Direção clínica</span>
-              <span className="font-serif text-lg md:text-xl font-light leading-tight silver-text">Dr. Múcio Carvalho</span>
-              <span className="mt-2 text-[10px] uppercase tracking-[0.25em] text-foreground/55">Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup></span>
             </div>
           </div>
         </div>
+
 
       </div>
     </section>
