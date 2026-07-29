@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import heroFace from "../assets/hero-face.jpg.asset.json";
 import logoAsset from "../assets/logo.png.asset.json";
 import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
@@ -14,6 +13,7 @@ import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
 import tCollagen from "../assets/treatment-collagen.png.asset.json";
 import tBotox from "../assets/treatment-botox.jpg";
+import tGlow from "../assets/treatment-glow.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
 
@@ -70,6 +70,14 @@ const TREATMENTS: {
     desc: "Protocolo exclusivo para tratar sinais avançados do envelhecimento cutâneo, promovendo firmeza, textura, luminosidade e renovação profunda da pele.",
     benefits: ["Redução de rugas e linhas", "Estímulo de colágeno", "Melhora da firmeza", "Rejuvenescimento progressivo"],
   },
+  {
+    title: "Your Refine Glow®",
+    image: tGlow,
+    exclusive: true,
+    desc: "Protocolo exclusivo de luminosidade e qualidade de pele, com hidratação profunda, refinamento da textura e brilho natural imediato.",
+    benefits: ["Luminosidade imediata", "Refinamento da textura", "Hidratação profunda", "Pele mais uniforme"],
+  },
+
   {
     title: "Harmonização Facial Full Face",
     image: tFullface,
@@ -301,34 +309,26 @@ function Hero() {
           </div>
         </div>
         <div className="lg:col-span-5 relative fade-up">
-          <div className="relative aspect-[3/4] w-full max-w-md mx-auto">
+          <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full max-w-md mx-auto">
             <div className="absolute -inset-2 silver-border opacity-50" />
-            <img src={heroFace.url} alt="Retrato editorial de harmonização facial" className="absolute inset-0 w-full h-full object-cover" width={1080} height={1440} />
-            <div className="absolute -bottom-6 -left-6 hidden md:block bg-background/90 backdrop-blur px-5 py-4 border border-border">
-              <div className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-1">Your Refine Method®</div>
-              <div className="font-serif text-lg silver-text">Refinement · 01</div>
-            </div>
-          </div>
-          {/* Placeholder editorial — Foto Dr. Múcio Carvalho */}
-          <div className="mt-14 md:mt-16 max-w-md mx-auto flex items-stretch gap-5">
-            <div
-              aria-label="Espaço reservado para foto do Dr. Múcio Carvalho"
-              className="relative w-24 md:w-28 aspect-[3/4] shrink-0 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,212,212,0.06),transparent_70%)] bg-[var(--graphite)]/50 border border-white/10 overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_40px_-20px_rgba(0,0,0,0.8)]"
-            >
-              <div className="absolute inset-0 flex items-center justify-center px-2 text-center">
-                <span className="font-serif italic text-[9px] tracking-[0.25em] uppercase text-foreground/35 leading-relaxed">
-                  Foto<br />Dr. Múcio
-                </span>
+            <img
+              src={conceptImg}
+              alt="Dr. Múcio Carvalho — direção clínica da YOUR·REFINE"
+              className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95]"
+              width={1080}
+              height={1440}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+              <div className="h-px w-10 bg-[var(--silver)]/70 mb-3" />
+              <div className="font-serif text-xl md:text-2xl font-light leading-tight text-white">Dr. Múcio Carvalho</div>
+              <div className="mt-1.5 text-[10px] uppercase tracking-[0.28em] text-white/70">
+                Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup>
               </div>
-              <div className="absolute inset-x-3 bottom-3 h-px bg-[var(--silver)]/25" />
-            </div>
-            <div className="flex flex-col justify-center border-l border-border/60 pl-5">
-              <span className="text-[9px] uppercase tracking-[0.35em] text-foreground/50 mb-2">Direção clínica</span>
-              <span className="font-serif text-lg md:text-xl font-light leading-tight silver-text">Dr. Múcio Carvalho</span>
-              <span className="mt-2 text-[10px] uppercase tracking-[0.25em] text-foreground/55">Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup></span>
             </div>
           </div>
         </div>
+
 
       </div>
     </section>
@@ -400,47 +400,40 @@ function Treatments() {
             Tratamentos personalizados para renovar, harmonizar e elevar a qualidade da pele com técnica, segurança e naturalidade.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className={
-                "group relative flex flex-col backdrop-blur-sm transition-all duration-500 " +
-                (t.exclusive
-                  ? "bg-gradient-to-b from-[#2a2a2e]/80 via-[#1f1f22]/70 to-[var(--graphite)]/60 border border-[var(--silver)]/40 hover:border-[var(--silver)]/80 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_0_0_1px_rgba(192,192,200,0.06)]"
-                  : "bg-[var(--graphite)]/40 border border-white/10 hover:border-[var(--silver)]/60")
-              }
-              style={t.exclusive ? undefined : { boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+              className={"proc-card group " + (t.exclusive ? "proc-exclusive" : "proc-dark")}
             >
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="proc-media aspect-[4/5]">
                 <img
                   src={t.image}
                   alt={t.title}
                   loading="lazy"
                   width={768}
-                  height={1024}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105"
+                  height={960}
+                  className="absolute inset-0 w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
                 <div className="absolute top-4 left-4 flex items-center gap-3">
-                  <span className="font-serif text-xs silver-text">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="w-8 h-px bg-foreground/40" />
+                  <span className="proc-num font-serif text-xs">{String(i + 1).padStart(2, "0")}</span>
+                  <div className="proc-rule w-8 h-px" />
                 </div>
                 {t.exclusive && (
                   <div className="absolute top-4 right-4">
-                    <span className="inline-block text-[9px] uppercase tracking-[0.28em] silver-text border border-[var(--silver)]/50 px-2.5 py-1 bg-black/40 backdrop-blur-sm">
-                      Protocolo exclusivo
-                    </span>
+                    <span className="proc-tag">Protocolo exclusivo</span>
                   </div>
                 )}
               </div>
               <div className="flex flex-col flex-1 p-7 md:p-8">
-                <h3 className={"font-serif text-2xl md:text-[1.65rem] leading-tight font-light mb-4 " + (t.exclusive ? "silver-text" : "")}>{renderTitle(t.title)}</h3>
-                <p className="text-sm text-foreground/70 leading-relaxed font-light mb-6">{t.desc}</p>
+                <h3 className="proc-title font-serif text-[1.4rem] md:text-[1.55rem] leading-tight font-light mb-4 min-h-[3.6rem]">
+                  {renderTitle(t.title)}
+                </h3>
+                <p className="proc-desc text-sm leading-relaxed font-light mb-6">{t.desc}</p>
                 <ul className="mb-8 space-y-2.5">
                   {t.benefits.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-[11px] uppercase tracking-[0.15em] text-foreground/60">
-                      <span className="mt-2 w-3 h-px bg-[var(--silver)] shrink-0" />
+                    <li key={b} className="proc-benefit flex items-start gap-3 text-[11px] uppercase tracking-[0.15em]">
+                      <span className="proc-rule mt-2 w-3 h-px shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -449,10 +442,7 @@ function Treatments() {
                   href={WHATSAPP}
                   target="_blank"
                   rel="noreferrer"
-                  className={
-                    "mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-foreground/70 group-hover:text-foreground transition-colors pt-5 border-t " +
-                    (t.exclusive ? "border-[var(--silver)]/30" : "border-white/10")
-                  }
+                  className="proc-cta mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-colors pt-5"
                 >
                   Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
@@ -511,14 +501,9 @@ function Doctor() {
   return (
     <section id="dr-mucio" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-5">
-          <div className="relative aspect-[4/5] w-full max-w-sm">
-            <div className="absolute -top-4 -left-4 right-8 bottom-8 silver-border opacity-40" />
-            <img src={conceptImg} alt="Dr. Múcio Carvalho — biomédico e cirurgião-dentista" loading="lazy" className="absolute inset-0 w-full h-full object-cover" width={1024} height={1280} />
-          </div>
-        </div>
-        <div className="lg:col-span-7">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-start">
+        <div className="lg:col-span-10 lg:col-start-2">
+
           <SectionLabel>Dr. Múcio Carvalho</SectionLabel>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] font-light">
             Ciência, estética e <em className="silver-text not-italic">visão autoral</em>.
