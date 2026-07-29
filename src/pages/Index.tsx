@@ -503,14 +503,9 @@ function Doctor() {
   return (
     <section id="dr-mucio" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-center">
-        <div className="lg:col-span-5">
-          <div className="relative aspect-[4/5] w-full max-w-sm">
-            <div className="absolute -top-4 -left-4 right-8 bottom-8 silver-border opacity-40" />
-            <img src={conceptImg} alt="Dr. Múcio Carvalho — biomédico e cirurgião-dentista" loading="lazy" className="absolute inset-0 w-full h-full object-cover" width={1024} height={1280} />
-          </div>
-        </div>
-        <div className="lg:col-span-7">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-start">
+        <div className="lg:col-span-10 lg:col-start-2">
+
           <SectionLabel>Dr. Múcio Carvalho</SectionLabel>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] font-light">
             Ciência, estética e <em className="silver-text not-italic">visão autoral</em>.
