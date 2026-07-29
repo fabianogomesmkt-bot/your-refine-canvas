@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import heroFace from "../assets/hero-face.jpg.asset.json";
 import logoAsset from "../assets/logo.png.asset.json";
 import conceptImg from "../assets/concept.jpg";
 import clinicSp from "../assets/clinic-sp.jpg";
@@ -14,6 +13,7 @@ import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
 import tCollagen from "../assets/treatment-collagen.png.asset.json";
 import tBotox from "../assets/treatment-botox.jpg";
+import tGlow from "../assets/treatment-glow.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
 
