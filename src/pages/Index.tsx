@@ -442,8 +442,6 @@ function Treatments() {
             </article>
           ))}
         </div>
-
-        </div>
       </div>
     </section>
   );
