@@ -357,7 +357,7 @@ function Method() {
           </div>
           <div className="lg:col-span-5 space-y-5 text-foreground/70 font-light leading-relaxed">
             <p>
-              O Your Refine Method® é uma metodologia desenvolvida pelo Dr. Múcio Carvalho para tratar a face de forma estratégica, personalizada e global.
+              O Your Refine Method ® é uma metodologia desenvolvida pelo Dr. Múcio Carvalho para tratar a face de forma estratégica, personalizada e global.
             </p>
             <p className="text-foreground/60">
               Mais do que realizar procedimentos isolados, o método avalia a individualidade de cada paciente: proporções, qualidade da pele, sinais de envelhecimento, cicatrizes, flacidez, manchas, assimetrias e objetivos estéticos.
