@@ -8,7 +8,7 @@ import tAcne from "../assets/treatment-acne.jpg";
 import tMelasma from "../assets/treatment-melasma.jpg";
 import tBlefaro from "../assets/treatment-blefaro.jpg";
 import tRejuv from "../assets/treatment-rejuvenescimento.jpg";
-import tFullface from "../assets/treatment-fullface.jpg";
+import tFullface from "../assets/treatment-fullface.png.asset.json";
 import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
 import tCollagen from "../assets/treatment-collagen.png.asset.json";
@@ -80,7 +80,7 @@ const TREATMENTS: {
 
   {
     title: "Harmonização Facial Full Face",
-    image: tFullface,
+    image: tFullface.url,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
     benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência equilibrada e sofisticada"],
   },
