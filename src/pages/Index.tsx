@@ -104,7 +104,7 @@ const TREATMENTS: {
   },
   {
     title: "Toxina Botulínica Full Face",
-    image: tBotox,
+    image: tBotox.url,
     desc: "Protocolo completo para suavização de linhas, prevenção do envelhecimento e melhora global da aparência da face.",
     benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada e natural"],
   },
