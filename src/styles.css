@@ -283,11 +283,6 @@ html, body {
   color: var(--foreground);
 }
 .proc-dark:hover { border-color: rgba(184,184,184,0.45); }
-.proc-dark .proc-media::after {
-  content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 28%;
-  background: linear-gradient(to top, var(--graphite) 0%, rgba(0,0,0,0.18) 55%, transparent 100%);
-  pointer-events: none;
-}
 .proc-dark .proc-title { color: var(--foreground); }
 .proc-dark .proc-desc { color: color-mix(in oklab, var(--foreground) 72%, transparent); }
 .proc-dark .proc-benefit { color: color-mix(in oklab, var(--foreground) 62%, transparent); }
@@ -297,7 +292,6 @@ html, body {
 .proc-dark .proc-num { color: var(--silver); }
 
 .light .proc-dark { background: #141416; color: #f2f2f2; border-color: rgba(255,255,255,0.10); }
-.light .proc-dark .proc-media::after { background: linear-gradient(to top, #141416 0%, rgba(0,0,0,0.18) 55%, transparent 100%); }
 .light .proc-dark .proc-title { color: #f5f5f5; }
 .light .proc-dark .proc-desc { color: rgba(242,242,242,0.72); }
 .light .proc-dark .proc-benefit { color: rgba(242,242,242,0.62); }
@@ -311,11 +305,6 @@ html, body {
   color: #131316;
 }
 .proc-exclusive:hover { border-color: rgba(28,28,34,0.38); }
-.proc-exclusive .proc-media::after {
-  content: ""; position: absolute; inset-inline: 0; bottom: 0; height: 22%;
-  background: linear-gradient(to top, #ebebef 0%, rgba(235,235,239,0.35) 60%, transparent 100%);
-  pointer-events: none;
-}
 .proc-exclusive .proc-title { color: #101013; }
 .proc-exclusive .proc-desc { color: #3b3b42; }
 .proc-exclusive .proc-benefit { color: #4d4d55; }
