@@ -319,6 +319,70 @@ function Hero() {
   );
 }
 
+const HERO_SLIDES = [
+  { src: heroMucio1.url, alt: "Dr. Múcio Carvalho — retrato editorial YOUR·REFINE" },
+  { src: heroMucio2.url, alt: "Dr. Múcio Carvalho — direção clínica da YOUR·REFINE" },
+];
+
+function HeroCarousel() {
+  const [i, setI] = useState(0);
+  const go = (d: number) => setI((p) => (p + d + HERO_SLIDES.length) % HERO_SLIDES.length);
+
+  return (
+    <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full max-w-md mx-auto">
+      <div className="absolute -inset-2 silver-border opacity-50" />
+      {HERO_SLIDES.map((s, idx) => (
+        <img
+          key={s.src}
+          src={s.src}
+          alt={s.alt}
+          className={`absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-opacity duration-700 ${idx === i ? "opacity-100" : "opacity-0"}`}
+          loading={idx === 0 ? "eager" : "lazy"}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+
+      <button
+        type="button"
+        onClick={() => go(-1)}
+        aria-label="Imagem anterior"
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm border border-white/25 text-white/85 hover:text-white hover:border-white/70 transition"
+      >
+        <span aria-hidden>←</span>
+      </button>
+      <button
+        type="button"
+        onClick={() => go(1)}
+        aria-label="Próxima imagem"
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm border border-white/25 text-white/85 hover:text-white hover:border-white/70 transition"
+      >
+        <span aria-hidden>→</span>
+      </button>
+
+      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+        <div className="h-px w-10 bg-[var(--silver)]/70 mb-3" />
+        <div className="font-serif text-xl md:text-2xl font-light leading-tight text-white">Dr. Múcio Carvalho</div>
+        <div className="mt-1.5 text-[10px] uppercase tracking-[0.28em] text-white/70">
+          Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup>
+        </div>
+        <div className="mt-4 flex gap-2">
+          {HERO_SLIDES.map((s, idx) => (
+            <button
+              key={s.src}
+              type="button"
+              onClick={() => setI(idx)}
+              aria-label={`Ir para imagem ${idx + 1}`}
+              className={`h-px w-8 transition-all ${idx === i ? "bg-white" : "bg-white/35"}`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6">
