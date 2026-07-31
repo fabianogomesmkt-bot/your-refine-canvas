@@ -12,7 +12,7 @@ import tFullface from "../assets/treatment-fullface.png.asset.json";
 import tLips from "../assets/treatment-lips.jpg";
 import tNose from "../assets/treatment-nose.jpg";
 import tCollagen from "../assets/treatment-collagen.png.asset.json";
-import tBotox from "../assets/treatment-botox.jpg";
+import tBotox from "../assets/treatment-botox.png.asset.json";
 import tGlow from "../assets/treatment-glow.jpg";
 
 const WHATSAPP = "https://wa.me/5500000000000";
@@ -104,7 +104,7 @@ const TREATMENTS: {
   },
   {
     title: "Toxina Botulínica Full Face",
-    image: tBotox,
+    image: tBotox.url,
     desc: "Protocolo completo para suavização de linhas, prevenção do envelhecimento e melhora global da aparência da face.",
     benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada e natural"],
   },
