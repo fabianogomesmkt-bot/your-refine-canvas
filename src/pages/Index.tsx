@@ -309,25 +309,9 @@ function Hero() {
           </div>
         </div>
         <div className="lg:col-span-5 relative fade-up">
-          <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full max-w-md mx-auto">
-            <div className="absolute -inset-2 silver-border opacity-50" />
-            <img
-              src={conceptImg}
-              alt="Dr. Múcio Carvalho — direção clínica da YOUR·REFINE"
-              className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95]"
-              width={1080}
-              height={1440}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-              <div className="h-px w-10 bg-[var(--silver)]/70 mb-3" />
-              <div className="font-serif text-xl md:text-2xl font-light leading-tight text-white">Dr. Múcio Carvalho</div>
-              <div className="mt-1.5 text-[10px] uppercase tracking-[0.28em] text-white/70">
-                Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup>
-              </div>
-            </div>
-          </div>
+          <HeroCarousel />
         </div>
+
 
 
       </div>
