@@ -296,19 +296,6 @@ function Hero() {
               <span aria-hidden>→</span>
             </a>
           </div>
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-5 border-t border-border/50 pt-8">
-            {[
-              "Resultados naturais",
-              "Protocolo personalizado",
-              "São Paulo e Uberlândia",
-              "Estética com estratégia",
-            ].map((s) => (
-              <div key={s} className="flex items-start gap-3">
-                <div className="mt-1.5 w-3 h-px bg-[var(--silver)]" />
-                <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/70 leading-snug">{s}</span>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="lg:col-span-5 relative fade-up">
           <HeroCarousel />
