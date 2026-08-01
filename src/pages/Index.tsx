@@ -565,6 +565,37 @@ function Doctor() {
             </p>
             <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
           </blockquote>
+
+          <div className="mt-16 grid md:grid-cols-2 gap-5 max-w-3xl">
+            <figure className="relative group">
+              <div className="relative aspect-[4/5] overflow-hidden silver-border">
+                <img
+                  src={heroMucio1.url}
+                  alt="Dr. Múcio Carvalho — retrato editorial YOUR·REFINE"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <figcaption className="mt-4 flex items-center gap-3">
+                <div className="w-6 h-px bg-[var(--silver)]" />
+                <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">Dr. Múcio Carvalho</span>
+              </figcaption>
+            </figure>
+            <figure className="relative group md:mt-10">
+              <div className="relative aspect-[4/5] overflow-hidden silver-border">
+                <img
+                  src={heroMucio2.url}
+                  alt="Dr. Múcio Carvalho — direção clínica da YOUR·REFINE"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <figcaption className="mt-4 flex items-center gap-3">
+                <div className="w-6 h-px bg-[var(--silver)]" />
+                <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">Your Refine Method®</span>
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </section>
