@@ -808,17 +808,7 @@ function Clinics() {
   );
 }
 
-                <a href={WHATSAPP} target="_blank" rel="noreferrer" className="md:col-span-2 btn-silver relative inline-flex justify-center px-6 py-4 text-[10px] uppercase tracking-[0.3em] hover:text-background">
-                  Agendar nesta unidade
-                </a>
-              </div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+
 
 function Location() {
   const units = [
