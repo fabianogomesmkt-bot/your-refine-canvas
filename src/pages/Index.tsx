@@ -268,107 +268,96 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[100svh] pt-28 md:pt-32 grain overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_30%,rgba(212,212,212,0.08),transparent_60%)]" />
-      <div className="absolute top-1/2 left-0 right-0 h-px opacity-20 silver-border" />
-      <div className="relative mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-10 lg:gap-6 items-center min-h-[calc(100svh-7rem)]">
-        <div className="lg:col-span-7 fade-up">
-          <div className="flex items-center gap-3 mb-8">
+    <section id="inicio" className="relative min-h-[100svh] flex items-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(212,212,212,0.10),transparent_62%)]" />
+
+      {/* Retrato Dr. Múcio */}
+      <div className="absolute inset-y-0 right-[-12%] w-[92%] sm:right-0 sm:w-[72%] lg:w-[54%] xl:w-[50%]">
+        <img
+          src={heroMucio1.url}
+          alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
+          className="w-full h-full object-cover object-[62%_18%] contrast-[1.06] saturate-[0.92]"
+          fetchPriority="high"
+        />
+        {/* integração com o fundo */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent lg:via-background/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
+        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background to-transparent" />
+      </div>
+
+      {/* Degradê de leitura no mobile */}
+      <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-background via-background/85 to-transparent lg:hidden" />
+
+      <div className="relative w-full mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="max-w-xl lg:max-w-[46rem] fade-up">
+          <div className="flex items-center gap-3 mb-7">
             <div className="w-12 h-px bg-foreground/40" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/60">Estética facial avançada</span>
+            <span className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
+              Dr. Múcio | Harmonização Facial
+            </span>
           </div>
-          <h1 className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.95] font-light tracking-tight">
+
+          <h1 className="font-serif text-[clamp(3rem,7.5vw,5.5rem)] leading-[0.98] font-light tracking-tight">
             Harmonização facial<br />
-            estratégica para<br />
-            <em className="silver-text not-italic font-light">revelar a sua</em>
-            <br />
-            <span className="silver-text">melhor versão.</span>
+            <em className="silver-text not-italic">estratégica</em>
           </h1>
-          <p className="mt-10 max-w-xl text-base md:text-lg text-foreground/70 leading-relaxed font-light">
-            Na YOUR·REFINE, cada detalhe do rosto é analisado com ciência, técnica e estratégia para resultados naturais, sofisticados e alinhados à sua identidade.
+
+          <p className="mt-8 max-w-lg text-[15px] md:text-lg text-foreground/70 leading-relaxed font-light">
+            Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
+            Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
+            técnica e visão estética avançada.
           </p>
-          <div className="mt-12 flex flex-wrap gap-4">
-            <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-9 py-4 text-[10px] uppercase tracking-[0.35em] hover:text-background">
-              Agendar avaliação
+
+          <div className="relative mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] bg-[linear-gradient(135deg,#f2f2f2_0%,#c9c9c9_50%,#ededed_100%)] hover:bg-[linear-gradient(135deg,#ffffff_0%,#dcdcdc_50%,#ffffff_100%)] transition-all duration-500"
+            >
+              Agendar avaliação <span aria-hidden>→</span>
             </a>
-            <a href="#metodo" className="inline-flex items-center gap-3 px-3 py-4 text-[10px] uppercase tracking-[0.35em] text-foreground/80 hover:text-foreground transition border-b border-foreground/30 hover:border-foreground">
-              Conhecer o Your Refine Method®
-              <span aria-hidden>→</span>
+            <a
+              href="#metodo"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/90 border border-[var(--silver)]/40 bg-black/30 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-foreground transition-all duration-500"
+            >
+              Conhecer o método <span aria-hidden>→</span>
             </a>
           </div>
+
+          <HeroMetrics />
         </div>
-        <div className="lg:col-span-5 relative fade-up">
-          <HeroCarousel />
-        </div>
-
-
-
       </div>
     </section>
   );
 }
 
-const HERO_SLIDES = [
-  { src: heroMucio1.url, alt: "Dr. Múcio Carvalho — retrato editorial YOUR·REFINE" },
-  { src: heroMucio2.url, alt: "Dr. Múcio Carvalho — direção clínica da YOUR·REFINE" },
+const HERO_METRICS = [
+  { value: "+2.000", label: "Pacientes atendidos" },
+  { value: "Método", label: "Exclusivo" },
+  { value: "Protocolos", label: "Personalizados" },
 ];
 
-function HeroCarousel() {
-  const [i, setI] = useState(0);
-  const go = (d: number) => setI((p) => (p + d + HERO_SLIDES.length) % HERO_SLIDES.length);
-
+function HeroMetrics() {
   return (
-    <div className="relative aspect-[4/5] sm:aspect-[3/4] w-full max-w-md mx-auto">
-      <div className="absolute -inset-2 silver-border opacity-50" />
-      {HERO_SLIDES.map((s, idx) => (
-        <img
-          key={s.src}
-          src={s.src}
-          alt={s.alt}
-          className={`absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-opacity duration-700 ${idx === i ? "opacity-100" : "opacity-0"}`}
-          loading={idx === 0 ? "eager" : "lazy"}
-        />
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
-      <button
-        type="button"
-        onClick={() => go(-1)}
-        aria-label="Imagem anterior"
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm border border-white/25 text-white/85 hover:text-white hover:border-white/70 transition"
-      >
-        <span aria-hidden>←</span>
-      </button>
-      <button
-        type="button"
-        onClick={() => go(1)}
-        aria-label="Próxima imagem"
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm border border-white/25 text-white/85 hover:text-white hover:border-white/70 transition"
-      >
-        <span aria-hidden>→</span>
-      </button>
-
-      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
-        <div className="h-px w-10 bg-[var(--silver)]/70 mb-3" />
-        <div className="font-serif text-xl md:text-2xl font-light leading-tight text-white">Dr. Múcio Carvalho</div>
-        <div className="mt-1.5 text-[10px] uppercase tracking-[0.28em] text-white/70">
-          Idealizador · Your Refine Method<sup className="text-[0.55em] align-super opacity-80">®</sup>
-        </div>
-        <div className="mt-4 flex gap-2">
-          {HERO_SLIDES.map((s, idx) => (
-            <button
-              key={s.src}
-              type="button"
-              onClick={() => setI(idx)}
-              aria-label={`Ir para imagem ${idx + 1}`}
-              className={`h-px w-8 transition-all ${idx === i ? "bg-white" : "bg-white/35"}`}
-            />
-          ))}
-        </div>
+    <div className="relative mt-10 md:mt-12 max-w-xl">
+      <div className="grid grid-cols-3 bg-black/45 backdrop-blur-md border border-[var(--silver)]/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+        {HERO_METRICS.map((m, i) => (
+          <div
+            key={m.label}
+            className={`px-3 py-5 sm:px-6 sm:py-6 text-center ${i > 0 ? "border-l border-[var(--silver)]/15" : ""}`}
+          >
+            <div className="font-serif text-lg sm:text-2xl font-light text-white leading-none">{m.value}</div>
+            <div className="mt-2 text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.26em] text-white/55 leading-relaxed">
+              {m.label}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
 }
+
 
 
 
