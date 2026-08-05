@@ -722,38 +722,92 @@ function Academy() {
   );
 }
 
+const UNITS = [
+  {
+    city: "Uberlândia",
+    state: "MG",
+    text: "Um espaço moderno e acolhedor para harmonização facial estratégica com segurança, naturalidade e alto padrão.",
+    images: [clinicUdi, unitUdi2, unitUdi3, unitUdi4],
+  },
+  {
+    city: "São Paulo",
+    state: "SP",
+    text: "Uma unidade pensada para oferecer atendimento premium, estrutura sofisticada e uma jornada estética personalizada.",
+    images: [clinicSp, unitSp2, unitSp3, unitSp4],
+  },
+];
+
+function UnitMarquee({ images, city, duration }: { images: string[]; city: string; duration: number }) {
+  const loop = [...images, ...images];
+  return (
+    <div className="marquee relative overflow-hidden">
+      <div className="marquee-track flex gap-4 md:gap-6" style={{ animationDuration: `${duration}s` }}>
+        {loop.map((src, i) => (
+          <div
+            key={`${city}-${i}`}
+            className="relative shrink-0 w-[76vw] sm:w-[46vw] lg:w-[30vw] xl:w-[26rem] aspect-[4/3] overflow-hidden rounded-[2px] border border-[var(--silver)]/15"
+          >
+            <img
+              src={src}
+              alt={`Unidade YOUR·REFINE ${city}`}
+              loading="lazy"
+              width={1200}
+              height={900}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-background to-transparent" />
+    </div>
+  );
+}
+
 function Clinics() {
-  const units = [
-    { city: "São Paulo", state: "SP", img: clinicSp, text: "Uma unidade pensada para oferecer atendimento premium, estrutura sofisticada e uma jornada estética personalizada." },
-    { city: "Uberlândia", state: "MG", img: clinicUdi, text: "Um espaço moderno e acolhedor para harmonização facial estratégica com segurança, naturalidade e alto padrão." },
-  ];
   return (
     <section id="unidades" className="relative py-28 md:py-40">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="max-w-3xl mb-16">
           <SectionLabel>Unidades</SectionLabel>
           <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
-            Duas unidades. <em className="silver-text not-italic">A mesma experiência</em> de refinamento.
+            Nossos <em className="silver-text not-italic">espaços</em>.
           </h2>
           <p className="mt-8 text-foreground/65 text-base md:text-lg font-light">
-            A YOUR·REFINE conta com espaços preparados para oferecer conforto, segurança e uma experiência estética de alto padrão.
+            Ambientes pensados para oferecer conforto, sofisticação e uma experiência alinhada
+            ao padrão YOUR·REFINE.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {units.map((u) => (
-            <article key={u.city} className="group relative">
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <img src={u.img} alt={`Clínica YOUR·REFINE ${u.city}`} loading="lazy" className="w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-105" width={1200} height={900} />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10">
-                  <div className="text-[10px] uppercase tracking-[0.4em] text-foreground/70 mb-2">Unidade</div>
-                  <h3 className="font-serif text-4xl md:text-5xl font-light">
-                    {u.city} <span className="silver-text text-2xl md:text-3xl">— {u.state}</span>
-                  </h3>
-                </div>
+      </div>
+
+      <div className="space-y-20 md:space-y-24">
+        {UNITS.map((u, idx) => (
+          <div key={u.city}>
+            <div className="mx-auto max-w-[1400px] px-6 md:px-10 mb-7 flex flex-wrap items-end justify-between gap-5">
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.4em] text-foreground/50 mb-3">Unidade</div>
+                <h3 className="font-serif text-3xl md:text-4xl font-light">
+                  {u.city} <span className="silver-text text-xl md:text-2xl">— {u.state}</span>
+                </h3>
+                <p className="mt-4 max-w-xl text-sm md:text-base text-foreground/60 font-light leading-relaxed">{u.text}</p>
               </div>
-              <div className="mt-8 grid md:grid-cols-5 gap-6 items-start">
-                <p className="md:col-span-3 text-foreground/65 font-light leading-relaxed">{u.text}</p>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-4 text-[10px] uppercase tracking-[0.3em] border border-[var(--silver)]/35 hover:border-[var(--silver)]/80 transition-colors"
+              >
+                Agendar nesta unidade <span aria-hidden>→</span>
+              </a>
+            </div>
+            <UnitMarquee images={u.images} city={u.city} duration={idx === 0 ? 70 : 82} />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
                 <a href={WHATSAPP} target="_blank" rel="noreferrer" className="md:col-span-2 btn-silver relative inline-flex justify-center px-6 py-4 text-[10px] uppercase tracking-[0.3em] hover:text-background">
                   Agendar nesta unidade
                 </a>
