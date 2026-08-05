@@ -276,20 +276,39 @@ html, body {
 .proc-card .proc-media img { transition: transform 1.2s ease; }
 .proc-card:hover .proc-media img { transform: scale(1.04); }
 
-/* Escuros */
-.proc-dark {
-  background: var(--graphite);
-  border: 1px solid rgba(255,255,255,0.08);
-  color: var(--foreground);
+/* Marquee contínuo das unidades */
+.marquee-track {
+  width: max-content;
+  animation-name: marquee-left;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
 }
-.proc-dark:hover { border-color: rgba(184,184,184,0.45); }
-.proc-dark .proc-title { color: var(--foreground); }
-.proc-dark .proc-desc { color: color-mix(in oklab, var(--foreground) 72%, transparent); }
-.proc-dark .proc-benefit { color: color-mix(in oklab, var(--foreground) 62%, transparent); }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@keyframes marquee-left {
+  from { transform: translate3d(0,0,0); }
+  to { transform: translate3d(calc(-50% - 0.75rem), 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+}
+
+/* Gerais — prateado escuro / grafite metálico */
+.proc-dark {
+  background: linear-gradient(178deg, #2b2d31 0%, #232529 48%, #1c1e21 100%);
+  border: 1px solid rgba(212,212,212,0.18);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  color: #f2f2f2;
+}
+.proc-dark:hover { border-color: rgba(212,212,212,0.5); }
+.proc-dark .proc-title { color: #f6f6f6; }
+.proc-dark .proc-desc { color: rgba(242,242,242,0.74); }
+.proc-dark .proc-benefit { color: rgba(242,242,242,0.62); }
 .proc-dark .proc-rule { background: var(--silver); }
-.proc-dark .proc-cta { color: color-mix(in oklab, var(--foreground) 78%, transparent); border-top: 1px solid rgba(255,255,255,0.10); }
-.proc-dark:hover .proc-cta { color: var(--foreground); }
+.proc-dark .proc-cta { color: rgba(242,242,242,0.82); border-top: 1px solid rgba(212,212,212,0.14); }
+.proc-dark:hover .proc-cta { color: #fff; }
 .proc-dark .proc-num { color: var(--silver); }
+
 
 .light .proc-dark { background: #141416; color: #f2f2f2; border-color: rgba(255,255,255,0.10); }
 .light .proc-dark .proc-title { color: #f5f5f5; }
