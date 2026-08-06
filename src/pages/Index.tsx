@@ -274,8 +274,21 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[100svh] flex flex-col md:flex-row md:items-center justify-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(212,212,212,0.10),transparent_62%)]" />
+    <section id="inicio" className="relative min-h-[100svh] flex flex-col justify-end md:flex-row md:items-center md:justify-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
+      {/* Retrato Dr. Múcio — mobile em tela cheia */}
+      <div className="md:hidden absolute inset-0 z-0">
+        <img
+          src={heroMucio1.url}
+          alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
+          className="w-full h-full object-cover object-[55%_10%] contrast-[1.06] saturate-[0.92]"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/70 to-transparent" />
+      </div>
+
+      {/* Destaque radial — desktop */}
+      <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(212,212,212,0.10),transparent_62%)]" />
 
       {/* Retrato Dr. Múcio — desktop */}
       <div className="hidden md:block absolute inset-y-0 right-[-12%] w-[72%] lg:w-[54%] xl:w-[50%]">
@@ -291,20 +304,8 @@ function Hero() {
         <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background to-transparent" />
       </div>
 
-      <div className="relative w-full mx-auto max-w-[1400px] px-6 md:px-10">
+      <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="max-w-xl lg:max-w-[46rem] fade-up">
-          {/* Retrato Dr. Múcio — mobile (acima do H1) */}
-          <div className="md:hidden relative w-full max-w-[15rem] sm:max-w-[18rem] aspect-[3/4] mx-auto mb-8 overflow-hidden">
-            <img
-              src={heroMucio1.url}
-              alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
-              className="w-full h-full object-cover object-top contrast-[1.06] saturate-[0.92]"
-              fetchPriority="high"
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
-          </div>
-
           <div className="flex items-center gap-3 mb-7">
             <div className="w-12 h-px bg-foreground/40" />
             <span className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
@@ -317,7 +318,7 @@ function Hero() {
             <em className="silver-text not-italic">estratégica</em>
           </h1>
 
-          <p className="mt-8 max-w-lg text-[15px] md:text-lg text-foreground/70 leading-relaxed font-light">
+          <p className="mt-8 max-w-lg text-[15px] md:text-lg text-foreground/80 leading-relaxed font-light">
             Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
             Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
             técnica e visão estética avançada.
