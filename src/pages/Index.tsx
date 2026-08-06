@@ -444,7 +444,7 @@ function Treatments() {
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className={"proc-card group " + (t.exclusive ? "proc-exclusive" : "proc-dark")}
+              className={"proc-card group " + (t.exclusive ? "proc-standard" : "proc-highlight")}
             >
               <div className="proc-media aspect-[4/5]">
                 <img
