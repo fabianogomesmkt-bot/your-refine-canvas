@@ -270,7 +270,24 @@ html, body {
 }
 
 /* ─── Cards de procedimentos — família visual única ─── */
-.proc-card { display: flex; flex-direction: column; transition: border-color .5s ease, transform .5s ease; }
+.proc-card {
+  display: flex;
+  flex-direction: column;
+  transition: border-color .5s ease, transform .5s ease, box-shadow .5s ease;
+  position: relative;
+}
+
+/* Brilho ambiente sutil no topo de cada card */
+.proc-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(220,220,225,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 100% 0%, rgba(212,212,212,0.06) 0%, transparent 45%);
+  opacity: 0.85;
+}
 
 .proc-card .proc-media { position: relative; overflow: hidden; }
 .proc-card .proc-media img { transition: transform 1.2s ease; }
@@ -293,40 +310,56 @@ html, body {
   .marquee-track { animation: none; }
 }
 
-/* Gerais — prateado escuro / grafite metálico */
+/* Gerais — preto/grafite com profundidade e brilho prata discreto */
 .proc-dark {
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(212,212,212,0.10) 0%, transparent 60%),
-    linear-gradient(178deg, #191b1e 0%, #141518 55%, #101113 100%);
-  border: 1px solid rgba(198,198,206,0.16);
+    radial-gradient(ellipse at 50% 0%, rgba(225,225,230,0.16) 0%, transparent 58%),
+    radial-gradient(ellipse at 80% 10%, rgba(212,212,212,0.08) 0%, transparent 40%),
+    linear-gradient(178deg, #232529 0%, #1a1b1f 35%, #131417 70%, #0f1013 100%);
+  border: 1px solid rgba(210,210,218,0.22);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.07),
-    inset 0 -40px 60px -40px rgba(212,212,212,0.10),
-    0 24px 60px -30px rgba(0,0,0,0.85);
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -1px 0 rgba(255,255,255,0.03),
+    inset 0 -40px 70px -40px rgba(212,212,212,0.10),
+    0 28px 70px -32px rgba(0,0,0,0.9),
+    0 0 0 1px rgba(0,0,0,0.35);
   color: #f2f2f2;
 }
 .proc-dark:hover {
-  border-color: rgba(212,212,212,0.42);
+  border-color: rgba(220,220,228,0.42);
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.10),
-    inset 0 -40px 70px -40px rgba(212,212,212,0.16),
-    0 30px 70px -30px rgba(0,0,0,0.9);
+    inset 0 1px 0 rgba(255,255,255,0.13),
+    inset 0 -1px 0 rgba(255,255,255,0.04),
+    inset 0 -45px 80px -45px rgba(212,212,212,0.14),
+    0 34px 80px -34px rgba(0,0,0,0.95),
+    0 0 0 1px rgba(0,0,0,0.40);
+  transform: translateY(-3px);
 }
 
-.proc-dark .proc-title { color: #f6f6f6; }
-.proc-dark .proc-desc { color: rgba(242,242,242,0.74); }
-.proc-dark .proc-benefit { color: rgba(242,242,242,0.62); }
-.proc-dark .proc-rule { background: var(--silver); }
-.proc-dark .proc-cta { color: rgba(242,242,242,0.82); border-top: 1px solid rgba(212,212,212,0.14); }
+.proc-dark .proc-title { color: #f8f8f8; }
+.proc-dark .proc-desc { color: rgba(242,242,242,0.76); }
+.proc-dark .proc-benefit { color: rgba(242,242,242,0.64); }
+.proc-dark .proc-rule { background: linear-gradient(90deg, #c4c4c4, #8a8a8a); }
+.proc-dark .proc-cta { color: rgba(242,242,242,0.86); border-top: 1px solid rgba(212,212,212,0.18); }
 .proc-dark:hover .proc-cta { color: #fff; }
-.proc-dark .proc-num { color: var(--silver); }
+.proc-dark .proc-num { color: #d4d4d8; }
 
 
-.light .proc-dark { background: #141416; color: #f2f2f2; border-color: rgba(255,255,255,0.10); }
+.light .proc-dark {
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.35) 0%, transparent 55%),
+    linear-gradient(178deg, #2a2b2f 0%, #1f2024 45%, #18191c 100%);
+  color: #f2f2f2;
+  border-color: rgba(255,255,255,0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 28px 70px -32px rgba(0,0,0,0.85);
+}
+.light .proc-dark:hover { border-color: rgba(255,255,255,0.32); }
 .light .proc-dark .proc-title { color: #f5f5f5; }
-.light .proc-dark .proc-desc { color: rgba(242,242,242,0.72); }
+.light .proc-dark .proc-desc { color: rgba(242,242,242,0.74); }
 .light .proc-dark .proc-benefit { color: rgba(242,242,242,0.62); }
-.light .proc-dark .proc-cta { color: rgba(242,242,242,0.8); }
+.light .proc-dark .proc-cta { color: rgba(242,242,242,0.84); }
 
 /* Exclusivos Your Refine® — prata premium */
 .proc-exclusive {
