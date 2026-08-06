@@ -274,11 +274,11 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[100svh] flex items-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
+    <section id="inicio" className="relative min-h-[100svh] flex flex-col md:flex-row md:items-center justify-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(212,212,212,0.10),transparent_62%)]" />
 
-      {/* Retrato Dr. Múcio */}
-      <div className="absolute inset-y-0 right-[-12%] w-[92%] sm:right-0 sm:w-[72%] lg:w-[54%] xl:w-[50%]">
+      {/* Retrato Dr. Múcio — desktop */}
+      <div className="hidden md:block absolute inset-y-0 right-[-12%] w-[72%] lg:w-[54%] xl:w-[50%]">
         <img
           src={heroMucio1.url}
           alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
@@ -291,11 +291,20 @@ function Hero() {
         <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background to-transparent" />
       </div>
 
-      {/* Degradê de leitura no mobile */}
-      <div className="absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-background via-background/85 to-transparent lg:hidden" />
-
       <div className="relative w-full mx-auto max-w-[1400px] px-6 md:px-10">
         <div className="max-w-xl lg:max-w-[46rem] fade-up">
+          {/* Retrato Dr. Múcio — mobile (acima do H1) */}
+          <div className="md:hidden relative w-full max-w-[15rem] sm:max-w-[18rem] aspect-[3/4] mx-auto mb-8 overflow-hidden">
+            <img
+              src={heroMucio1.url}
+              alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
+              className="w-full h-full object-cover object-top contrast-[1.06] saturate-[0.92]"
+              fetchPriority="high"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-transparent to-background/40" />
+          </div>
+
           <div className="flex items-center gap-3 mb-7">
             <div className="w-12 h-px bg-foreground/40" />
             <span className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
@@ -303,7 +312,7 @@ function Hero() {
             </span>
           </div>
 
-          <h1 className="font-serif text-[clamp(3rem,7.5vw,5.5rem)] leading-[0.98] font-light tracking-tight">
+          <h1 className="font-serif text-[clamp(3.2rem,8.5vw,5.5rem)] leading-[0.98] font-light tracking-tight">
             Harmonização facial<br />
             <em className="silver-text not-italic">estratégica</em>
           </h1>
