@@ -276,84 +276,74 @@ function Hero() {
   return (
     <section
       id="inicio"
-      className="relative min-h-[100svh] flex items-end md:items-center grain overflow-hidden bg-background"
+      className="relative grain overflow-hidden bg-background pt-28 md:pt-36 pb-16 md:pb-24"
     >
-      {/* Camada 1 — imagem de fundo editorial em P&B */}
-      <div className="absolute inset-0 z-0">
-        {/* mobile: recorte no rosto, deslocado à direita */}
-        <img
-          src={heroMucio1.url}
-          alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
-          className="md:hidden w-full h-full object-cover object-[68%_14%] grayscale contrast-[1.12] brightness-[0.92]"
-          fetchPriority="high"
-        />
-        {/* desktop: enquadramento amplo, protagonista à direita */}
-        <img
-          src={heroMucio1.url}
-          alt=""
-          aria-hidden
-          className="hidden md:block w-full h-full object-cover object-[72%_18%] grayscale contrast-[1.1] brightness-[0.95]"
-          fetchPriority="high"
-        />
-      </div>
+      {/* brilho ambiente sutil */}
+      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(212,212,212,0.10)_0%,transparent_60%)]" />
 
-      {/* Camada 2 — overlays de leitura (safe areas) */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        {/* topo: protege logo e menu */}
-        <div className="absolute inset-x-0 top-0 h-40 md:h-32 bg-gradient-to-b from-black/85 via-black/40 to-transparent" />
-        {/* desktop: coluna de leitura à esquerda */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/92 via-black/55 to-transparent" />
-        <div className="hidden md:block absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
-        {/* mobile: degradê reforçado só na área do conteúdo */}
-        <div className="md:hidden absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-black via-black/85 to-transparent" />
-        {/* vinheta sutil premium */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_35%,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
-      </div>
-
-      {/* Camada 3 — conteúdo */}
-      <div className="relative z-20 w-full mx-auto max-w-[1400px] px-6 md:px-10 pb-14 pt-40 md:py-32">
-        <div className="max-w-xl lg:max-w-[42rem] fade-up">
-          <div className="flex items-center gap-3 mb-6 md:mb-7">
-            <div className="w-12 h-px bg-white/45" />
-            <span className="text-[10px] uppercase tracking-[0.34em] text-white/65">
-              Dr. Múcio | Harmonização Facial
-            </span>
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+          {/* Foto — topo no mobile, coluna direita no desktop */}
+          <div className="md:col-span-5 md:order-2 fade-up">
+            <figure className="relative">
+              <div className="absolute -inset-3 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,212,212,0.16)_0%,transparent_70%)] pointer-events-none" />
+              <div className="relative overflow-hidden border border-[var(--silver)]/25 bg-[#0d0d0f] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
+                <img
+                  src={heroMucio1.url}
+                  alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
+                  className="w-full aspect-[4/5] object-cover object-[50%_18%] grayscale contrast-[1.08] brightness-[0.97]"
+                  fetchPriority="high"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.35),transparent_45%)]" />
+              </div>
+            </figure>
           </div>
 
-          <h1 className="font-serif text-[clamp(3rem,8.5vw,5.25rem)] leading-[0.98] font-light tracking-tight text-white">
-            Harmonização facial<br />
-            <em className="silver-text not-italic">estratégica</em>
-          </h1>
+          {/* Texto */}
+          <div className="md:col-span-7 md:order-1 fade-up">
+            <div className="flex items-center gap-3 mb-6 md:mb-7">
+              <div className="w-12 h-px bg-white/45" />
+              <span className="text-[10px] uppercase tracking-[0.34em] text-white/65">
+                Dr. Múcio | Harmonização Facial
+              </span>
+            </div>
 
-          <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-white/75 leading-relaxed font-light">
-            Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
-            Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
-            técnica e visão estética avançada.
-          </p>
+            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-white">
+              Harmonização facial<br />
+              <em className="silver-text not-italic">estratégica</em>
+            </h1>
 
-          <div className="relative mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-            <a
-              href={WHATSAPP}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] bg-[linear-gradient(135deg,#f2f2f2_0%,#c9c9c9_50%,#ededed_100%)] hover:bg-[linear-gradient(135deg,#ffffff_0%,#dcdcdc_50%,#ffffff_100%)] transition-all duration-500"
-            >
-              Agendar avaliação <span aria-hidden>→</span>
-            </a>
-            <a
-              href="#metodo"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-white/90 border border-[var(--silver)]/40 bg-black/35 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-white transition-all duration-500"
-            >
-              Conhecer o método <span aria-hidden>→</span>
-            </a>
+            <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-white/75 leading-relaxed font-light">
+              Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
+              Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
+              técnica e visão estética avançada.
+            </p>
+
+            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] bg-[linear-gradient(135deg,#f2f2f2_0%,#c9c9c9_50%,#ededed_100%)] hover:bg-[linear-gradient(135deg,#ffffff_0%,#dcdcdc_50%,#ffffff_100%)] transition-all duration-500"
+              >
+                Agendar avaliação <span aria-hidden>→</span>
+              </a>
+              <a
+                href="#metodo"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-white/90 border border-[var(--silver)]/40 bg-black/35 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-white transition-all duration-500"
+              >
+                Conhecer o método <span aria-hidden>→</span>
+              </a>
+            </div>
+
+            <HeroMetrics />
           </div>
-
-          <HeroMetrics />
         </div>
       </div>
     </section>
   );
 }
+
 
 
 const HERO_METRICS = [
