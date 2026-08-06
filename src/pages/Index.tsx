@@ -294,19 +294,20 @@ function Hero() {
                   className="w-full aspect-[4/5] object-cover object-[50%_18%] grayscale contrast-[1.08] brightness-[0.97]"
                   fetchPriority="high"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.35),transparent_45%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.65),transparent_45%)]" />
+                <figcaption className="pointer-events-none absolute left-5 right-5 bottom-5 flex items-center gap-3">
+                  <div className="w-10 h-px bg-white/45 shrink-0" />
+                  <span className="text-[10px] uppercase tracking-[0.34em] text-white/80">
+                    Dr. Múcio | Harmonização Facial
+                  </span>
+                </figcaption>
               </div>
             </figure>
           </div>
 
           {/* Texto */}
           <div className="md:col-span-7 md:order-1 fade-up">
-            <div className="flex items-center gap-3 mb-6 md:mb-7">
-              <div className="w-12 h-px bg-white/45" />
-              <span className="text-[10px] uppercase tracking-[0.34em] text-white/65">
-                Dr. Múcio | Harmonização Facial
-              </span>
-            </div>
+
 
             <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-white">
               Harmonização facial<br />
