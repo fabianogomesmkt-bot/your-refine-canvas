@@ -295,12 +295,24 @@ html, body {
 
 /* Gerais — prateado escuro / grafite metálico */
 .proc-dark {
-  background: linear-gradient(178deg, #2b2d31 0%, #232529 48%, #1c1e21 100%);
-  border: 1px solid rgba(212,212,212,0.18);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(212,212,212,0.10) 0%, transparent 60%),
+    linear-gradient(178deg, #191b1e 0%, #141518 55%, #101113 100%);
+  border: 1px solid rgba(198,198,206,0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    inset 0 -40px 60px -40px rgba(212,212,212,0.10),
+    0 24px 60px -30px rgba(0,0,0,0.85);
   color: #f2f2f2;
 }
-.proc-dark:hover { border-color: rgba(212,212,212,0.5); }
+.proc-dark:hover {
+  border-color: rgba(212,212,212,0.42);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.10),
+    inset 0 -40px 70px -40px rgba(212,212,212,0.16),
+    0 30px 70px -30px rgba(0,0,0,0.9);
+}
+
 .proc-dark .proc-title { color: #f6f6f6; }
 .proc-dark .proc-desc { color: rgba(242,242,242,0.74); }
 .proc-dark .proc-benefit { color: rgba(242,242,242,0.62); }
