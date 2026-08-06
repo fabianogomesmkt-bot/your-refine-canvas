@@ -274,57 +274,64 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative min-h-[100svh] flex flex-col justify-end md:flex-row md:items-center md:justify-center pt-28 pb-16 md:pt-32 grain overflow-hidden bg-background">
-      {/* Retrato Dr. Múcio — mobile em tela cheia */}
-      <div className="md:hidden absolute inset-0 z-0">
+    <section
+      id="inicio"
+      className="relative min-h-[100svh] flex items-end md:items-center grain overflow-hidden bg-background"
+    >
+      {/* Camada 1 — imagem de fundo editorial em P&B */}
+      <div className="absolute inset-0 z-0">
+        {/* mobile: recorte no rosto, deslocado à direita */}
         <img
           src={heroMucio1.url}
           alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
-          className="w-full h-full object-cover object-[55%_10%] contrast-[1.06] saturate-[0.92]"
+          className="md:hidden w-full h-full object-cover object-[68%_14%] grayscale contrast-[1.12] brightness-[0.92]"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/85 to-transparent" />
-        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-background via-background/70 to-transparent" />
-      </div>
-
-      {/* Destaque radial — desktop */}
-      <div className="hidden md:block absolute inset-0 bg-[radial-gradient(ellipse_at_75%_25%,rgba(212,212,212,0.10),transparent_62%)]" />
-
-      {/* Retrato Dr. Múcio — desktop */}
-      <div className="hidden md:block absolute inset-y-0 right-[-12%] w-[72%] lg:w-[54%] xl:w-[50%]">
+        {/* desktop: enquadramento amplo, protagonista à direita */}
         <img
           src={heroMucio1.url}
-          alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
-          className="w-full h-full object-cover object-[62%_18%] contrast-[1.06] saturate-[0.92]"
+          alt=""
+          aria-hidden
+          className="hidden md:block w-full h-full object-cover object-[72%_18%] grayscale contrast-[1.1] brightness-[0.95]"
           fetchPriority="high"
         />
-        {/* integração com o fundo */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent lg:via-background/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/70" />
-        <div className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-background to-transparent" />
       </div>
 
-      <div className="relative z-10 w-full mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="max-w-xl lg:max-w-[46rem] fade-up">
-          <div className="flex items-center gap-3 mb-7">
-            <div className="w-12 h-px bg-foreground/40" />
-            <span className="text-[10px] uppercase tracking-[0.34em] text-foreground/60">
+      {/* Camada 2 — overlays de leitura (safe areas) */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {/* topo: protege logo e menu */}
+        <div className="absolute inset-x-0 top-0 h-40 md:h-32 bg-gradient-to-b from-black/85 via-black/40 to-transparent" />
+        {/* desktop: coluna de leitura à esquerda */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-black/92 via-black/55 to-transparent" />
+        <div className="hidden md:block absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black/70 to-transparent" />
+        {/* mobile: degradê reforçado só na área do conteúdo */}
+        <div className="md:hidden absolute inset-x-0 bottom-0 h-[62%] bg-gradient-to-t from-black via-black/85 to-transparent" />
+        {/* vinheta sutil premium */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_35%,transparent_35%,rgba(0,0,0,0.45)_100%)]" />
+      </div>
+
+      {/* Camada 3 — conteúdo */}
+      <div className="relative z-20 w-full mx-auto max-w-[1400px] px-6 md:px-10 pb-14 pt-40 md:py-32">
+        <div className="max-w-xl lg:max-w-[42rem] fade-up">
+          <div className="flex items-center gap-3 mb-6 md:mb-7">
+            <div className="w-12 h-px bg-white/45" />
+            <span className="text-[10px] uppercase tracking-[0.34em] text-white/65">
               Dr. Múcio | Harmonização Facial
             </span>
           </div>
 
-          <h1 className="font-serif text-[clamp(3.2rem,8.5vw,5.5rem)] leading-[0.98] font-light tracking-tight">
+          <h1 className="font-serif text-[clamp(3rem,8.5vw,5.25rem)] leading-[0.98] font-light tracking-tight text-white">
             Harmonização facial<br />
             <em className="silver-text not-italic">estratégica</em>
           </h1>
 
-          <p className="mt-8 max-w-lg text-[15px] md:text-lg text-foreground/80 leading-relaxed font-light">
+          <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-white/75 leading-relaxed font-light">
             Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
             Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
             técnica e visão estética avançada.
           </p>
 
-          <div className="relative mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+          <div className="relative mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <a
               href={WHATSAPP}
               target="_blank"
@@ -335,7 +342,7 @@ function Hero() {
             </a>
             <a
               href="#metodo"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/90 border border-[var(--silver)]/40 bg-black/30 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-foreground transition-all duration-500"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-white/90 border border-[var(--silver)]/40 bg-black/35 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-white transition-all duration-500"
             >
               Conhecer o método <span aria-hidden>→</span>
             </a>
@@ -347,6 +354,7 @@ function Hero() {
     </section>
   );
 }
+
 
 const HERO_METRICS = [
   { value: "+2.000", label: "Pacientes atendidos" },
