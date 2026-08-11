@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import logoAsset from "../assets/logo.png.asset.json";
+import BeforeAfterResults from "../components/BeforeAfterResults";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
-import heroMucio2 from "../assets/hero-mucio-2.jpg.asset.json";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import unitUdi2 from "../assets/unit-udi-2.jpg";
@@ -174,12 +174,11 @@ function Index() {
       <Hero />
       <Method />
       <Treatments />
-      <Results />
+      <BeforeAfterResults />
       <Doctor />
       <Testimonials />
       <Academy />
       <Clinics />
-      <Location />
       <CTAFinal />
       <Footer />
       <WhatsAppFloat />
@@ -497,47 +496,6 @@ function Treatments() {
 }
 
 
-function Results() {
-  return (
-    <section id="resultados" className="relative py-28 md:py-40">
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="max-w-3xl mb-16">
-          <SectionLabel>Resultados</SectionLabel>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
-            Resultados que respeitam <em className="silver-text not-italic">a sua identidade</em>.
-          </h2>
-          <p className="mt-8 text-foreground/65 text-base md:text-lg font-light max-w-xl">
-            Antes de qualquer procedimento, existe uma estratégia. Depois, um resultado que valoriza o que você já tem de mais bonito.
-          </p>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {RESULTS.map((label, i) => (
-            <figure key={label} className="group relative">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <div className="absolute inset-0 silver-border opacity-40 z-10 pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] via-[#0a0a0a] to-[#222] flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
-                  <div className="text-center px-6">
-                    <div className="font-serif text-5xl silver-text mb-2">{String(i + 1).padStart(2, "0")}</div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/40">Inserir antes & depois real</div>
-                  </div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
-              </div>
-              <figcaption className="mt-5 flex items-center justify-between">
-                <span className="font-serif text-lg font-light">{label}</span>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-foreground/40">Antes / Depois</span>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-        <p className="mt-16 text-[11px] uppercase tracking-[0.25em] text-foreground/45 text-center max-w-2xl mx-auto leading-relaxed">
-          Cada paciente responde de forma individual. Os resultados podem variar e a avaliação profissional é indispensável.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 function Doctor() {
   return (
     <section id="dr-mucio" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
@@ -570,36 +528,6 @@ function Doctor() {
             <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
           </blockquote>
 
-          <div className="mt-16 grid md:grid-cols-2 gap-5 max-w-3xl">
-            <figure className="relative group">
-              <div className="relative aspect-[4/5] overflow-hidden silver-border">
-                <img
-                  src={heroMucio1.url}
-                  alt="Dr. Múcio Carvalho — retrato editorial YOUR·REFINE"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <figcaption className="mt-4 flex items-center gap-3">
-                <div className="w-6 h-px bg-[var(--silver)]" />
-                <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">Dr. Múcio Carvalho</span>
-              </figcaption>
-            </figure>
-            <figure className="relative group md:mt-10">
-              <div className="relative aspect-[4/5] overflow-hidden silver-border">
-                <img
-                  src={heroMucio2.url}
-                  alt="Dr. Múcio Carvalho — direção clínica da YOUR·REFINE"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover object-[50%_25%] contrast-[1.08] saturate-[0.95] transition-transform duration-700 group-hover:scale-[1.03]"
-                />
-              </div>
-              <figcaption className="mt-4 flex items-center gap-3">
-                <div className="w-6 h-px bg-[var(--silver)]" />
-                <span className="text-[10px] uppercase tracking-[0.25em] text-foreground/50">Your Refine Method®</span>
-              </figcaption>
-            </figure>
-          </div>
         </div>
       </div>
     </section>
@@ -824,53 +752,6 @@ function Clinics() {
 }
 
 
-
-function Location() {
-  const units = [
-    { city: "São Paulo — SP", addr: "Inserir endereço completo", maps: "https://maps.google.com/?q=São+Paulo" },
-    { city: "Uberlândia — MG", addr: "Inserir endereço completo", maps: "https://maps.google.com/?q=Uberlândia" },
-  ];
-  return (
-    <section id="localizacao" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
-      <div className="hairline mb-20" />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="max-w-3xl mb-16">
-          <SectionLabel>Localização</SectionLabel>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,4rem)] leading-[1.05] font-light">
-            Escolha a unidade <em className="silver-text not-italic">mais próxima de você</em>.
-          </h2>
-        </div>
-        <div className="grid md:grid-cols-2 gap-8">
-          {units.map((u) => (
-            <div key={u.city} className="border border-border bg-background">
-              <div className="aspect-[16/9] relative bg-[var(--graphite)] overflow-hidden">
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,#111_25%,transparent_25%,transparent_50%,#111_50%,#111_75%,transparent_75%,transparent)] bg-[length:24px_24px] opacity-30" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="font-serif text-3xl silver-text">{u.city}</div>
-                    <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/40 mt-2">Mapa interativo</div>
-                  </div>
-                </div>
-              </div>
-              <div className="p-8 md:p-10">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/50 mb-2">Endereço</div>
-                <div className="font-serif text-xl font-light mb-8">{u.addr}</div>
-                <div className="flex flex-wrap gap-3">
-                  <a href={u.maps} target="_blank" rel="noreferrer" className="inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] border border-border hover:border-[var(--silver)] hover:text-[var(--silver)] transition-colors">
-                    Abrir no Google Maps
-                  </a>
-                  <a href={WHATSAPP} target="_blank" rel="noreferrer" className="btn-silver relative inline-flex px-6 py-3 text-[10px] uppercase tracking-[0.3em] hover:text-background">
-                    Agendar pelo WhatsApp
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function CTAFinal() {
   return (
