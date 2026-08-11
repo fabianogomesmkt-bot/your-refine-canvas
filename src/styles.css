@@ -426,3 +426,7 @@ html, body {
   border-color: rgba(255,255,255,0.40);
   background: rgba(15,15,17,0.55);
 }
+
+/* Retrato do Dr. Múcio — P&B no tema escuro, colorido no tema claro */
+.hero-portrait { filter: grayscale(1) contrast(1.08) brightness(0.97); }
+.light .hero-portrait { filter: contrast(1.04) saturate(1.02); }
