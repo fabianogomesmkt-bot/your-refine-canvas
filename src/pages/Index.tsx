@@ -290,7 +290,7 @@ function Hero() {
                 <img
                   src={heroMucio1.url}
                   alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
-                  className="w-full aspect-[4/5] object-cover object-[50%_18%] grayscale contrast-[1.08] brightness-[0.97]"
+                  className="hero-portrait w-full aspect-[4/5] object-cover object-[50%_18%]"
                   fetchPriority="high"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.65),transparent_45%)]" />
@@ -308,12 +308,12 @@ function Hero() {
           <div className="md:col-span-7 md:order-1 fade-up">
 
 
-            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-white">
+            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-foreground">
               Harmonização facial<br />
               <em className="silver-text not-italic">estratégica</em>
             </h1>
 
-            <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-white/75 leading-relaxed font-light">
+            <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-foreground/75 leading-relaxed font-light">
               Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
               Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
               técnica e visão estética avançada.
@@ -330,7 +330,7 @@ function Hero() {
               </a>
               <a
                 href="#metodo"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-white/90 border border-[var(--silver)]/40 bg-black/35 backdrop-blur-sm hover:border-[var(--silver)]/90 hover:text-white transition-all duration-500"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/90 border border-[var(--silver)]/50 bg-foreground/[0.04] backdrop-blur-sm hover:border-[var(--silver)] hover:text-foreground transition-all duration-500"
               >
                 Conhecer o método <span aria-hidden>→</span>
               </a>
@@ -355,14 +355,14 @@ const HERO_METRICS = [
 function HeroMetrics() {
   return (
     <div className="relative mt-10 md:mt-12 max-w-xl">
-      <div className="grid grid-cols-3 bg-black/45 backdrop-blur-md border border-[var(--silver)]/18 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
+      <div className="grid grid-cols-3 bg-foreground/[0.05] backdrop-blur-md border border-[var(--silver)]/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
         {HERO_METRICS.map((m, i) => (
           <div
             key={m.label}
             className={`px-3 py-5 sm:px-6 sm:py-6 text-center ${i > 0 ? "border-l border-[var(--silver)]/15" : ""}`}
           >
-            <div className="font-serif text-lg sm:text-2xl font-light text-white leading-none">{m.value}</div>
-            <div className="mt-2 text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.26em] text-white/55 leading-relaxed">
+            <div className="font-serif text-lg sm:text-2xl font-light text-foreground leading-none">{m.value}</div>
+            <div className="mt-2 text-[8px] sm:text-[9px] uppercase tracking-[0.2em] sm:tracking-[0.26em] text-foreground/60 leading-relaxed">
               {m.label}
             </div>
           </div>
