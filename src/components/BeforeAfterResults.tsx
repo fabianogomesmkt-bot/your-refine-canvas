@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 import acne01Antes from "../assets/results/acne-01-antes.png.asset.json";
 import acne01Depois from "../assets/results/acne-01-depois.jpg.asset.json";
@@ -8,14 +8,18 @@ import labial01Antes from "../assets/results/labial-01-antes.jpg.asset.json";
 import labial01Depois from "../assets/results/labial-01-depois.jpg.asset.json";
 import labial02Antes from "../assets/results/labial-02-antes.jpg.asset.json";
 import labial02Depois from "../assets/results/labial-02-depois.jpg.asset.json";
+import labial03Antes from "../assets/results/labial-03-antes.jpg.asset.json";
+import labial03Depois from "../assets/results/labial-03-depois.jpg.asset.json";
 import fullface01Antes from "../assets/results/fullface-01-antes.jpg.asset.json";
 import fullface01Depois from "../assets/results/fullface-01-depois.jpg.asset.json";
+import rino01Antes from "../assets/results/rino-01-antes.jpg.asset.json";
+import rino01Depois from "../assets/results/rino-01-depois.jpg.asset.json";
+import rino02Antes from "../assets/results/rino-02-antes.jpg.asset.json";
+import rino02Depois from "../assets/results/rino-02-depois.jpg.asset.json";
 
 /**
- * Estrutura de dados — para adicionar um novo paciente basta:
- * 1. subir as imagens em src/assets/results/
- * 2. importar acima
- * 3. adicionar { label, before, after } na lista do procedimento
+ * Para adicionar um novo paciente: suba as imagens em src/assets/results/,
+ * importe acima e acrescente { label, before, after } no procedimento.
  */
 type Patient = { label: string; before: string; after: string };
 type Procedure = { id: string; name: string; patients: Patient[] };
@@ -32,7 +36,10 @@ const PROCEDURES: Procedure[] = [
   {
     id: "rino",
     name: "Rinomodelação",
-    patients: [],
+    patients: [
+      { label: "Paciente 01", before: rino01Antes.url, after: rino01Depois.url },
+      { label: "Paciente 02", before: rino02Antes.url, after: rino02Depois.url },
+    ],
   },
   {
     id: "labial",
@@ -40,111 +47,128 @@ const PROCEDURES: Procedure[] = [
     patients: [
       { label: "Paciente 01", before: labial01Antes.url, after: labial01Depois.url },
       { label: "Paciente 02", before: labial02Antes.url, after: labial02Depois.url },
+      { label: "Paciente 03", before: labial03Antes.url, after: labial03Depois.url },
     ],
   },
   {
     id: "fullface",
     name: "Full Face",
-    patients: [
-      { label: "Paciente 01", before: fullface01Antes.url, after: fullface01Depois.url },
-    ],
+    patients: [{ label: "Paciente 01", before: fullface01Antes.url, after: fullface01Depois.url }],
   },
 ];
 
-function Compare({ patient }: { patient: Patient }) {
-  const [pos, setPos] = useState(50);
-  const ref = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
-
-  useEffect(() => setPos(50), [patient.before]);
-
-  const move = useCallback((clientX: number) => {
-    const el = ref.current;
-    if (!el) return;
-    const r = el.getBoundingClientRect();
-    const p = ((clientX - r.left) / r.width) * 100;
-    setPos(Math.min(100, Math.max(0, p)));
-  }, []);
-
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => {
-      if (!dragging.current) return;
-      e.preventDefault();
-      move(e.clientX);
-    };
-    const onUp = () => (dragging.current = false);
-    window.addEventListener("pointermove", onMove, { passive: false });
-    window.addEventListener("pointerup", onUp);
-    return () => {
-      window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerup", onUp);
-    };
-  }, [move]);
-
-  const imgClass =
-    "absolute inset-0 w-full h-full object-cover object-[50%_35%] contrast-[1.04] saturate-[0.95] select-none pointer-events-none";
-
-  return (
-    <div
-      ref={ref}
-      onPointerDown={(e) => {
-        dragging.current = true;
-        move(e.clientX);
-      }}
-      className="relative w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[16/11] overflow-hidden bg-[#0b0b0d] border border-[var(--silver)]/20 cursor-ew-resize touch-none"
-    >
-      {/* ANTES — camada base */}
-      <img src={patient.before} alt={`${patient.label} — antes`} loading="lazy" className={imgClass} draggable={false} />
-      {/* DEPOIS — camada revelada */}
-      <div className="absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 0 0 ${pos}%)` }}>
-        <img src={patient.after} alt={`${patient.label} — depois`} loading="lazy" className={imgClass} draggable={false} />
-      </div>
-
-      <span className="absolute left-4 bottom-4 z-20 px-3 py-1.5 text-[9px] uppercase tracking-[0.28em] text-white/85 bg-black/55 backdrop-blur-sm border border-white/15">
-        Antes
-      </span>
-      <span className="absolute right-4 bottom-4 z-20 px-3 py-1.5 text-[9px] uppercase tracking-[0.28em] text-white/85 bg-black/55 backdrop-blur-sm border border-white/15">
-        Depois
-      </span>
-
-      {/* Linha do comparador */}
-      <div
-        className="absolute inset-y-0 z-30 w-px bg-[linear-gradient(to_bottom,transparent,rgba(255,255,255,0.95)_18%,rgba(235,235,240,0.95)_82%,transparent)] shadow-[0_0_18px_rgba(230,230,240,0.55)]"
-        style={{ left: `${pos}%` }}
-      >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 rounded-full border border-white/70 bg-black/40 backdrop-blur-md shadow-[0_0_26px_rgba(230,230,240,0.35)] flex items-center justify-center">
-          <span className="text-white/90 text-[11px] tracking-[0.1em]">‹ ›</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Arrow({ dir, onClick, disabled }: { dir: "prev" | "next"; onClick: () => void; disabled?: boolean }) {
+function BeforeAfterToggle({ showAfter, onToggle }: { showAfter: boolean; onToggle: () => void }) {
   return (
     <button
-      onClick={onClick}
-      disabled={disabled}
-      aria-label={dir === "prev" ? "Paciente anterior" : "Próximo paciente"}
-      className="h-12 w-12 shrink-0 border border-[var(--silver)]/30 bg-black/40 text-foreground/80 backdrop-blur-sm transition-colors duration-300 hover:border-[var(--silver)]/80 hover:text-foreground disabled:opacity-25 disabled:hover:border-[var(--silver)]/30"
+      onClick={onToggle}
+      aria-label={showAfter ? "Ver antes" : "Ver depois"}
+      className="relative inline-flex items-center h-8 w-[8.5rem] border border-[var(--silver)]/40 hover:border-[var(--silver)]/80 transition-colors"
     >
-      <span aria-hidden>{dir === "prev" ? "←" : "→"}</span>
+      <span
+        className="absolute top-1/2 -translate-y-1/2 h-6 transition-all duration-500"
+        style={{
+          width: "calc(50% - 0.25rem)",
+          left: showAfter ? "calc(50% + 0.125rem)" : "0.125rem",
+          background: "linear-gradient(135deg, #ededed, #6e6e6e, #ededed)",
+        }}
+      />
+      <span
+        className={`relative z-10 w-1/2 text-center text-[8px] tracking-[0.2em] transition-colors duration-500 ${
+          showAfter ? "text-white/55" : "text-[#0a0a0a]"
+        }`}
+      >
+        ANTES
+      </span>
+      <span
+        className={`relative z-10 w-1/2 text-center text-[8px] tracking-[0.2em] transition-colors duration-500 ${
+          showAfter ? "text-[#0a0a0a]" : "text-white/55"
+        }`}
+      >
+        DEPOIS
+      </span>
     </button>
   );
 }
 
-export default function BeforeAfterResults() {
-  const [procIdx, setProcIdx] = useState(0);
+function ProcedureCard({ proc }: { proc: Procedure }) {
   const [patIdx, setPatIdx] = useState(0);
-  const proc = PROCEDURES[procIdx];
-  const patients = proc.patients;
-  const patient = patients[patIdx];
+  const [showAfter, setShowAfter] = useState(false);
+  const patient = proc.patients[patIdx];
+  const many = proc.patients.length > 1;
 
-  const select = (i: number) => {
-    setProcIdx(i);
-    setPatIdx(0);
+  const go = (d: number) => {
+    setPatIdx((n) => (n + d + proc.patients.length) % proc.patients.length);
+    setShowAfter(false);
   };
 
+  return (
+    <article className="proc-card proc-standard">
+      <div className="proc-media relative aspect-[4/5]">
+        {patient ? (
+          <>
+            <img
+              src={patient.before}
+              alt={`${proc.name} — antes`}
+              loading="lazy"
+              className={`absolute inset-0 h-full w-full object-cover object-[50%_35%] transition-opacity duration-700 ${
+                showAfter ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <img
+              src={patient.after}
+              alt={`${proc.name} — depois`}
+              loading="lazy"
+              className={`absolute inset-0 h-full w-full object-cover object-[50%_35%] transition-opacity duration-700 ${
+                showAfter ? "opacity-100" : "opacity-0"
+              }`}
+            />
+            <span className="absolute left-4 top-4 z-10 px-3 py-1.5 text-[9px] uppercase tracking-[0.28em] text-white/85 bg-black/55 backdrop-blur-sm border border-white/15">
+              {showAfter ? "Depois" : "Antes"}
+            </span>
+          </>
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <span className="text-[10px] uppercase tracking-[0.32em] text-white/40">Em breve</span>
+          </div>
+        )}
+      </div>
+
+      <div className="relative z-10 p-6 md:p-7">
+        <div className="proc-rule h-px w-10 mb-5" />
+        <h3 className="proc-title font-serif text-xl md:text-2xl font-light">{proc.name}</h3>
+        {patient && (
+          <div className="proc-benefit mt-2 text-[10px] uppercase tracking-[0.3em]">
+            {patient.label} — {patIdx + 1}/{proc.patients.length}
+          </div>
+        )}
+
+        <div className="mt-6 flex items-center justify-between gap-4">
+          {patient && <BeforeAfterToggle showAfter={showAfter} onToggle={() => setShowAfter((v) => !v)} />}
+          {many && (
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => go(-1)}
+                aria-label="Paciente anterior"
+                className="h-8 w-8 border border-[var(--silver)]/30 text-white/70 hover:border-[var(--silver)]/80 hover:text-white transition-colors"
+              >
+                <span aria-hidden>←</span>
+              </button>
+              <button
+                onClick={() => go(1)}
+                aria-label="Próximo paciente"
+                className="h-8 w-8 border border-[var(--silver)]/30 text-white/70 hover:border-[var(--silver)]/80 hover:text-white transition-colors"
+              >
+                <span aria-hidden>→</span>
+              </button>
+            </div>
+          )}
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export default function BeforeAfterResults() {
   return (
     <section id="resultados" className="relative py-28 md:py-40 bg-[linear-gradient(180deg,#000_0%,#0c0c0e_45%,#000_100%)]">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -157,70 +181,19 @@ export default function BeforeAfterResults() {
             Resultados que respeitam <em className="silver-text not-italic">a sua identidade</em>.
           </h2>
           <p className="mt-8 text-white/65 text-base md:text-lg font-light">
-            Antes de qualquer procedimento, existe uma estratégia. Depois, um resultado que valoriza o que você já
-            tem de mais bonito.
+            Alterne entre antes e depois em cada procedimento e navegue pelos pacientes.
           </p>
         </div>
 
-        {/* Navegação por procedimento */}
-        <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-10">
-          {PROCEDURES.map((p, i) => (
-            <button
-              key={p.id}
-              onClick={() => select(i)}
-              className={`px-5 py-3 text-[10px] uppercase tracking-[0.28em] border transition-all duration-400 ${
-                i === procIdx
-                  ? "border-[var(--silver)]/70 text-white bg-white/[0.06]"
-                  : "border-white/12 text-white/55 hover:text-white/85 hover:border-white/30"
-              }`}
-            >
-              {p.name}
-            </button>
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
+          {PROCEDURES.map((p) => (
+            <ProcedureCard key={p.id} proc={p} />
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-center">
-          <div className="lg:col-span-12">
-            <div className="flex items-center gap-3 md:gap-5">
-              <div className="hidden sm:block">
-                <Arrow dir="prev" disabled={patients.length < 2} onClick={() => setPatIdx((n) => (n - 1 + patients.length) % patients.length)} />
-              </div>
-
-              <div className="flex-1 min-w-0">
-                {patient ? (
-                  <Compare patient={patient} />
-                ) : (
-                  <div className="w-full aspect-[4/5] sm:aspect-[4/3] lg:aspect-[16/11] border border-white/12 bg-[#0b0b0d] flex items-center justify-center">
-                    <span className="text-[10px] uppercase tracking-[0.32em] text-white/40">Resultados em breve</span>
-                  </div>
-                )}
-              </div>
-
-              <div className="hidden sm:block">
-                <Arrow dir="next" disabled={patients.length < 2} onClick={() => setPatIdx((n) => (n + 1) % patients.length)} />
-              </div>
-            </div>
-
-            <div className="mt-6 flex items-center justify-between gap-4">
-              <div>
-                <div className="font-serif text-xl md:text-2xl font-light text-white">{proc.name}</div>
-                {patient && (
-                  <div className="mt-2 text-[10px] uppercase tracking-[0.3em] text-white/45">
-                    {patient.label} — {patIdx + 1}/{patients.length}
-                  </div>
-                )}
-              </div>
-              <div className="flex sm:hidden items-center gap-3">
-                <Arrow dir="prev" disabled={patients.length < 2} onClick={() => setPatIdx((n) => (n - 1 + patients.length) % patients.length)} />
-                <Arrow dir="next" disabled={patients.length < 2} onClick={() => setPatIdx((n) => (n + 1) % patients.length)} />
-              </div>
-            </div>
-          </div>
-        </div>
-
         <p className="mt-14 text-[11px] uppercase tracking-[0.25em] text-white/40 text-center max-w-2xl mx-auto leading-relaxed">
-          Arraste a linha para comparar. Cada paciente responde de forma individual; os resultados podem variar e a
-          avaliação profissional é indispensável.
+          Cada paciente responde de forma individual; os resultados podem variar e a avaliação profissional é
+          indispensável.
         </p>
       </div>
     </section>
