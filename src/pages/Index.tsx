@@ -4,6 +4,7 @@ import BeforeAfterResults from "../components/BeforeAfterResults";
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
+import heroMucio2 from "../assets/hero-mucio-2.jpg.asset.json";
 import academyProfileImg from "../assets/academy-profile.png.asset.json";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
@@ -503,33 +504,58 @@ function Doctor() {
   return (
     <section id="dr-mucio" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
-      <div className="mx-auto max-w-[1400px] px-6 md:px-10 grid lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-10 lg:col-start-2">
+      <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          <SectionLabel>Dr. Múcio Carvalho</SectionLabel>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] font-light">
-            Ciência, estética e <em className="silver-text not-italic">visão autoral</em>.
-          </h2>
-          <div className="mt-10 space-y-5 text-foreground/70 font-light leading-relaxed max-w-2xl">
-            <p>
-              Dr. Múcio Carvalho é natural de Uberlândia, Minas Gerais, biomédico e cirurgião-dentista, com atuação dedicada à estética facial avançada, rejuvenescimento e harmonização facial.
-            </p>
-            <p className="text-foreground/60">
-              Ao longo de sua trajetória, realizou diversas especializações voltadas para Harmonização Orofacial, aperfeiçoando técnicas que unem ciência, estética, segurança e naturalidade.
-            </p>
-            <p className="text-foreground/60">
-              Com mais de 2.000 pacientes atendidos, desenvolveu o <span className="text-foreground">Your Refine Method®</span>, um método exclusivo que combina protocolos personalizados para harmonização facial estratégica, rejuvenescimento, tratamento de cicatrizes de acne, controle do melasma, glow facial, rinomodelação e refinamento estético global da face.
-            </p>
-            <p className="text-foreground/60">
-              Sua filosofia de trabalho é baseada na individualidade de cada paciente, valorizando traços únicos e promovendo resultados sofisticados, estratégicos e naturais.
-            </p>
+          {/* Foto do Dr. Múcio — topo no mobile, direita no desktop */}
+          <div className="lg:col-span-5 lg:col-start-8 lg:order-2 fade-up">
+            <figure className="relative">
+              <div className="absolute -inset-3 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,212,212,0.14)_0%,transparent_70%)] pointer-events-none" />
+              <div className="relative overflow-hidden border border-[var(--silver)]/25 bg-[#0d0d0f] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
+                <img
+                  src={heroMucio2.url}
+                  alt="Dr. Múcio Carvalho — fundador YOUR·REFINE"
+                  className="w-full aspect-[4/5] object-cover object-[50%_18%]"
+                  loading="lazy"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.55),transparent_45%)]" />
+                <figcaption className="pointer-events-none absolute left-5 right-5 bottom-5 flex items-center gap-3">
+                  <div className="w-10 h-px bg-white/45 shrink-0" />
+                  <span className="text-[10px] uppercase tracking-[0.34em] text-white/80">
+                    Dr. Múcio Carvalho
+                  </span>
+                </figcaption>
+              </div>
+            </figure>
           </div>
-          <blockquote className="mt-12 border-l border-[var(--silver)] pl-6 max-w-2xl">
-            <p className="font-serif text-xl md:text-2xl leading-relaxed font-light italic text-foreground/90">
-              "A beleza é poder. Quando uma pessoa se sente bem com sua imagem, ela transforma sua forma de viver, se posicionar e conquistar seus objetivos."
-            </p>
-            <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
-          </blockquote>
+
+          {/* Texto */}
+          <div className="lg:col-span-6 lg:col-start-1 lg:order-1">
+            <SectionLabel>Dr. Múcio Carvalho</SectionLabel>
+            <h2 className="font-serif text-[clamp(2rem,4.5vw,3.8rem)] leading-[1.05] font-light">
+              Ciência, estética e <em className="silver-text not-italic">visão autoral</em>.
+            </h2>
+            <div className="mt-10 space-y-5 text-foreground/70 font-light leading-relaxed max-w-2xl">
+              <p>
+                Dr. Múcio Carvalho é natural de Uberlândia, Minas Gerais, biomédico e cirurgião-dentista, com atuação dedicada à estética facial avançada, rejuvenescimento e harmonização facial.
+              </p>
+              <p className="text-foreground/60">
+                Ao longo de sua trajetória, realizou diversas especializações voltadas para Harmonização Orofacial, aperfeiçoando técnicas que unem ciência, estética, segurança e naturalidade.
+              </p>
+              <p className="text-foreground/60">
+                Com mais de 2.000 pacientes atendidos, desenvolveu o <span className="text-foreground">Your Refine Method®</span>, um método exclusivo que combina protocolos personalizados para harmonização facial estratégica, rejuvenescimento, tratamento de cicatrizes de acne, controle do melasma, glow facial, rinomodelação e refinamento estético global da face.
+              </p>
+              <p className="text-foreground/60">
+                Sua filosofia de trabalho é baseada na individualidade de cada paciente, valorizando traços únicos e promovendo resultados sofisticados, estratégicos e naturais.
+              </p>
+            </div>
+            <blockquote className="mt-12 border-l border-[var(--silver)] pl-6 max-w-2xl">
+              <p className="font-serif text-xl md:text-2xl leading-relaxed font-light italic text-foreground/90">
+                "A beleza é poder. Quando uma pessoa se sente bem com sua imagem, ela transforma sua forma de viver, se posicionar e conquistar seus objetivos."
+              </p>
+              <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
+            </blockquote>
+          </div>
 
         </div>
       </div>
