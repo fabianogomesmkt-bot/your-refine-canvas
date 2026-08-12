@@ -455,3 +455,4 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 .light #contato { color: #f5f5f5; }
+.light #contato { --foreground: oklch(0.96 0 0); }
