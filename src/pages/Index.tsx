@@ -4,6 +4,7 @@ import BeforeAfterResults from "../components/BeforeAfterResults";
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
+import academyProfileImg from "../assets/academy-profile.png.asset.json";
 import clinicSp from "../assets/clinic-sp.jpg";
 import clinicUdi from "../assets/clinic-udi.jpg";
 import unitUdi2 from "../assets/unit-udi-2.jpg";
