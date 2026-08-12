@@ -632,37 +632,38 @@ function Academy() {
           </div>
         </div>
 
-        {/* Esta formação é para o profissional que deseja */}
-        <div className="mb-28 academy-editorial p-6 md:p-10 lg:p-12">
-          <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-px bg-[var(--silver)]/70" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-white/60">Para o profissional que deseja</span>
-          </div>
+        {/* Esta formação é para o profissional que deseja — faixa full-bleed */}
+        <div className="academy-band relative left-1/2 -translate-x-1/2 w-screen max-w-[100vw] mb-28 py-20 md:py-28 overflow-hidden">
+          {/* Imagem fundida ao fundo */}
+          <img
+            src={academyProfileImg.url}
+            alt="Your Refine — Imagine your skin tomorrow"
+            loading="lazy"
+            className="academy-band-photo"
+          />
+          <div className="academy-band-veil" />
 
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Imagem — no mobile aparece antes dos cards */}
-            <figure className="lg:col-span-5 lg:order-2 relative overflow-hidden border border-[var(--silver)]/25">
-              <img
-                src={academyProfileImg.url}
-                alt="Your Refine — Imagine your skin tomorrow"
-                loading="lazy"
-                className="w-full h-[380px] sm:h-[520px] lg:h-full lg:min-h-[720px] object-cover object-center"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_100%,rgba(0,0,0,0.45),transparent_65%)]" />
-            </figure>
+          <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-10 h-px bg-[var(--silver)]/70" />
+              <span className="text-[10px] uppercase tracking-[0.4em] text-white/60">Para o profissional que deseja</span>
+            </div>
 
-            <div className="lg:col-span-7 lg:order-1 grid sm:grid-cols-2 gap-4 md:gap-5">
-              {ACADEMY_PROFILES.map((p, i) => (
-                <article key={p.title} className="proc-card proc-standard p-7 md:p-8">
-                  <span className="relative z-10 font-serif text-sm text-[#d4d4d8]">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="relative z-10 proc-rule h-px w-8 my-5" />
-                  <h4 className="relative z-10 font-serif text-xl md:text-[1.4rem] leading-tight font-light text-[#f8f8f8]">{p.title}</h4>
-                  <p className="relative z-10 mt-3 text-sm text-white/65 leading-relaxed font-light">{p.desc}</p>
-                </article>
-              ))}
+            <div className="grid lg:grid-cols-12 gap-x-8 gap-y-5">
+              <div className="lg:col-span-7 xl:col-span-6 grid sm:grid-cols-2 gap-4 md:gap-5">
+                {ACADEMY_PROFILES.map((p, i) => (
+                  <article key={p.title} className="academy-soft-card p-7 md:p-8 flex flex-col">
+                    <span className="relative z-10 font-serif text-sm text-[#d4d4d8]">{String(i + 1).padStart(2, "0")}</span>
+                    <div className="relative z-10 h-px w-8 my-5 bg-gradient-to-r from-[#c4c4c4] to-transparent" />
+                    <h4 className="relative z-10 font-serif text-xl md:text-[1.35rem] leading-tight font-light text-[#f8f8f8]">{p.title}</h4>
+                    <p className="relative z-10 mt-3 text-sm text-white/60 leading-relaxed font-light">{p.desc}</p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
+
 
 
         {/* Seção final */}
