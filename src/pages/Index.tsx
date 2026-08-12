@@ -782,11 +782,11 @@ function CTAFinal() {
         <SectionLabel>
           <span className="mx-auto">Contato</span>
         </SectionLabel>
-        <h2 className="font-serif text-[clamp(2.2rem,5.5vw,5rem)] leading-[1.02] font-light">
+        <h2 className="font-serif text-[clamp(2.2rem,5.5vw,5rem)] leading-[1.02] font-light text-white">
           O seu rosto não precisa de exageros.<br />
           <em className="silver-text not-italic">Precisa de estratégia.</em>
         </h2>
-        <p className="mt-10 text-foreground/75 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-10 text-white/75 text-base md:text-lg font-light max-w-2xl mx-auto leading-relaxed">
           Agende uma avaliação personalizada e descubra quais pontos podem ser refinados para valorizar sua beleza com naturalidade, equilíbrio e sofisticação.
         </p>
         <div className="mt-14 flex flex-wrap gap-4 justify-center">
