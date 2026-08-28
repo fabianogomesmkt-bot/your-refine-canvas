@@ -596,28 +596,54 @@ html, body {
 @keyframes heroPhotoIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes heroRiseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .hero-sign-in > img { opacity: 0; animation: heroRiseIn 1.2s ease 0.25s forwards; }
-.hero-invite { opacity: 0; animation: heroRiseIn 1.2s ease 0.7s forwards; }
-.hero-chevron { animation: heroChevron 2.8s ease-in-out infinite; }
-@keyframes heroChevron {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
-}
 @media (max-width: 767px) {
-  .hero-opening { min-height: 82vh; padding-top: 5.5rem; }
-  .hero-photo {
-    width: 100%;
-    inset: 0;
-    object-position: 50% 14%;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, rgba(0,0,0,0.35) 82%, transparent 100%);
-    mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, rgba(0,0,0,0.35) 82%, transparent 100%);
+  /* Mobile: foto em fluxo no topo, assinatura abaixo no início do degradê */
+  .hero-opening {
+    min-height: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
   }
-  .hero-veil {
-    background:
-      linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.10) 26%, rgba(0,0,0,0.55) 58%, var(--background) 92%);
+  .hero-photo {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 62vh;
+    object-position: 50% 14%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 56%, rgba(0,0,0,0.4) 84%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 56%, rgba(0,0,0,0.4) 84%, transparent 100%);
+  }
+  .hero-veil { display: none; }
+  .hero-content {
+    height: auto;
+    display: block;
+    margin-top: -5rem;
+    padding-bottom: 1rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-photo, .hero-sign-in > img, .hero-invite { animation: none; opacity: 1; }
-  .hero-chevron { animation: none; }
+  .hero-photo, .hero-sign-in > img { animation: none; opacity: 1; }
 }
-.light .hero-photo { filter: contrast(1.04) saturate(1.02); }
+
+/* ─── Hero sempre escura (também no modo claro) ─── */
+.light .hero-always-dark {
+  --background: oklch(0.08 0 0);
+  --foreground: oklch(0.96 0 0);
+  --silver: oklch(0.82 0.005 250);
+  --graphite: oklch(0.22 0 0);
+  --border: oklch(0.25 0 0);
+  background: oklch(0.08 0 0);
+  color: oklch(0.96 0 0);
+}
+.light .hero-always-dark .hero-portrait { filter: grayscale(1) contrast(1.08) brightness(0.97); }
+.light .hero-always-dark .silver-text {
+  background: linear-gradient(135deg, #f4f4f4 0%, #b8b8b8 30%, #ededed 50%, #8a8a8a 70%, #d4d4d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ─── Menu: sobre a hero preta, texto claro mesmo no modo light ─── */
+.light .site-header:not(.is-scrolled) { --foreground: oklch(0.96 0 0); }
+.light .site-header:not(.is-scrolled) .logo-light { display: none; }
+.light .site-header:not(.is-scrolled) .logo-dark { display: block; }

@@ -258,7 +258,7 @@ function Nav() {
   }, [theme]);
   const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "glass-nav py-3" : "py-5"}`}>
+    <header className={`site-header fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "glass-nav py-3" : "py-5"} ${scrolled || open ? "is-scrolled" : ""}`}>
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10">
         <Logo />
         <nav className="hidden xl:flex items-center gap-7">
@@ -294,7 +294,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="inicio" className="relative grain overflow-hidden bg-background">
+    <section id="inicio" className="hero-always-dark relative grain overflow-hidden bg-background">
       {/* ── Abertura editorial ── */}
       <div className="hero-opening relative">
         {/* Fotografia integrada ao fundo */}
@@ -306,38 +306,22 @@ function Hero() {
         />
         <div className="hero-veil" />
 
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 h-full flex items-end md:items-center">
+        <div className="hero-content relative z-10 mx-auto w-full max-w-[1400px] px-6 md:px-10 md:h-full flex md:items-center">
           <div className="w-full md:grid md:grid-cols-12">
-            <div className="md:col-span-6 pb-14 md:pb-0 hero-sign-in">
+            <div className="md:col-span-6 hero-sign-in">
               <img
                 src={assinatura.url}
                 alt="Assinatura Dr. Múcio Carvalho"
                 className="w-[74%] max-w-[420px] md:w-full md:max-w-[520px] select-none pointer-events-none"
                 loading="eager"
               />
-
-              <div className="mt-8 md:mt-12 flex items-start gap-4 hero-invite">
-                <div className="hidden md:block w-px h-12 bg-[var(--silver)]/40 mt-1" />
-                <div>
-                  <p className="text-[10px] md:text-[11px] uppercase tracking-[0.34em] leading-[2] text-foreground/60">
-                    Role para conhecer
-                    <br />
-                    a experiência <span className="text-foreground/90 tracking-[0.4em]">YOUR·REFINE</span>
-                  </p>
-                  <div className="mt-5 text-foreground/45 hero-chevron" aria-hidden>
-                    <svg width="16" height="26" viewBox="0 0 16 26" fill="none" stroke="currentColor" strokeWidth="1">
-                      <path d="M8 0v24M2 18l6 6 6-6" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* ── Conteúdo institucional, fluxo contínuo ── */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 pb-16 md:pb-24 -mt-4 md:-mt-10">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 pt-10 pb-16 md:pt-14 md:pb-24">
         <div className="max-w-3xl fade-up">
           <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-foreground">
             Harmonização facial<br />
