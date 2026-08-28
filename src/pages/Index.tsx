@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import logoAsset from "../assets/logo.png.asset.json";
-import BeforeAfterResults from "../components/BeforeAfterResults";
+import ProcedureResultsModal, { RESULTS_BY_PROCEDURE, hasResults } from "../components/ProcedureResults";
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
@@ -26,13 +26,19 @@ import tCollagen from "../assets/treatment-collagen.png.asset.json";
 import tBotox from "../assets/treatment-botox.png.asset.json";
 import tGlow from "../assets/treatment-glow.jpg";
 
-const WHATSAPP = "https://wa.me/5500000000000";
+const WHATSAPP = "https://wa.me/5534996335000";
+const PHONE_DISPLAY = "(34) 99633-5000";
+const PHONE_TEL = "tel:+5534996335000";
+const INSTAGRAM = [
+  { handle: "@muciocarvalho", url: "https://instagram.com/muciocarvalho" },
+  { handle: "@your.refine", url: "https://instagram.com/your.refine" },
+];
 
 export default Index;
 
 const NAV = [
   { label: "Método", href: "#metodo" },
-  { label: "Resultados reais", href: "#resultados" },
+  { label: "Procedimentos", href: "#tratamentos" },
   { label: "Dr. Múcio Carvalho", href: "#dr-mucio" },
   { label: "Academy", href: "#academy" },
 ];
@@ -54,21 +60,21 @@ const TREATMENTS: {
   exclusive?: boolean;
 }[] = [
   {
-    title: "Your Refine® — Tratamento de Cicatrizes de Acne",
+    title: "Your Refine®: Tratamento de Cicatrizes de Acne",
     image: tAcne,
     exclusive: true,
     desc: "Protocolo exclusivo e personalizado para renovação profunda da pele, redução das cicatrizes de acne e melhora progressiva da textura e do nivelamento cutâneo.",
     benefits: ["Redução das cicatrizes", "Estímulo intenso de colágeno", "Renovação celular profunda", "Melhora da textura da pele"],
   },
   {
-    title: "Your Refine Melasma® — Controle de Melasma e Manchas",
+    title: "Your Refine Melasma®: Controle de Melasma e Manchas",
     image: tMelasma,
     exclusive: true,
     desc: "Protocolo desenvolvido para controle do melasma, clareamento progressivo de manchas e melhora global da qualidade da pele.",
     benefits: ["Controle avançado do melasma", "Clareamento de manchas", "Uniformização do tom da pele", "Pele mais luminosa e saudável"],
   },
   {
-    title: "Your Refine Blefaro® — Blefaro Química",
+    title: "Your Refine Blefaro®: Blefaro Química",
     image: tBlefaro,
     exclusive: true,
     desc: "Protocolo avançado para rejuvenescimento do olhar, melhora da flacidez palpebral e renovação da pele ao redor dos olhos.",
@@ -177,7 +183,6 @@ function Index() {
       <Hero />
       <Method />
       <Treatments />
-      <BeforeAfterResults />
       <Doctor />
       <Testimonials />
       <Academy />
@@ -293,7 +298,7 @@ function Hero() {
               <div className="relative overflow-hidden border border-[var(--silver)]/25 bg-[#0d0d0f] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
                 <img
                   src={heroMucio1.url}
-                  alt="Dr. Múcio Carvalho — harmonização facial YOUR·REFINE"
+                  alt="Dr. Múcio Carvalho, harmonização facial YOUR·REFINE"
                   className="hero-portrait w-full aspect-[4/5] object-cover object-[50%_18%]"
                   fetchPriority="high"
                 />
@@ -514,7 +519,7 @@ function Doctor() {
               <div className="relative overflow-hidden border border-[var(--silver)]/25 bg-[#0d0d0f] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
                 <img
                   src={heroMucio2.url}
-                  alt="Dr. Múcio Carvalho — fundador YOUR·REFINE"
+                  alt="Dr. Múcio Carvalho, fundador YOUR·REFINE"
                   className="w-full aspect-[4/5] object-cover object-[50%_18%]"
                   loading="lazy"
                 />
@@ -553,7 +558,7 @@ function Doctor() {
               <p className="font-serif text-xl md:text-2xl leading-relaxed font-light italic text-foreground/90">
                 "A beleza é poder. Quando uma pessoa se sente bem com sua imagem, ela transforma sua forma de viver, se posicionar e conquistar seus objetivos."
               </p>
-              <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">— Dr. Múcio Carvalho</footer>
+              <footer className="mt-4 text-[10px] uppercase tracking-[0.3em] text-foreground/60">Dr. Múcio Carvalho</footer>
             </blockquote>
           </div>
 
@@ -573,7 +578,7 @@ function Testimonials() {
             Experiências que elevam <em className="silver-text not-italic">autoestima e confiança</em>.
           </h2>
           <p className="mt-8 text-foreground/65 text-base md:text-lg font-light">
-            Mais do que procedimentos — segurança, presença e refinamento que se traduzem em confiança.
+            Mais do que procedimentos: segurança, presença e refinamento que se traduzem em confiança.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-px bg-border">
@@ -658,12 +663,12 @@ function Academy() {
           </div>
         </div>
 
-        {/* Esta formação é para o profissional que deseja — faixa full-bleed */}
+        {/* Esta formação é para o profissional que deseja: faixa full-bleed */}
         <div className="academy-band relative left-1/2 -translate-x-1/2 w-screen max-w-[100vw] mb-28 py-20 md:py-28 overflow-hidden">
           {/* Imagem fundida ao fundo */}
           <img
             src={academyProfileImg.url}
-            alt="Your Refine — Imagine your skin tomorrow"
+            alt="Your Refine, Imagine your skin tomorrow"
             loading="lazy"
             className="academy-band-photo"
           />
@@ -776,7 +781,7 @@ function Clinics() {
               <div>
                 <div className="text-[10px] uppercase tracking-[0.4em] text-foreground/50 mb-3">Unidade</div>
                 <h3 className="font-serif text-3xl md:text-4xl font-light">
-                  {u.city} <span className="silver-text text-xl md:text-2xl">— {u.state}</span>
+                  {u.city} <span className="silver-text text-xl md:text-2xl">{u.state}</span>
                 </h3>
                 <p className="mt-4 max-w-xl text-sm md:text-base text-foreground/60 font-light leading-relaxed">{u.text}</p>
               </div>
@@ -862,7 +867,7 @@ function Footer() {
             As informações deste site não substituem uma avaliação profissional individualizada. Cada paciente responde de forma única aos protocolos.
           </p>
           <p className="text-[10px] uppercase tracking-[0.25em] text-foreground/40">
-            © {new Date().getFullYear()} YOUR·REFINE — Todos os direitos reservados
+            © {new Date().getFullYear()} YOUR·REFINE. Todos os direitos reservados
           </p>
         </div>
       </div>
