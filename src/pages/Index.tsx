@@ -58,9 +58,11 @@ const TREATMENTS: {
   desc: string;
   benefits: string[];
   exclusive?: boolean;
+  resultsKey?: string;
 }[] = [
   {
     title: "Your Refine®: Tratamento de Cicatrizes de Acne",
+    resultsKey: "acne",
     image: tAcne,
     exclusive: true,
     desc: "Protocolo exclusivo e personalizado para renovação profunda da pele, redução das cicatrizes de acne e melhora progressiva da textura e do nivelamento cutâneo.",
@@ -68,6 +70,7 @@ const TREATMENTS: {
   },
   {
     title: "Your Refine Melasma®: Controle de Melasma e Manchas",
+    resultsKey: "melasma",
     image: tMelasma,
     exclusive: true,
     desc: "Protocolo desenvolvido para controle do melasma, clareamento progressivo de manchas e melhora global da qualidade da pele.",
@@ -75,6 +78,7 @@ const TREATMENTS: {
   },
   {
     title: "Your Refine Blefaro®: Blefaro Química",
+    resultsKey: "blefaro",
     image: tBlefaro,
     exclusive: true,
     desc: "Protocolo avançado para rejuvenescimento do olhar, melhora da flacidez palpebral e renovação da pele ao redor dos olhos.",
@@ -82,6 +86,7 @@ const TREATMENTS: {
   },
   {
     title: "Your Refine Rejuvenescimento®",
+    resultsKey: "rejuvenescimento",
     image: tRejuv,
     exclusive: true,
     desc: "Protocolo exclusivo para tratar sinais avançados do envelhecimento cutâneo, promovendo firmeza, textura, luminosidade e renovação profunda da pele.",
@@ -89,6 +94,7 @@ const TREATMENTS: {
   },
   {
     title: "Your Refine Glow®",
+    resultsKey: "glow",
     image: tGlow,
     exclusive: true,
     desc: "Protocolo exclusivo de luminosidade e qualidade de pele, com hidratação profunda, refinamento da textura e brilho natural imediato.",
@@ -97,30 +103,35 @@ const TREATMENTS: {
 
   {
     title: "Harmonização Facial Full Face",
+    resultsKey: "fullface",
     image: tFullface.url,
     desc: "Tratamento completo que analisa a face como um todo, valorizando proporções, corrigindo assimetrias e realçando a beleza natural.",
     benefits: ["Harmonização global da face", "Melhora dos contornos", "Reposição de volume com naturalidade", "Aparência equilibrada e sofisticada"],
   },
   {
     title: "Preenchimento Labial",
+    resultsKey: "labial",
     image: tLips,
     desc: "Procedimento planejado para valorizar os lábios com definição, contorno, hidratação e volume de forma natural e elegante.",
     benefits: ["Volume com naturalidade", "Definição e contorno", "Correção de assimetrias", "Hidratação profunda"],
   },
   {
     title: "Rinomodelação",
+    resultsKey: "rino",
     image: tNose,
     desc: "Procedimento minimamente invasivo para melhorar o contorno nasal, elevar a ponta e harmonizar o perfil sem cirurgia.",
     benefits: ["Correção de imperfeições nasais", "Elevação da ponta", "Harmonização do perfil", "Resultado imediato e natural"],
   },
   {
     title: "Bioestimuladores de Colágeno",
+    resultsKey: "colageno",
     image: tCollagen.url,
     desc: "Tratamento que estimula o próprio organismo a produzir novas fibras de colágeno, promovendo firmeza, sustentação e rejuvenescimento progressivo.",
     benefits: ["Estímulo natural de colágeno", "Melhora da firmeza", "Redução da flacidez", "Resultados progressivos"],
   },
   {
     title: "Toxina Botulínica Full Face",
+    resultsKey: "botox",
     image: tBotox.url,
     desc: "Protocolo completo para suavização de linhas, prevenção do envelhecimento e melhora global da aparência da face.",
     benefits: ["Suavização de linhas", "Prevenção do envelhecimento", "Elevação sutil das sobrancelhas", "Aparência descansada e natural"],
@@ -434,6 +445,8 @@ function Method() {
 }
 
 function Treatments() {
+  const [openKey, setOpenKey] = useState<string | null>(null);
+  const active = TREATMENTS.find((t) => t.resultsKey === openKey);
   return (
     <section id="tratamentos" className="relative py-28 md:py-40 bg-[var(--graphite)]/30">
       <div className="hairline mb-20" />
@@ -487,19 +500,37 @@ function Treatments() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href={WHATSAPP}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="proc-cta mt-auto inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-colors pt-5"
-                >
-                  Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
-                </a>
+                <div className="mt-auto pt-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5">
+                  <a
+                    href={WHATSAPP}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="proc-cta inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-colors"
+                  >
+                    Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
+                  </a>
+                  {hasResults(t.resultsKey) && (
+                    <button
+                      type="button"
+                      onClick={() => setOpenKey(t.resultsKey!)}
+                      className="proc-benefit inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] opacity-80 hover:opacity-100 border-b border-current/40 hover:border-current pb-1 self-start transition-opacity"
+                    >
+                      Ver resultados
+                    </button>
+                  )}
+                </div>
               </div>
             </article>
           ))}
         </div>
       </div>
+
+      <ProcedureResultsModal
+        open={!!active}
+        title={active ? active.title.replace(/®/g, "\u00ae") : ""}
+        cases={openKey ? (RESULTS_BY_PROCEDURE[openKey] ?? []) : []}
+        onClose={() => setOpenKey(null)}
+      />
     </section>
   );
 }
@@ -826,8 +857,24 @@ function CTAFinal() {
             Quero uma avaliação personalizada
           </a>
         </div>
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-[10px] uppercase tracking-[0.3em] text-white/60">
+          <span>Atendimento</span>
+          <a href={PHONE_TEL} className="text-white/85 hover:text-white transition-colors tracking-[0.25em]">
+            {PHONE_DISPLAY}
+          </a>
+        </div>
       </div>
     </section>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden className="opacity-70">
+      <rect x="3" y="3" width="18" height="18" rx="4" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
 
@@ -855,9 +902,24 @@ function Footer() {
           <div className="md:col-span-4">
             <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/50 mb-5">Contato</div>
             <ul className="space-y-3 text-sm">
+              <li>
+                <a href={PHONE_TEL} className="text-foreground/75 hover:text-foreground transition">{PHONE_DISPLAY}</a>
+              </li>
               <li><a href={WHATSAPP} target="_blank" rel="noreferrer" className="text-foreground/75 hover:text-foreground transition">WhatsApp</a></li>
-              <li><a href="https://instagram.com" target="_blank" rel="noreferrer" className="text-foreground/75 hover:text-foreground transition">Instagram</a></li>
               <li><a href="mailto:contato@yourrefine.com" className="text-foreground/75 hover:text-foreground transition">contato@yourrefine.com</a></li>
+              {INSTAGRAM.map((i) => (
+                <li key={i.handle}>
+                  <a
+                    href={i.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2.5 text-foreground/75 hover:text-foreground transition"
+                  >
+                    <InstagramIcon />
+                    {i.handle}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
