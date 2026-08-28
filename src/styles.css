@@ -598,9 +598,11 @@ html, body {
 @keyframes heroPhotoIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes heroRiseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .hero-sign-in > img { opacity: 0; animation: heroRiseIn 1.2s ease 0.25s forwards; }
-/* Desktop: assinatura e card mais abaixo, alinhados à base do retrato */
+/* Desktop: grande respiro entre o menu e a composição principal */
 @media (min-width: 768px) {
-  .hero-sign-in { align-self: end; padding-bottom: 8vh; }
+  .hero-opening { min-height: 128vh; padding-top: 28rem; }
+  .hero-content { height: auto !important; align-items: flex-start !important; }
+  .hero-sign-in { align-self: start; padding-bottom: 8vh; }
 }
 @media (max-width: 767px) {
   /* Mobile: foto em fluxo no topo, assinatura abaixo no início do degradê */
