@@ -152,26 +152,6 @@ const TESTIMONIALS = [
   { text: "Percebi diferença significativa nas minhas cicatrizes de acne, com um cuidado e planejamento que nunca tinha visto antes.", name: "Paciente verificada", role: "Cicatrizes de Acne" },
 ];
 
-const ACADEMY_LEARN = [
-  "Protocolos exclusivos do Your Refine Method®",
-  "Tratamentos avançados para rejuvenescimento facial",
-  "Manejo de cicatrizes de acne e regeneração cutânea",
-  "Estratégias para melhorar a qualidade global da pele",
-  "Personalização de protocolos clínicos",
-  "Planejamento e execução de casos complexos",
-  "Posicionamento e diferenciação profissional",
-  "Segurança, previsibilidade e excelência nos resultados",
-];
-
-const ACADEMY_PROFILES = [
-  { title: "Dominar protocolos avançados", desc: "Técnicas exclusivas e metodologias clínicas que proporcionam resultados consistentes, reprodutíveis e respaldados pela experiência." },
-  { title: "Tratar casos complexos", desc: "Conduzir tratamentos para cicatrizes de acne, envelhecimento avançado, flacidez, melasma e alterações complexas da pele." },
-  { title: "Elevar o valor percebido", desc: "Estruturar protocolos premium, aumentar a satisfação dos pacientes e posicionar-se em um mercado de alta performance." },
-  { title: "Diferenciar-se pela inovação", desc: "Técnicas, conceitos e estratégias que estão transformando a estética regenerativa e elevando os padrões dos tratamentos faciais." },
-  { title: "Construir autoridade profissional", desc: "Ser reconhecido por entregar resultados que geram impacto real, fortalecendo reputação e presença no mercado." },
-  { title: "Visão estratégica da estética", desc: "Criar protocolos personalizados, conduzir casos complexos e construir uma carreira sólida e diferenciada." },
-];
-
 function renderTitle(title: string) {
   const parts = title.split("®");
   return (

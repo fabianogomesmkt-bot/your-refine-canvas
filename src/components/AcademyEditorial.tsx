@@ -38,7 +38,7 @@ const CHAPTERS = [
 ] as const;
 
 /* progresso de rolagem 0..1 dentro de um elemento */
-function useScrollProgress(ref: React.RefObject<HTMLElement>) {
+function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
   const [p, setP] = useState(0);
   useEffect(() => {
     let raf = 0;
