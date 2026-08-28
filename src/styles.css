@@ -694,17 +694,10 @@ html, body {
 
 /* Capítulos com foto fixa — ritmo editorial contínuo */
 .acd-chapter { position: relative; background: #050505; }
+/* Capítulos com foto e cards sobrepostos — ritmo editorial contínuo */
+.acd-chapter { position: relative; background: #050505; }
 .acd-sticky {
-  position: relative; height: 78vh; overflow: hidden;
-}
-.acd-chapter-copy {
-  position: relative; z-index: 4; background: #050505;
-  max-width: 1400px; margin: 0 auto; padding: 0 1.5rem 4rem;
-  display: grid; gap: 1.25rem; grid-template-columns: 1fr;
-  margin-top: -4rem;
-}
-@media (min-width: 768px) {
-  .acd-chapter-copy { grid-template-columns: 1fr 1fr; gap: 1.75rem; padding: 0 2.5rem 6rem; }
+  position: relative; height: 92vh; overflow: hidden;
 }
 .acd-photo {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
@@ -729,24 +722,31 @@ html, body {
   font-size: 10px; letter-spacing: 0.35em; color: rgba(255,255,255,0.65);
 }
 
-.acd-block {
-  position: relative; z-index: 4;
-  padding: 1.6rem 1.75rem 1.85rem;
-  background: linear-gradient(180deg, #ffffff 0%, #ececee 100%);
-  border-left: 1px solid rgba(10,10,10,0.18);
-  color: #0a0a0a;
+/* Cards sobrepostos à fotografia, sempre um abaixo do outro */
+.acd-overlay {
+  position: absolute; z-index: 4;
+  display: flex; flex-direction: column; gap: 1.1rem;
+  width: min(24rem, 40vw);
 }
-.acd-block h4 { color: #0a0a0a; }
-.acd-block p { color: rgba(10,10,10,0.68); }
-.acd-block .acd-num { color: rgba(10,10,10,0.55); }
-.acd-block .acd-rule { background: linear-gradient(90deg, rgba(10,10,10,0.6), transparent); }
+.acd-block {
+  position: relative;
+  padding: 1.4rem 1.5rem 1.6rem;
+  background: rgba(8,8,8,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(228,228,231,0.28);
+  color: #fff;
+}
+.acd-block h4 { color: #fff; }
+.acd-block p { color: rgba(255,255,255,0.7); }
 .acd-num { font-size: 11px; letter-spacing: 0.3em; color: rgba(228,228,231,0.75); }
 .acd-rule { width: 2rem; height: 1px; margin: 0.85rem 0 1rem; background: linear-gradient(90deg, rgba(228,228,231,0.85), transparent); }
 
-.acd-place-left { left: max(1.5rem, 6vw); top: 16%; }
-.acd-place-right { right: max(1.5rem, 6vw); bottom: 12%; }
-.acd-place-center { left: 50%; top: 14%; transform: translateX(-50%); }
-.acd-place-bottom { left: max(1.5rem, 6vw); bottom: 8%; }
+.acd-place-left { left: max(1.5rem, 5vw); top: 12%; }
+.acd-place-right { right: max(1.5rem, 5vw); top: 14%; }
+.acd-place-center { right: max(1.5rem, 5vw); bottom: 8%; }
+.acd-place-bottom { left: max(1.5rem, 5vw); bottom: 8%; }
+
 
 /* Cenas aspiracionais */
 .acd-scene { position: relative; min-height: 86vh; display: flex; overflow: hidden; background: #050505; }
