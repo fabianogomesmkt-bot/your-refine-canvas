@@ -692,8 +692,6 @@ html, body {
 }
 .acd-fp-photo-mobile { margin: 1.75rem 0 0; aspect-ratio: 4 / 5; }
 
-/* Capítulos com foto fixa — ritmo editorial contínuo */
-.acd-chapter { position: relative; background: #050505; }
 /* Capítulos com foto e cards sobrepostos — ritmo editorial contínuo */
 .acd-chapter { position: relative; background: #050505; }
 .acd-sticky {
