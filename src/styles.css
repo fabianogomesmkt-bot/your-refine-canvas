@@ -556,3 +556,68 @@ html, body {
 @media (prefers-reduced-motion: reduce) {
   .yr-modal-overlay, .yr-modal-panel { animation: none; }
 }
+
+/* ─── Hero editorial: abertura com assinatura + retrato integrado ─── */
+.hero-opening {
+  position: relative;
+  min-height: 92vh;
+  padding-top: 7rem;
+  isolation: isolate;
+}
+.hero-photo {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: min(58%, 900px);
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  z-index: 0;
+  opacity: 0;
+  animation: heroPhotoIn 1.6s ease 0.1s forwards;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.45) 26%, #000 62%),
+    linear-gradient(180deg, transparent 0%, #000 14%, #000 58%, rgba(0,0,0,0.35) 84%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.45) 26%, #000 62%),
+    linear-gradient(180deg, transparent 0%, #000 14%, #000 58%, rgba(0,0,0,0.35) 84%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+.hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 72% 22%, rgba(212,212,212,0.10) 0%, transparent 62%),
+    linear-gradient(90deg, var(--background) 0%, rgba(0,0,0,0.55) 42%, transparent 72%),
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 22%, transparent 62%, var(--background) 100%);
+}
+@keyframes heroPhotoIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes heroRiseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.hero-sign-in > img { opacity: 0; animation: heroRiseIn 1.2s ease 0.25s forwards; }
+.hero-invite { opacity: 0; animation: heroRiseIn 1.2s ease 0.7s forwards; }
+.hero-chevron { animation: heroChevron 2.8s ease-in-out infinite; }
+@keyframes heroChevron {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@media (max-width: 767px) {
+  .hero-opening { min-height: 82vh; padding-top: 5.5rem; }
+  .hero-photo {
+    width: 100%;
+    inset: 0;
+    object-position: 50% 14%;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, rgba(0,0,0,0.35) 82%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, rgba(0,0,0,0.35) 82%, transparent 100%);
+  }
+  .hero-veil {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.10) 26%, rgba(0,0,0,0.55) 58%, var(--background) 92%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo, .hero-sign-in > img, .hero-invite { animation: none; opacity: 1; }
+  .hero-chevron { animation: none; }
+}
+.light .hero-photo { filter: contrast(1.04) saturate(1.02); }
