@@ -356,7 +356,7 @@ const HERO_METRICS = [
 
 function HeroMetrics() {
   return (
-    <div className="relative mt-10 md:mt-12 max-w-xl">
+    <div className="relative mt-8 md:mt-10 w-full max-w-[420px] md:max-w-[520px]">
       <div className="grid grid-cols-3 bg-foreground/[0.05] backdrop-blur-md border border-[var(--silver)]/25 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
         {HERO_METRICS.map((m, i) => (
           <div
