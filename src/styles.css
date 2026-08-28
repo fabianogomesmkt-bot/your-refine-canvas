@@ -431,7 +431,7 @@ html, body {
 }
 
 /* Retrato do Dr. Múcio — P&B no tema escuro, colorido no tema claro */
-.hero-portrait { filter: grayscale(1) contrast(1.08) brightness(0.97); }
+.hero-portrait { filter: contrast(1.05) brightness(0.97); }
 .light .hero-portrait { filter: contrast(1.04) saturate(1.02); }
 
 /* Logo — versão clara no tema escuro, versão preta no tema claro */
@@ -596,6 +596,10 @@ html, body {
 @keyframes heroPhotoIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes heroRiseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 .hero-sign-in > img { opacity: 0; animation: heroRiseIn 1.2s ease 0.25s forwards; }
+/* Desktop: assinatura mais abaixo, alinhada à linha dos ombros do retrato */
+@media (min-width: 768px) {
+  .hero-sign-in { align-self: end; padding-bottom: 9vh; }
+}
 @media (max-width: 767px) {
   /* Mobile: foto em fluxo no topo, assinatura abaixo no início do degradê */
   .hero-opening {
@@ -620,6 +624,8 @@ html, body {
     margin-top: -5rem;
     padding-bottom: 1rem;
   }
+  /* Mobile: assinatura levemente à direita para centralizar na composição */
+  .hero-sign-in { display: flex; justify-content: flex-end; padding-right: 8vw; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-photo, .hero-sign-in > img { animation: none; opacity: 1; }
@@ -635,7 +641,7 @@ html, body {
   background: oklch(0.08 0 0);
   color: oklch(0.96 0 0);
 }
-.light .hero-always-dark .hero-portrait { filter: grayscale(1) contrast(1.08) brightness(0.97); }
+.light .hero-always-dark .hero-portrait { filter: contrast(1.05) brightness(0.97); }
 .light .hero-always-dark .silver-text {
   background: linear-gradient(135deg, #f4f4f4 0%, #b8b8b8 30%, #ededed 50%, #8a8a8a 70%, #d4d4d4 100%);
   -webkit-background-clip: text;
