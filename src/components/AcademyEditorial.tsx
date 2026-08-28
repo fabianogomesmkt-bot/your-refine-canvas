@@ -31,10 +31,10 @@ const PROFILES = [
 ];
 
 const CHAPTERS = [
-  { img: foto1.url, alt: "Cuidado avançado da pele, Your Refine Academy", pos: "50% 30%", a: "left", b: "right" },
-  { img: foto2.url, alt: "Protocolo facial estratégico, Your Refine Academy", pos: "55% 35%", a: "right", b: "left" },
-  { img: foto3.url, alt: "Definição e contorno facial, Your Refine Academy", pos: "45% 30%", a: "center", b: "bottom" },
-  { img: foto4.url, alt: "Regeneração e qualidade de pele, Your Refine Academy", pos: "50% 25%", a: "left", b: "right" },
+  { img: foto1.url, alt: "Cuidado avançado da pele, Your Refine Academy", pos: "50% 30%", a: "left", b: "right", tone: "dark" },
+  { img: foto2.url, alt: "Protocolo facial estratégico, Your Refine Academy", pos: "55% 35%", a: "right", b: "left", tone: "light" },
+  { img: foto3.url, alt: "Definição e contorno facial, Your Refine Academy", pos: "45% 30%", a: "center", b: "bottom", tone: "dark" },
+  { img: foto4.url, alt: "Regeneração e qualidade de pele, Your Refine Academy", pos: "50% 25%", a: "left", b: "right", tone: "light" },
 ] as const;
 
 /* progresso de rolagem 0..1 dentro de um elemento */
@@ -66,7 +66,7 @@ function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
   return p;
 }
 
-function useInView<T extends HTMLElement>(threshold = 0.25) {
+function useInView<T extends HTMLElement>(threshold = 0.12) {
   const ref = useRef<T>(null);
   const [seen, setSeen] = useState(false);
   useEffect(() => {
@@ -111,11 +111,11 @@ function Chapter({ i }: { i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const p = useScrollProgress(ref);
   const c = CHAPTERS[i];
-  const a: "hidden" | "active" | "dim" = p < 0.08 ? "hidden" : p < 0.46 ? "active" : "dim";
-  const b: "hidden" | "active" | "dim" = p < 0.42 ? "hidden" : "active";
+  const a: "hidden" | "active" | "dim" = p < 0.02 ? "hidden" : p < 0.52 ? "active" : "dim";
+  const b: "hidden" | "active" | "dim" = p < 0.3 ? "hidden" : "active";
 
   return (
-    <div ref={ref} className="acd-chapter">
+    <div ref={ref} className={`acd-chapter ${c.tone === "light" ? "acd-chapter-light" : ""}`}>
       <div className="acd-sticky">
         <img
           src={c.img}
@@ -158,7 +158,7 @@ function Scene({
   pos: string;
   cta?: boolean;
 }) {
-  const { ref, seen } = useInView<HTMLDivElement>(0.2);
+  const { ref, seen } = useInView<HTMLDivElement>(0.1);
   return (
     <div ref={ref} className={`acd-scene acd-scene-${align} ${seen ? "is-in" : ""}`}>
       <img src={img} alt={alt} loading="lazy" decoding="async" className="acd-scene-photo" style={{ objectPosition: pos }} />
@@ -196,14 +196,14 @@ function Scene({
 }
 
 export default function Academy() {
-  const faca = useInView<HTMLDivElement>(0.18);
+  const faca = useInView<HTMLDivElement>(0.08);
 
   return (
     <section id="academy" className="relative">
       {/* ── FAÇA PARTE ── */}
-      <div className="academy-section relative overflow-hidden pt-28 md:pt-40 pb-24 md:pb-36">
+      <div className="academy-section relative overflow-hidden pt-20 md:pt-28 pb-14 md:pb-20">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[60%] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.7)_0%,transparent_60%)] pointer-events-none" />
-        <div className="academy-hairline mb-16 md:mb-24 relative z-10" />
+        <div className="academy-hairline mb-10 md:mb-14 relative z-10" />
 
         <div
           ref={faca.ref}
@@ -269,7 +269,7 @@ export default function Academy() {
 
       {/* ── O QUE VOCÊ IRÁ APRENDER ── */}
       <div className="acd-dark relative">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-24 md:pt-32 pb-10">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-16 md:pt-24 pb-6">
           <div className="acd-eyebrow">
             <span className="acd-eyebrow-line" />
             O que você irá aprender
