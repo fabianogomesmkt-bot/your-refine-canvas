@@ -229,19 +229,20 @@ html, body {
 
 .academy-hairline {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(60,60,65,0.25), transparent);
+  background: linear-gradient(90deg, transparent, rgba(228,228,231,0.28), transparent);
 }
 
 .academy-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  background: linear-gradient(135deg, #17171a 0%, #0a0a0a 100%);
   color: #f0f0f0;
   border: 1px solid transparent;
   background-clip: padding-box;
   transition: all 0.45s ease;
 }
+
 .academy-btn::before {
   content: "";
   position: absolute;
