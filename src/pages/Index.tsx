@@ -295,6 +295,7 @@ function Hero() {
                 className="w-[74%] max-w-[420px] md:w-full md:max-w-[520px] select-none pointer-events-none"
                 loading="eager"
               />
+              <HeroMetrics />
             </div>
           </div>
         </div>
@@ -338,8 +339,6 @@ function Hero() {
               {PHONE_DISPLAY}
             </a>
           </div>
-
-          <HeroMetrics />
         </div>
       </div>
     </section>
