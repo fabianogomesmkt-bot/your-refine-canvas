@@ -31,13 +31,13 @@ const PROFILES = [
 ];
 
 const CHAPTERS = [
-  { img: foto1.url, alt: "Cuidado avançado da pele, Your Refine Academy", pos: "50% 30%", a: "left", b: "right", tone: "dark" },
-  { img: foto2.url, alt: "Protocolo facial estratégico, Your Refine Academy", pos: "55% 35%", a: "right", b: "left", tone: "light" },
-  { img: foto3.url, alt: "Definição e contorno facial, Your Refine Academy", pos: "45% 30%", a: "center", b: "bottom", tone: "dark" },
-  { img: foto4.url, alt: "Regeneração e qualidade de pele, Your Refine Academy", pos: "50% 25%", a: "left", b: "right", tone: "light" },
+  { img: foto1.url, alt: "Cuidado avançado da pele, Your Refine Academy", pos: "50% 30%", a: "left", b: "right" },
+  { img: foto2.url, alt: "Protocolo facial estratégico, Your Refine Academy", pos: "55% 35%", a: "right", b: "left" },
+  { img: foto3.url, alt: "Definição e contorno facial, Your Refine Academy", pos: "45% 30%", a: "center", b: "bottom" },
+  { img: foto4.url, alt: "Regeneração e qualidade de pele, Your Refine Academy", pos: "50% 25%", a: "left", b: "right" },
 ] as const;
 
-/* progresso de rolagem 0..1 dentro de um elemento */
+/* progresso de rolagem 0..1 dentro de um elemento (apenas parallax sutil da foto) */
 function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
   const [p, setP] = useState(0);
   useEffect(() => {
@@ -66,41 +66,23 @@ function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
   return p;
 }
 
-function useInView<T extends HTMLElement>(threshold = 0.12) {
-  const ref = useRef<T>(null);
-  const [seen, setSeen] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      ([e]) => e.isIntersecting && setSeen(true),
-      { threshold }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold]);
-  return { ref, seen };
-}
-
 function LearnBlock({
   index,
   item,
   place,
-  state,
 }: {
   index: number;
   item: (typeof LEARN)[number];
   place: string;
-  state: "hidden" | "active" | "dim";
 }) {
   return (
-    <div className={`acd-block acd-place-${place} is-${state}`}>
+    <div className={`acd-block acd-place-${place}`}>
       <span className="acd-num">{String(index + 1).padStart(2, "0")}</span>
       <div className="acd-rule" />
-      <h4 className="font-serif text-[clamp(1.35rem,2.4vw,2rem)] leading-tight font-light text-white">
+      <h4 className="font-serif text-[clamp(1.3rem,2.2vw,1.9rem)] leading-tight font-light text-white">
         {item.title}
       </h4>
-      <p className="mt-4 text-sm md:text-[0.95rem] leading-relaxed font-light text-white/65">
+      <p className="mt-3 text-sm md:text-[0.95rem] leading-relaxed font-light text-white/65">
         {item.desc}
       </p>
     </div>
@@ -111,11 +93,9 @@ function Chapter({ i }: { i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const p = useScrollProgress(ref);
   const c = CHAPTERS[i];
-  const a: "hidden" | "active" | "dim" = p < 0.02 ? "hidden" : p < 0.52 ? "active" : "dim";
-  const b: "hidden" | "active" | "dim" = p < 0.3 ? "hidden" : "active";
 
   return (
-    <div ref={ref} className={`acd-chapter ${c.tone === "light" ? "acd-chapter-light" : ""}`}>
+    <div ref={ref} className="acd-chapter">
       <div className="acd-sticky">
         <img
           src={c.img}
@@ -123,15 +103,15 @@ function Chapter({ i }: { i: number }) {
           loading="lazy"
           decoding="async"
           className="acd-photo"
-          style={{ objectPosition: c.pos, transform: `scale(${1.04 + p * 0.03})` }}
+          style={{ objectPosition: c.pos, transform: `scale(${1.03 + p * 0.02})` }}
         />
         <div className="acd-photo-veil" />
         <div className="acd-progress">
           <span>{String(i + 1).padStart(2, "0")}</span>
           <span className="opacity-40"> / 04</span>
         </div>
-        <LearnBlock index={i * 2} item={LEARN[i * 2]} place={c.a} state={a} />
-        <LearnBlock index={i * 2 + 1} item={LEARN[i * 2 + 1]} place={c.b} state={b} />
+        <LearnBlock index={i * 2} item={LEARN[i * 2]} place={c.a} />
+        <LearnBlock index={i * 2 + 1} item={LEARN[i * 2 + 1]} place={c.b} />
       </div>
     </div>
   );
@@ -158,9 +138,8 @@ function Scene({
   pos: string;
   cta?: boolean;
 }) {
-  const { ref, seen } = useInView<HTMLDivElement>(0.1);
   return (
-    <div ref={ref} className={`acd-scene acd-scene-${align} ${seen ? "is-in" : ""}`}>
+    <div className={`acd-scene acd-scene-${align}`}>
       <img src={img} alt={alt} loading="lazy" decoding="async" className="acd-scene-photo" style={{ objectPosition: pos }} />
       <div className="acd-scene-veil" />
       <div className="acd-scene-inner">
@@ -172,7 +151,7 @@ function Scene({
           <h3 className="acd-headline font-serif font-light text-white">{headline}</h3>
           <div className="acd-scene-list">
             {items.map((it, k) => (
-              <div key={it.title} className="acd-scene-item" style={{ transitionDelay: `${0.25 + k * 0.14}s` }}>
+              <div key={it.title} className="acd-scene-item">
                 <span className="acd-num">{String(k + 1).padStart(2, "0")}</span>
                 <div>
                   <h4 className="font-serif text-lg md:text-xl font-light text-white leading-snug">{it.title}</h4>
@@ -196,30 +175,24 @@ function Scene({
 }
 
 export default function Academy() {
-  const faca = useInView<HTMLDivElement>(0.08);
-
   return (
-    <section id="academy" className="relative">
+    <section id="academy" className="relative acd-dark">
       {/* ── FAÇA PARTE ── */}
-      <div className="academy-section relative overflow-hidden pt-20 md:pt-28 pb-14 md:pb-20">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[140%] h-[60%] bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.7)_0%,transparent_60%)] pointer-events-none" />
+      <div className="academy-section relative overflow-hidden pt-20 md:pt-28 pb-8 md:pb-10">
         <div className="academy-hairline mb-10 md:mb-14 relative z-10" />
 
-        <div
-          ref={faca.ref}
-          className={`relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 acd-reveal ${faca.seen ? "is-in" : ""}`}
-        >
-          <div className="grid lg:grid-cols-12 gap-y-12 lg:gap-x-10 items-start">
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="grid lg:grid-cols-12 gap-y-8 lg:gap-x-10 items-start">
             <div className="lg:col-span-6 xl:col-span-6 acd-fp-copy">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-px bg-[#8a8a8f]" />
-                <span className="text-[10px] uppercase tracking-[0.4em] text-[#5a5a60]">Your Refine Academy</span>
+                <div className="w-10 h-px bg-white/40" />
+                <span className="text-[10px] uppercase tracking-[0.4em] text-white/55">Your Refine Academy</span>
               </div>
-              <h2 className="font-serif text-[clamp(2.2rem,5vw,4.4rem)] leading-[1.02] font-light text-[#0a0a0a]">
+              <h2 className="font-serif text-[clamp(2.2rem,5vw,4.4rem)] leading-[1.02] font-light text-white">
                 Faça parte da nova geração que está elevando os{" "}
                 <em className="academy-silver-text not-italic">padrões da estética avançada</em>.
               </h2>
-              <p className="mt-8 text-[#3a3a3f] text-base md:text-lg font-light max-w-xl leading-relaxed">
+              <p className="mt-8 text-white/70 text-base md:text-lg font-light max-w-xl leading-relaxed">
                 Imersão presencial para profissionais que desejam dominar protocolos avançados, elevar seus resultados e
                 construir autoridade na estética avançada.
               </p>
@@ -234,12 +207,12 @@ export default function Academy() {
                 />
               </figure>
 
-              <div className="mt-10 space-y-5 text-[#4a4a4f] font-light leading-relaxed max-w-xl">
-                <p className="text-[#333]">
+              <div className="mt-8 space-y-5 font-light leading-relaxed max-w-xl">
+                <p className="text-white/75">
                   A Your Refine Academy foi criada com o propósito de compartilhar conhecimento de alto nível, formando
                   profissionais capazes de entregar resultados diferenciados, seguros e altamente previsíveis.
                 </p>
-                <p className="text-[#6a6a70]">
+                <p className="text-white/55">
                   Uma imersão exclusiva, desenvolvida para transmitir protocolos avançados, técnicas refinadas e conceitos
                   que unem ciência, experiência clínica e visão estratégica de mercado, sob a liderança do Dr. Múcio
                   Carvalho.
@@ -264,12 +237,11 @@ export default function Academy() {
             </div>
           </div>
         </div>
-        <div className="acd-to-dark" />
       </div>
 
       {/* ── O QUE VOCÊ IRÁ APRENDER ── */}
       <div className="acd-dark relative">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-16 md:pt-24 pb-6">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 pt-10 md:pt-16 pb-2">
           <div className="acd-eyebrow">
             <span className="acd-eyebrow-line" />
             O que você irá aprender
