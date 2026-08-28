@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ImageOff } from "lucide-react";
 
 import acne01Antes from "../assets/results/acne-01-antes.png.asset.json";
 import acne01Depois from "../assets/results/acne-01-depois.jpg.asset.json";
@@ -205,7 +206,23 @@ export default function ProcedureResultsModal({
             </p>
           </div>
         ) : (
-          <div className="p-10 text-[10px] uppercase tracking-[0.32em] text-white/45">Em breve</div>
+          <div className="p-6 md:p-10">
+            <div className="flex flex-col items-center justify-center gap-8 border border-[var(--silver)]/15 bg-white/[0.02] py-24 md:py-32 text-center">
+              <ImageOff
+                strokeWidth={1}
+                className="h-14 w-14 md:h-20 md:w-20 text-[var(--silver)]/50"
+                aria-hidden
+              />
+              <div>
+                <p className="font-serif text-xl md:text-2xl font-light text-white/85">
+                  Em breve
+                </p>
+                <p className="mt-3 text-[10px] uppercase tracking-[0.32em] text-white/45 leading-relaxed max-w-xs">
+                  Os resultados reais deste procedimento serão publicados aqui em breve.
+                </p>
+              </div>
+            </div>
+          </div>
         )}
       </div>
     </div>
