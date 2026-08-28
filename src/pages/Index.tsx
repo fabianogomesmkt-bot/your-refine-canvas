@@ -356,6 +356,14 @@ function Hero() {
               </a>
             </div>
 
+            <div className="mt-6 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+              <span>Atendimento</span>
+              <div className="w-6 h-px bg-[var(--silver)]/50" />
+              <a href={PHONE_TEL} className="text-foreground/80 hover:text-foreground transition-colors tracking-[0.25em]">
+                {PHONE_DISPLAY}
+              </a>
+            </div>
+
             <HeroMetrics />
           </div>
         </div>
