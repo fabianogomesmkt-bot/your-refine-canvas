@@ -627,7 +627,7 @@ html, body {
     padding-bottom: 1rem;
   }
   /* Mobile: assinatura levemente à direita para centralizar na composição */
-  .hero-sign-in { display: flex; justify-content: center; padding-right: 2vw; }
+  .hero-sign-in { display: flex; flex-direction: column; align-items: center; justify-content: center; padding-right: 2vw; padding-bottom: 1.5rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-photo, .hero-sign-in > img { animation: none; opacity: 1; }
