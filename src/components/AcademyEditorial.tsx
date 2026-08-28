@@ -69,22 +69,18 @@ function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
 function LearnBlock({
   index,
   item,
-  place,
 }: {
   index: number;
   item: (typeof LEARN)[number];
-  place: string;
 }) {
   return (
-    <div className={`acd-block acd-place-${place}`}>
+    <div className="acd-block">
       <span className="acd-num">{String(index + 1).padStart(2, "0")}</span>
       <div className="acd-rule" />
-      <h4 className="font-serif text-[clamp(1.3rem,2.2vw,1.9rem)] leading-tight font-light">
+      <h4 className="font-serif text-[clamp(1.1rem,1.7vw,1.5rem)] leading-tight font-light">
         {item.title}
       </h4>
-      <p className="mt-3 text-sm md:text-[0.95rem] leading-relaxed font-light">
-        {item.desc}
-      </p>
+      <p className="mt-3 text-sm leading-relaxed font-light">{item.desc}</p>
     </div>
   );
 }
@@ -110,14 +106,15 @@ function Chapter({ i }: { i: number }) {
           <span>{String(i + 1).padStart(2, "0")}</span>
           <span className="opacity-40"> / 04</span>
         </div>
-      </div>
-      <div className="acd-chapter-copy">
-        <LearnBlock index={i * 2} item={LEARN[i * 2]} place={c.a} />
-        <LearnBlock index={i * 2 + 1} item={LEARN[i * 2 + 1]} place={c.b} />
+        <div className={`acd-overlay acd-place-${c.a}`}>
+          <LearnBlock index={i * 2} item={LEARN[i * 2]} />
+          <LearnBlock index={i * 2 + 1} item={LEARN[i * 2 + 1]} />
+        </div>
       </div>
     </div>
   );
 }
+
 
 function Scene({
   img,
