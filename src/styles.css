@@ -612,7 +612,7 @@ html, body {
     position: relative;
     inset: auto;
     width: 100%;
-    height: 62vh;
+    height: 54vh;
     object-position: 50% 14%;
     -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 56%, rgba(0,0,0,0.4) 84%, transparent 100%);
     mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 56%, rgba(0,0,0,0.4) 84%, transparent 100%);
@@ -653,3 +653,161 @@ html, body {
 .light .site-header:not(.is-scrolled) { --foreground: oklch(0.96 0 0); }
 .light .site-header:not(.is-scrolled) .logo-light { display: none; }
 .light .site-header:not(.is-scrolled) .logo-dark { display: block; }
+
+/* ─── Your Refine Academy: experiência editorial ─── */
+.acd-dark { background: #050505; color: #fff; }
+.light .acd-dark { background: #050505; }
+.acd-to-dark {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 22vh; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0%, rgba(5,5,5,0.35) 55%, #050505 100%);
+}
+
+.acd-eyebrow {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(255,255,255,0.55);
+}
+.acd-eyebrow-line { width: 2.5rem; height: 1px; background: rgba(212,212,216,0.6); }
+
+/* Faça parte */
+.acd-fp-photo { position: relative; overflow: hidden; border-radius: 2px; }
+.acd-fp-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.acd-fp-photo-desktop {
+  aspect-ratio: 3 / 4;
+  margin-top: 4.5rem;
+  margin-right: -2.5rem;
+  box-shadow: 0 30px 80px -50px rgba(0,0,0,0.55);
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.acd-fp-photo-desktop figcaption {
+  position: absolute; left: 1.25rem; bottom: 1rem;
+  font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.85);
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+}
+.acd-fp-photo-mobile { margin: 2.5rem 0 0; aspect-ratio: 4 / 5; }
+
+.acd-reveal .acd-fp-copy > *, .acd-reveal figure {
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1.1s cubic-bezier(0.22,1,0.36,1);
+}
+.acd-reveal figure { transform: translateY(26px) scale(1.02); }
+.acd-reveal.is-in .acd-fp-copy > *, .acd-reveal.is-in figure { opacity: 1; transform: none; }
+.acd-reveal.is-in .acd-fp-copy > *:nth-child(2) { transition-delay: 0.08s; }
+.acd-reveal.is-in .acd-fp-copy > *:nth-child(3) { transition-delay: 0.16s; }
+.acd-reveal.is-in .acd-fp-copy > *:nth-child(4) { transition-delay: 0.22s; }
+.acd-reveal.is-in .acd-fp-copy > *:nth-child(5) { transition-delay: 0.28s; }
+.acd-reveal.is-in .acd-fp-copy > *:nth-child(6) { transition-delay: 0.34s; }
+
+/* Capítulos com foto fixa */
+.acd-chapter { position: relative; height: 240vh; }
+.acd-sticky {
+  position: sticky; top: 0; height: 100vh; overflow: hidden;
+}
+.acd-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  will-change: transform; transition: transform 0.4s linear;
+}
+.acd-photo-veil {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 30%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.75) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.55) 0%, transparent 45%, rgba(0,0,0,0.5) 100%);
+}
+.acd-progress {
+  position: absolute; top: 2rem; right: 1.5rem; z-index: 5;
+  font-size: 10px; letter-spacing: 0.35em; color: rgba(255,255,255,0.75);
+}
+
+.acd-block {
+  position: absolute; z-index: 4;
+  width: min(30rem, 82vw);
+  padding: 2rem 2rem 2.25rem;
+  background: rgba(5,5,5,0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(228,228,231,0.22);
+  border-radius: 2px;
+  opacity: 0; transform: translateY(22px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1), filter 0.8s ease;
+}
+.acd-block.is-active { opacity: 1; transform: none; }
+.acd-block.is-dim { opacity: 0.32; transform: translateY(-8px); filter: blur(0.4px); }
+.acd-num { font-size: 11px; letter-spacing: 0.3em; color: rgba(228,228,231,0.75); }
+.acd-rule { width: 2rem; height: 1px; margin: 1rem 0 1.25rem; background: linear-gradient(90deg, rgba(228,228,231,0.85), transparent); }
+
+.acd-place-left { left: max(1.5rem, 6vw); top: 22%; }
+.acd-place-right { right: max(1.5rem, 6vw); bottom: 14%; }
+.acd-place-center { left: 50%; top: 18%; transform: translateX(-50%) translateY(22px); }
+.acd-place-center.is-active { transform: translateX(-50%); }
+.acd-place-center.is-dim { transform: translateX(-50%) translateY(-8px); }
+.acd-place-bottom { left: max(1.5rem, 6vw); bottom: 10%; }
+
+/* Cenas aspiracionais */
+.acd-scene { position: relative; min-height: 100vh; display: flex; overflow: hidden; }
+.acd-scene-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.acd-scene-veil {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.85) 100%),
+    linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+}
+.acd-scene-right .acd-scene-veil {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 35%, rgba(0,0,0,0.35) 65%, rgba(0,0,0,0.85) 100%),
+    linear-gradient(270deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.25) 55%, transparent 100%);
+}
+.acd-scene-inner {
+  position: relative; z-index: 3; width: 100%;
+  max-width: 1400px; margin: 0 auto; padding: 8rem 1.5rem 6rem;
+  display: flex;
+}
+@media (min-width: 768px) { .acd-scene-inner { padding: 10rem 2.5rem 8rem; } }
+.acd-scene-right .acd-scene-inner { justify-content: flex-end; }
+.acd-scene-copy { max-width: 40rem; align-self: center; }
+.acd-headline {
+  margin-top: 1.75rem;
+  font-size: clamp(2.2rem, 5.4vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+}
+.acd-scene-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+.acd-scene-item { display: flex; gap: 1.25rem; padding-top: 1.5rem; border-top: 1px solid rgba(228,228,231,0.18); }
+.acd-scene .acd-eyebrow, .acd-scene .acd-headline, .acd-scene .acd-scene-item, .acd-scene .acd-cta {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1.1s cubic-bezier(0.22,1,0.36,1);
+}
+.acd-scene .acd-headline { transition-delay: 0.12s; }
+.acd-scene.is-in .acd-eyebrow, .acd-scene.is-in .acd-headline,
+.acd-scene.is-in .acd-scene-item, .acd-scene.is-in .acd-cta { opacity: 1; transform: none; }
+.acd-scene-photo { transform: scale(1.03); transition: transform 3s cubic-bezier(0.22,1,0.36,1); }
+.acd-scene.is-in .acd-scene-photo { transform: scale(1); }
+.acd-progress-scene { top: auto; bottom: 2rem; right: 1.5rem; position: absolute; }
+.acd-cta {
+  display: inline-flex; margin-top: 3rem; padding: 1rem 2.25rem;
+  font-size: 10px; letter-spacing: 0.35em; text-transform: uppercase;
+  color: #0a0a0a; background: linear-gradient(135deg, #f4f4f5, #c9c9ce);
+  border-radius: 2px; transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.acd-cta:hover { opacity: 0.88; }
+
+@media (max-width: 767px) {
+  .acd-chapter { height: 220vh; }
+  .acd-sticky { height: 92vh; }
+  .acd-block { width: calc(100% - 2.5rem); left: 1.25rem !important; right: auto !important; padding: 1.5rem 1.5rem 1.75rem; }
+  .acd-place-left { top: auto; bottom: 18%; }
+  .acd-place-center, .acd-place-center.is-active, .acd-place-center.is-dim { transform: none; top: auto; bottom: 18%; }
+  .acd-place-right, .acd-place-bottom { bottom: 6%; }
+  .acd-block.is-dim { opacity: 0; transform: translateY(-10px); }
+  .acd-scene { min-height: 92vh; }
+  .acd-scene-inner { align-items: flex-end; padding: 6rem 1.25rem 4.5rem; }
+  .acd-scene-copy { align-self: flex-end; }
+  .acd-scene-list { gap: 1.5rem; margin-top: 2rem; }
+  .acd-photo { transform: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acd-block, .acd-scene .acd-eyebrow, .acd-scene .acd-headline, .acd-scene .acd-scene-item,
+  .acd-scene .acd-cta, .acd-reveal .acd-fp-copy > *, .acd-reveal figure {
+    opacity: 1 !important; transform: none !important; transition: none !important; filter: none !important;
+  }
+  .acd-photo, .acd-scene-photo { transform: none !important; transition: none !important; }
+}
