@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import logoAsset from "../assets/logo.png.asset.json";
-import ProcedureResultsModal, { RESULTS_BY_PROCEDURE, hasResults } from "../components/ProcedureResults";
+import ProcedureResultsModal, { RESULTS_BY_PROCEDURE } from "../components/ProcedureResults";
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
