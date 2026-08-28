@@ -796,9 +796,12 @@ html, body {
 .acd-cta:hover { opacity: 0.88; }
 
 @media (max-width: 767px) {
-  .acd-sticky { height: 62vh; }
-  .acd-block { padding: 1.25rem 1.25rem 1.5rem; }
-  .acd-chapter-copy { margin-top: -3rem; padding-bottom: 3rem; }
+  .acd-sticky { height: 88vh; }
+  .acd-block { padding: 1.1rem 1.15rem 1.25rem; }
+  .acd-overlay {
+    width: auto; left: 1rem !important; right: 1rem !important;
+    top: auto !important; bottom: 1.5rem !important; gap: 0.85rem;
+  }
   .acd-scene { min-height: 80vh; }
   .acd-scene-inner { align-items: flex-end; padding: 3rem 1.25rem 2.5rem; }
   .acd-scene-copy { align-self: flex-end; }
