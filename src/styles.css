@@ -563,7 +563,7 @@ html, body {
 .hero-opening {
   position: relative;
   min-height: 100vh;
-  padding-top: 6rem;
+  padding-top: 24rem;
   isolation: isolate;
 }
 .hero-photo {
