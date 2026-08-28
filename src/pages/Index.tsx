@@ -517,13 +517,13 @@ function Treatments() {
                   >
                     Agendar avaliação <span className="transition-transform group-hover:translate-x-1">→</span>
                   </a>
-                  {hasResults(t.resultsKey) && (
+                  {t.resultsKey && (
                     <button
                       type="button"
                       onClick={() => setOpenKey(t.resultsKey!)}
-                      className="proc-benefit inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] opacity-80 hover:opacity-100 border-b border-current/40 hover:border-current pb-1 self-start transition-opacity"
+                      className="proc-cta inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] transition-colors"
                     >
-                      Ver resultados
+                      Ver resultados <span className="transition-transform group-hover:translate-x-1">→</span>
                     </button>
                   )}
                 </div>
