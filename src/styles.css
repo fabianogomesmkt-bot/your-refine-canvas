@@ -608,7 +608,7 @@ html, body {
   /* Mobile: foto em fluxo no topo, assinatura abaixo no início do degradê */
   .hero-opening {
     min-height: 0;
-    padding-top: 0;
+    padding-top: 7rem;
     display: flex;
     flex-direction: column;
   }
@@ -625,7 +625,7 @@ html, body {
   .hero-content {
     height: auto;
     display: block;
-    margin-top: -9rem;
+    margin-top: -6rem;
     padding-bottom: 1rem;
   }
   /* Mobile: assinatura levemente à direita para centralizar na composição */
