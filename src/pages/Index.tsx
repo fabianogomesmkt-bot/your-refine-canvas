@@ -4,6 +4,7 @@ import ProcedureResultsModal, { RESULTS_BY_PROCEDURE } from "../components/Proce
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
+import assinatura from "../assets/assinatura-mucio.png.asset.json";
 import heroMucio2 from "../assets/hero-mucio-2.jpg.asset.json";
 import academyProfileImg from "../assets/academy-profile.png.asset.json";
 import clinicSp from "../assets/clinic-sp.jpg";
@@ -293,84 +294,94 @@ function Nav() {
 
 function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative grain overflow-hidden bg-background pt-28 md:pt-36 pb-16 md:pb-24"
-    >
-      {/* brilho ambiente sutil */}
-      <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_70%_20%,rgba(212,212,212,0.10)_0%,transparent_60%)]" />
+    <section id="inicio" className="relative grain overflow-hidden bg-background">
+      {/* ── Abertura editorial ── */}
+      <div className="hero-opening relative">
+        {/* Fotografia integrada ao fundo */}
+        <img
+          src={heroMucio1.url}
+          alt="Dr. Múcio Carvalho, harmonização facial YOUR·REFINE"
+          className="hero-photo hero-portrait"
+          fetchPriority="high"
+        />
+        <div className="hero-veil" />
 
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10">
-        <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
-          {/* Foto — topo no mobile, coluna direita no desktop */}
-          <div className="md:col-span-5 md:order-2 fade-up">
-            <figure className="relative">
-              <div className="absolute -inset-3 bg-[radial-gradient(ellipse_at_50%_30%,rgba(212,212,212,0.16)_0%,transparent_70%)] pointer-events-none" />
-              <div className="relative overflow-hidden border border-[var(--silver)]/25 bg-[#0d0d0f] shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
-                <img
-                  src={heroMucio1.url}
-                  alt="Dr. Múcio Carvalho, harmonização facial YOUR·REFINE"
-                  className="hero-portrait w-full aspect-[4/5] object-cover object-[50%_18%]"
-                  fetchPriority="high"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.65),transparent_45%)]" />
-                <figcaption className="pointer-events-none absolute left-5 right-5 bottom-5 flex items-center gap-3">
-                  <div className="w-10 h-px bg-white/45 shrink-0" />
-                  <span className="text-[10px] uppercase tracking-[0.34em] text-white/80">
-                    Dr. Múcio | Harmonização Facial
-                  </span>
-                </figcaption>
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 h-full flex items-end md:items-center">
+          <div className="w-full md:grid md:grid-cols-12">
+            <div className="md:col-span-6 pb-14 md:pb-0 hero-sign-in">
+              <img
+                src={assinatura.url}
+                alt="Assinatura Dr. Múcio Carvalho"
+                className="w-[74%] max-w-[420px] md:w-full md:max-w-[520px] select-none pointer-events-none"
+                loading="eager"
+              />
+
+              <div className="mt-8 md:mt-12 flex items-start gap-4 hero-invite">
+                <div className="hidden md:block w-px h-12 bg-[var(--silver)]/40 mt-1" />
+                <div>
+                  <p className="text-[10px] md:text-[11px] uppercase tracking-[0.34em] leading-[2] text-foreground/60">
+                    Role para conhecer
+                    <br />
+                    a experiência <span className="text-foreground/90 tracking-[0.4em]">YOUR·REFINE</span>
+                  </p>
+                  <div className="mt-5 text-foreground/45 hero-chevron" aria-hidden>
+                    <svg width="16" height="26" viewBox="0 0 16 26" fill="none" stroke="currentColor" strokeWidth="1">
+                      <path d="M8 0v24M2 18l6 6 6-6" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-            </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Conteúdo institucional, fluxo contínuo ── */}
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 md:px-10 pb-16 md:pb-24 -mt-4 md:-mt-10">
+        <div className="max-w-3xl fade-up">
+          <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-foreground">
+            Harmonização facial<br />
+            <em className="silver-text not-italic">estratégica</em>
+          </h1>
+
+          <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-foreground/75 leading-relaxed font-light">
+            Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
+            Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
+            técnica e visão estética avançada.
+          </p>
+
+          <div className="mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+            <a
+              href={WHATSAPP}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] bg-[linear-gradient(135deg,#f2f2f2_0%,#c9c9c9_50%,#ededed_100%)] hover:bg-[linear-gradient(135deg,#ffffff_0%,#dcdcdc_50%,#ffffff_100%)] transition-all duration-500"
+            >
+              Agendar avaliação <span aria-hidden>→</span>
+            </a>
+            <a
+              href="#metodo"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/90 border border-[var(--silver)]/50 bg-foreground/[0.04] backdrop-blur-sm hover:border-[var(--silver)] hover:text-foreground transition-all duration-500"
+            >
+              Conhecer o método <span aria-hidden>→</span>
+            </a>
           </div>
 
-          {/* Texto */}
-          <div className="md:col-span-7 md:order-1 fade-up">
-
-
-            <h1 className="font-serif text-[clamp(2.75rem,7.5vw,4.75rem)] leading-[1] font-light tracking-tight text-foreground">
-              Harmonização facial<br />
-              <em className="silver-text not-italic">estratégica</em>
-            </h1>
-
-            <p className="mt-6 md:mt-8 max-w-lg text-[15px] md:text-lg text-foreground/75 leading-relaxed font-light">
-              Resultados naturais que respeitam sua essência e revelam a sua melhor versão.
-              Refinamento facial, rejuvenescimento e protocolos personalizados com precisão
-              técnica e visão estética avançada.
-            </p>
-
-            <div className="mt-8 md:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-[#0a0a0a] bg-[linear-gradient(135deg,#f2f2f2_0%,#c9c9c9_50%,#ededed_100%)] hover:bg-[linear-gradient(135deg,#ffffff_0%,#dcdcdc_50%,#ffffff_100%)] transition-all duration-500"
-              >
-                Agendar avaliação <span aria-hidden>→</span>
-              </a>
-              <a
-                href="#metodo"
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-[10px] uppercase tracking-[0.32em] text-foreground/90 border border-[var(--silver)]/50 bg-foreground/[0.04] backdrop-blur-sm hover:border-[var(--silver)] hover:text-foreground transition-all duration-500"
-              >
-                Conhecer o método <span aria-hidden>→</span>
-              </a>
-            </div>
-
-            <div className="mt-6 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
-              <span>Atendimento</span>
-              <div className="w-6 h-px bg-[var(--silver)]/50" />
-              <a href={PHONE_TEL} className="text-foreground/80 hover:text-foreground transition-colors tracking-[0.25em]">
-                {PHONE_DISPLAY}
-              </a>
-            </div>
-
-            <HeroMetrics />
+          <div className="mt-6 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-foreground/50">
+            <span>Atendimento</span>
+            <div className="w-6 h-px bg-[var(--silver)]/50" />
+            <a href={PHONE_TEL} className="text-foreground/80 hover:text-foreground transition-colors tracking-[0.25em]">
+              {PHONE_DISPLAY}
+            </a>
           </div>
+
+          <HeroMetrics />
         </div>
       </div>
     </section>
   );
 }
+
 
 
 
