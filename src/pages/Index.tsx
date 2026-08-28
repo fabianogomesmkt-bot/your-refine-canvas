@@ -4,6 +4,7 @@ import ProcedureResultsModal, { RESULTS_BY_PROCEDURE } from "../components/Proce
 import logoLightAsset from "../assets/logo-light.png.asset.json";
 
 import heroMucio1 from "../assets/hero-mucio-1.jpg.asset.json";
+import assinatura from "../assets/assinatura-mucio.png.asset.json";
 import heroMucio2 from "../assets/hero-mucio-2.jpg.asset.json";
 import academyProfileImg from "../assets/academy-profile.png.asset.json";
 import clinicSp from "../assets/clinic-sp.jpg";
