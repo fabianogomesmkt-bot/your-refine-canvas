@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ImageOff } from "lucide-react";
 
 import acne01Antes from "../assets/results/acne-01-antes.png.asset.json";
 import acne01Depois from "../assets/results/acne-01-depois.jpg.asset.json";
